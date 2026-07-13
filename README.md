@@ -1,9 +1,9 @@
-# Pertemuan 14 — Debugging (Mencari dan Memperbaiki Error)
+# Pertemuan 15 — Final Project (Design & Development)
 
 > **Grade:** 10 SMA
 > **Durasi:** 70 Menit
 > **Platform:** Python
-> **Project:** Guessing Number (Aplikasi Kuis Interaktif)
+> **Project:** Free Project (Perancangan & Pengembangan)
 
 ---
 
@@ -11,590 +11,529 @@
 
 Pada akhir pembelajaran, siswa mampu:
 
-- Memahami apa itu Bug dan Debugging.
-- Mengenal jenis-jenis Error pada Python.
-- Membaca Error Message.
-- Menemukan penyebab Error.
-- Memperbaiki program yang mengalami Error.
-- Membuat aplikasi Guessing Number sederhana.
+- Menentukan ide proyek secara mandiri.
+- Membuat Flowchart sederhana sebelum mulai coding.
+- Menggabungkan seluruh materi Python yang telah dipelajari.
+- Menyusun program secara terstruktur menggunakan Function.
+- Melakukan debugging secara mandiri.
+- Memulai pengembangan Final Project.
 
 ---
 
-# Review Pertemuan Sebelumnya
+# Review Semester Ini
 
-Pada pertemuan sebelumnya kita telah belajar:
+Selama satu semester kita telah mempelajari berbagai konsep dasar Python.
 
+Materi yang telah dipelajari:
+
+✅ Python Dasar
+
+✅ Input & Output
+
+✅ Variable
+
+✅ Tipe Data
+
+✅ String Formatting
+
+✅ Library
+
+✅ Operator
+
+✅ Conditional
+
+✅ Nested IF
+
+✅ Looping
+
+✅ Nested Loop
+
+✅ Function
+
+✅ Parameter & Return
+
+✅ Debugging
+
+Hari ini kita akan menggabungkan seluruh materi tersebut menjadi sebuah proyek.
+
+---
+
+# Apa itu Final Project?
+
+Final Project adalah proyek yang dibuat untuk menunjukkan bahwa kita telah memahami seluruh materi selama satu semester.
+
+Pada proyek ini siswa bebas memilih ide aplikasi yang ingin dibuat.
+
+Yang terpenting adalah program dapat berjalan dengan baik.
+
+---
+
+# Tahapan Membuat Program
+
+Seorang programmer biasanya mengikuti tahapan berikut.
+
+```
+Ide
+
+↓
+
+Flowchart
+
+↓
+
+Coding
+
+↓
+
+Testing
+
+↓
+
+Debugging
+
+↓
+
+Program Selesai
+```
+
+Jangan langsung menulis kode tanpa membuat rencana terlebih dahulu.
+
+---
+
+# Menentukan Ide
+
+Pilih proyek yang sederhana tetapi menarik.
+
+Contoh:
+
+- Kasir Mini
+- Login Sederhana
+- Data Siswa
+- Tebak Angka
+- Kalkulator
+- Jadwal Pelajaran
+- Sistem Nilai
+- Daftar Belanja
+- Pendaftaran Lomba
+- Menu Restoran
+
+Pilih proyek yang sesuai dengan kemampuan.
+
+---
+
+# Mengenal Flowchart
+
+Flowchart adalah diagram yang menggambarkan alur kerja program.
+
+Flowchart membantu kita memahami urutan proses sebelum mulai menulis kode.
+
+---
+
+# Simbol Flowchart Dasar
+
+## Start / End
+
+```
+(Oval)
+
+Mulai
+
+Selesai
+```
+
+---
+
+## Process
+
+```
+[ Persegi Panjang ]
+
+Menghitung Total
+
+Menyimpan Data
+```
+
+---
+
+## Input / Output
+
+```
+/ Jajar Genjang /
+
+Masukkan Nama
+
+Tampilkan Hasil
+```
+
+---
+
+## Decision
+
+```
+< Belah Ketupat >
+
+Apakah Nilai >= 75 ?
+
+Ya / Tidak
+```
+
+---
+
+# Contoh Flowchart
+
+Program Kelulusan
+
+```
+Mulai
+
+↓
+
+Input Nama
+
+↓
+
+Input Nilai
+
+↓
+
+Nilai >= 75 ?
+
+↓
+
+Ya --------> Lulus
+
+↓
+
+Tidak -----> Tidak Lulus
+
+↓
+
+Selesai
+```
+
+---
+
+# Membagi Program Menjadi Beberapa Bagian
+
+Program yang baik terdiri dari beberapa bagian.
+
+Misalnya
+
+```
+Menu
+
+↓
+
+Input
+
+↓
+
+Perhitungan
+
+↓
+
+Output
+
+↓
+
+Selesai
+```
+
+Jika memungkinkan gunakan Function agar program lebih rapi.
+
+---
+
+# Menggunakan Function
+
+Contoh
+
+```python
+def menu():
+    pass
+
+def input_data():
+    pass
+
+def proses():
+    pass
+
+def output():
+    pass
+```
+
+Program menjadi lebih mudah dibaca dibandingkan semua kode ditulis dalam satu tempat.
+
+---
+
+# Materi yang Sebaiknya Digunakan
+
+Usahakan Final Project menggunakan beberapa konsep berikut.
+
+- input()
+- print()
+- Variable
+- Operator
+- IF
+- Loop
 - Function
-- Parameter
-- Argument
-- Return Value
 
-Hari ini kita akan belajar keterampilan yang dimiliki semua programmer, yaitu **Debugging**.
+Semakin banyak konsep yang digunakan, semakin baik latihan yang diperoleh.
 
 ---
 
-# Apa itu Bug?
+# Contoh Struktur Program
 
-Bug adalah kesalahan pada program yang menyebabkan program:
+```python
+def tampil_judul():
+    print("======================")
+    print("TOKO MINI")
+    print("======================")
 
-- Tidak dapat dijalankan.
-- Menghasilkan hasil yang salah.
-- Berhenti secara tiba-tiba (Crash).
+def hitung_total(harga, jumlah):
+    return harga * jumlah
 
-Contoh sederhana.
+tampil_judul()
 
-Kita ingin menghitung
+harga = int(input("Harga : "))
+jumlah = int(input("Jumlah : "))
 
-```
-10 + 5
-```
+total = hitung_total(harga, jumlah)
 
-Tetapi program malah menghasilkan
-
-```
-50
+print("Total :", total)
 ```
 
-Berarti terdapat Bug pada program.
-
 ---
 
-# Apa itu Debugging?
+# Testing Program
 
-Debugging adalah proses mencari, memahami, dan memperbaiki Bug pada program.
+Setelah selesai menulis kode, lakukan pengujian.
 
-Seorang programmer tidak hanya membuat program, tetapi juga harus mampu memperbaiki kesalahan yang muncul.
-
----
-
-# Mengapa Debugging Penting?
-
-Dalam dunia nyata, hampir semua programmer melakukan debugging setiap hari.
-
-Karena:
-
-- Tidak ada program yang langsung sempurna.
-- Error adalah bagian dari proses belajar.
-- Semakin cepat menemukan Bug, semakin cepat program selesai.
-
----
-
-# Jenis-Jenis Error
-
-Secara umum terdapat tiga jenis Error.
-
-- Syntax Error
-- Runtime Error
-- Logical Error
-
----
-
-# 1. Syntax Error
-
-Syntax Error terjadi karena aturan penulisan Python tidak benar.
+Coba berbagai kemungkinan.
 
 Contoh
 
-```python
-if 10 > 5
-    print("Benar")
-```
-
-Output
+Input benar.
 
 ```
-SyntaxError
+Harga : 10000
+
+Jumlah : 2
 ```
 
-Penyebabnya karena lupa menambahkan tanda
-
-```
-:
-```
-
-Perbaikan
-
-```python
-if 10 > 5:
-    print("Benar")
-```
+Apakah hasilnya benar?
 
 ---
 
-# 2. Runtime Error
-
-Runtime Error muncul ketika program sedang dijalankan.
-
-Contoh
-
-```python
-angka = int(input("Masukkan Angka : "))
-```
-
-Pengguna memasukkan
+Coba juga input yang berbeda.
 
 ```
-abc
+Harga : 0
+
+Jumlah : 5
 ```
 
-Output
-
-```
-ValueError
-```
-
-Karena huruf tidak dapat diubah menjadi Integer.
+Apakah program masih berjalan?
 
 ---
 
-Contoh lain
+# Debugging
 
-```python
-print(10 / 0)
-```
+Jika terjadi Error.
 
-Output
+Lakukan langkah berikut.
 
-```
-ZeroDivisionError
-```
+1. Baca Error Message.
+2. Cari baris yang bermasalah.
+3. Perbaiki Error.
+4. Jalankan kembali program.
 
-Karena angka tidak dapat dibagi dengan nol.
-
----
-
-# 3. Logical Error
-
-Logical Error adalah Error yang paling sulit ditemukan.
-
-Program tetap berjalan, tetapi hasilnya salah.
-
-Contoh
-
-```python
-panjang = 10
-lebar = 5
-
-luas = panjang + lebar
-
-print(luas)
-```
-
-Output
-
-```
-15
-```
-
-Padahal rumus luas persegi panjang seharusnya
-
-```
-panjang × lebar
-```
-
-Perbaikan
-
-```python
-luas = panjang * lebar
-```
+Jangan langsung mengubah seluruh kode.
 
 ---
 
-# Membaca Error Message
+# Checklist Final Project
 
-Ketika terjadi Error, Python akan menampilkan pesan.
+Sebelum proyek dianggap selesai, pastikan.
 
-Contoh
+☐ Program dapat dijalankan.
 
-```
-NameError:
-name 'umur' is not defined
-```
+☐ Tidak ada Syntax Error.
 
-Artinya
+☐ Tidak ada Runtime Error.
 
-Variable
+☐ Output sesuai harapan.
 
-```
-umur
-```
+☐ Nama variable mudah dipahami.
 
-belum pernah dibuat.
+☐ Kode memiliki indentasi yang rapi.
 
----
+☐ Menggunakan Function.
 
-Contoh
+☐ Menggunakan minimal satu percabangan.
 
-```python
-print(nama)
-```
-
-Padahal
-
-```python
-nama
-```
-
-belum ada.
-
----
-
-# Cara Melakukan Debugging
-
-Langkah pertama.
-
-Baca Error Message.
-
-↓
-
-Cari baris yang menyebabkan Error.
-
-↓
-
-Pahami penyebabnya.
-
-↓
-
-Perbaiki kode.
-
-↓
-
-Jalankan kembali program.
-
----
-
-# Teknik Debugging Sederhana
-
-Salah satu cara paling mudah adalah menggunakan
-
-```python
-print()
-```
-
-Contoh
-
-```python
-angka = 10
-
-print(angka)
-
-hasil = angka * 5
-
-print(hasil)
-```
-
-Dengan begitu kita dapat melihat isi variable selama program berjalan.
-
----
-
-# Contoh Program Salah
-
-```python
-umur = input("Umur : ")
-
-print(umur + 5)
-```
-
-Output
-
-```
-TypeError
-```
-
-Karena
-
-```
-umur
-```
-
-bertipe String.
-
-Perbaikan
-
-```python
-umur = int(input("Umur : "))
-
-print(umur + 5)
-```
-
----
-
-# Contoh Program Benar
-
-```python
-angka1 = int(input("Angka Pertama : "))
-angka2 = int(input("Angka Kedua : "))
-
-hasil = angka1 + angka2
-
-print("Hasil :", hasil)
-```
-
----
-
-# Diagram Debugging
-
-```
-Program Error
-
-↓
-
-Baca Error Message
-
-↓
-
-Cari Baris Error
-
-↓
-
-Perbaiki Kode
-
-↓
-
-Jalankan Lagi
-
-↓
-
-Program Berhasil
-```
-
----
-
-# Tips Debugging
-
-✔ Baca pesan Error dengan teliti.
-
-✔ Jangan langsung menghapus banyak kode.
-
-✔ Periksa satu Error dalam satu waktu.
-
-✔ Gunakan `print()` untuk melihat isi variable.
-
-✔ Jalankan program kembali setelah diperbaiki.
+☐ Menggunakan minimal satu perulangan.
 
 ---
 
 # Project Hari Ini
 
-## Guessing Number
+## Free Project (Tahap Perancangan & Pengembangan)
 
-Buat permainan sederhana.
+Siswa bebas memilih salah satu proyek berikut atau membuat ide sendiri.
 
-Program menentukan angka rahasia.
+### Pilihan 1
 
-Contoh
+Kasir Sederhana
 
-```
-7
-```
+---
 
-Kemudian pengguna diminta menebak angka tersebut.
+### Pilihan 2
 
-Jika tebakan benar.
+Login Sederhana
 
-```
-Selamat!
+---
 
-Jawaban Anda Benar!
-```
+### Pilihan 3
 
-Jika salah.
+Sistem Penilaian Siswa
 
-```
-Jawaban Masih Salah
+---
 
-Silakan Coba Lagi
-```
+### Pilihan 4
 
-Gunakan:
+Kalkulator
 
-- Variable
-- While Loop
-- IF
-- Input
+---
 
-Contoh
+### Pilihan 5
 
-```
-=========================
-GUESSING NUMBER
-=========================
+Perpustakaan Mini
 
-Tebak Angka (1-10)
+---
 
-> 4
+### Pilihan 6
 
-Jawaban Salah
+Daftar Belanja
 
-> 7
+---
 
-Selamat!
+### Pilihan 7
 
-Jawaban Anda Benar!
-```
+Pendaftaran Lomba
+
+---
+
+### Pilihan 8
+
+Quiz Sederhana
+
+---
+
+### Pilihan 9
+
+Game Tebak Angka
+
+---
+
+### Pilihan 10
+
+Ide Bebas
+
+---
+
+# Persyaratan Project
+
+Project minimal harus menggunakan:
+
+✅ Input
+
+✅ Output
+
+✅ Variable
+
+✅ Operator
+
+✅ IF
+
+✅ Loop
+
+✅ Function
+
+Selain itu, siswa harus membuat **Flowchart sederhana** sebelum mulai menulis kode.
 
 ---
 
 # Challenge 1
 
-Tambahkan petunjuk.
+Tambahkan menu utama.
 
-Jika angka terlalu kecil.
-
-```
-Terlalu Kecil
-```
-
-Jika angka terlalu besar.
+Contoh
 
 ```
-Terlalu Besar
+=====================
+
+MENU
+
+1. Mulai
+
+2. Bantuan
+
+3. Keluar
+
+=====================
 ```
 
 ---
 
 # Challenge 2
 
-Hitung jumlah percobaan.
+Buat tampilan program lebih menarik menggunakan.
 
-Contoh
-
-```
-Selamat!
-
-Anda berhasil menebak dalam
-
-5 percobaan.
-```
+- Garis pembatas
+- Judul
+- f-string
+- String Formatting
 
 ---
 
 # Challenge 3
 
-Batasi jumlah percobaan sebanyak
-
-```
-5 kali
-```
-
-Jika gagal.
-
-```
-Game Over
-
-Jawaban yang benar adalah 7
-```
-
----
-
-# Mini Challenge
-
-Buat salah satu permainan berikut.
-
-- Tebak Warna
-- Tebak Huruf
-- Tebak Hewan
-- Tebak Buah
-- Tebak Kota
-- Tebak Nama Tokoh
-
-Gunakan:
-
-- While Loop
-- IF
-- Variable
-- Counter
-
----
-
-# Latihan Debugging
-
-Perbaiki program berikut.
-
-## Soal 1
-
-```python
-umur = input("Umur : ")
-
-print(umur + 5)
-```
-
-Apa penyebab Error?
-
----
-
-## Soal 2
-
-```python
-nilai = 80
-
-if nilai >= 75
-    print("Lulus")
-```
-
-Apa yang kurang?
-
----
-
-## Soal 3
-
-```python
-def luas(panjang, lebar):
-
-    return panjang + lebar
-```
-
-Mengapa hasilnya salah?
-
----
-
-## Soal 4
-
-```python
-for i in range(5)
-
-    print(i)
-```
-
-Apa yang menyebabkan Syntax Error?
-
----
-
-# Kesalahan yang Sering Terjadi
-
-❌ Tidak membaca Error Message.
-
-Biasakan membaca Error dari atas hingga bawah sebelum memperbaiki kode.
-
----
-
-❌ Langsung mengubah banyak bagian kode sekaligus.
-
-Perbaiki satu Error terlebih dahulu, kemudian jalankan kembali program.
-
----
-
-❌ Salah mengubah tipe data.
+Tambahkan validasi input agar program tidak mudah mengalami Error.
 
 Contoh
 
-```python
-umur = input()
 ```
-
-Padahal akan digunakan untuk perhitungan.
-
-Gunakan
-
-```python
-umur = int(input())
+Input Tidak Valid
 ```
 
 ---
 
-❌ Menganggap semua Error berasal dari Python.
+# Tips Mengerjakan Final Project
 
-Sebagian besar Error justru berasal dari logika yang kita tulis.
+✔ Tentukan tujuan program terlebih dahulu.
+
+✔ Buat Flowchart sebelum coding.
+
+✔ Kerjakan sedikit demi sedikit.
+
+✔ Uji program setiap selesai menambahkan fitur.
+
+✔ Simpan file secara berkala.
+
+✔ Jangan takut melakukan debugging.
+
+---
+
+# Rubrik Penilaian
+
+| Aspek               | Penilaian  |
+| ------------------- | ---------- |
+| Program Berjalan    | ⭐⭐⭐⭐⭐ |
+| Flowchart           | ⭐⭐⭐⭐⭐ |
+| Penggunaan Function | ⭐⭐⭐⭐⭐ |
+| Logika Program      | ⭐⭐⭐⭐⭐ |
+| Tampilan Output     | ⭐⭐⭐⭐⭐ |
+| Kerapihan Kode      | ⭐⭐⭐⭐⭐ |
 
 ---
 
@@ -602,34 +541,28 @@ Sebagian besar Error justru berasal dari logika yang kita tulis.
 
 Hari ini kita telah belajar:
 
-✅ Apa itu Bug
+✅ Menentukan ide proyek
 
-✅ Apa itu Debugging
+✅ Membuat Flowchart
 
-✅ Syntax Error
+✅ Menyusun struktur program
 
-✅ Runtime Error
+✅ Menggabungkan seluruh materi Python
 
-✅ Logical Error
+✅ Testing Program
 
-✅ Membaca Error Message
+✅ Debugging
 
-✅ Teknik Debugging menggunakan `print()`
-
-✅ Cara memperbaiki program yang Error
-
-✅ Membuat Guessing Number
+✅ Memulai Final Project
 
 ---
 
 # Persiapan Pertemuan Selanjutnya
 
-Pada pertemuan berikutnya kita akan mulai **Final Project**.
+Pada pertemuan berikutnya kita akan:
 
-Kita akan belajar:
-
-- Menentukan ide proyek.
-- Membuat Flowchart.
-- Merancang algoritma.
-- Menggabungkan seluruh materi Python yang telah dipelajari.
-- Memulai pembuatan Free Project.
+- Menyelesaikan Final Project.
+- Melakukan Code Review.
+- Mempresentasikan hasil karya di depan kelas.
+- Memberikan dan menerima umpan balik.
+- Melakukan refleksi pembelajaran selama satu semester.
