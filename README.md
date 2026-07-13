@@ -1,9 +1,9 @@
-# Pertemuan 1 — Pengenalan Python & Konsep IPO
+# Pertemuan 2 — Variable & Tipe Data Dasar Python
 
 > **Grade:** 10 SMA
 > **Durasi:** 70 Menit
 > **Platform:** Python
-> **Project:** Biodata.py
+> **Project:** Story Generator
 
 ---
 
@@ -11,263 +11,120 @@
 
 Pada akhir pembelajaran, siswa mampu:
 
-- Mengenal bahasa pemrograman Python.
-- Mengenal Text Editor yang digunakan selama pembelajaran.
-- Menjalankan program Python pertama.
-- Memahami konsep Input → Process → Output (IPO).
-- Membuat program biodata sederhana menggunakan fungsi `input()` dan `print()`.
+- Memahami apa itu variable.
+- Memahami fungsi variable dalam pemrograman.
+- Mengetahui aturan penamaan variable.
+- Mengenal tipe data dasar Python.
+- Menggunakan variable untuk menyimpan data.
+- Membuat program Story Generator sederhana menggunakan variable.
 
 ---
 
-# Apa itu Python?
+# Review Pertemuan Sebelumnya
 
-Python adalah bahasa pemrograman yang dibuat agar mudah dibaca dan dipelajari.
+Pada pertemuan sebelumnya kita telah belajar:
 
-Python digunakan di berbagai bidang seperti:
+- Apa itu Python
+- Fungsi `print()`
+- Fungsi `input()`
+- Konsep IPO (Input → Process → Output)
 
-- Artificial Intelligence (AI)
-- Website
-- Game
-- Data Science
-- Robot
-- Cyber Security
-- Automation
-
-Karena sintaksnya sederhana, Python menjadi salah satu bahasa pemrograman terbaik untuk pemula.
+Hari ini kita akan belajar bagaimana komputer **menyimpan data**.
 
 ---
 
-# Apa itu Program?
+# Apa itu Variable?
 
-Program adalah sekumpulan instruksi yang diberikan kepada komputer agar melakukan suatu pekerjaan.
+Variable adalah tempat untuk menyimpan data di dalam program.
 
-Contoh:
+Bayangkan variable seperti sebuah kotak.
 
-Kita ingin komputer menghitung umur.
-
-Input:
-Tahun lahir = 2010
-
-Process:
-2026 - 2010
-
-Output:
-16 Tahun
-
-Komputer hanya menjalankan instruksi yang kita tulis.
-
----
-
-# Mengenal Text Editor
-
-Text Editor adalah aplikasi untuk menulis kode.
-
-Contoh:
-
-- Visual Studio Code
-- PyCharm
-- IDLE Python
-
-Pada kelas ini kita akan menggunakan editor yang telah disediakan sekolah.
-
----
-
-# Program Python Pertama
-
-Mari kita buat program pertama.
-
-```python
-print("Hello World")
-```
-
-Output
-
-```
-Hello World
-```
-
-Program di atas akan menampilkan tulisan ke layar.
-
-Fungsi yang digunakan adalah
-
-```python
-print()
-```
-
-yang berarti:
-
-"Tampilkan sesuatu ke layar."
-
----
-
-# Mengenal Fungsi print()
-
-Contoh:
-
-```python
-print("Nama Saya Sandy")
-print("Saya Belajar Python")
-print(17)
-```
-
-Output
-
-```
-Nama Saya Sandy
-Saya Belajar Python
-17
-```
-
-print() bisa menampilkan:
-
-- Tulisan
-- Angka
-- Hasil perhitungan
-
-Contoh
-
-```python
-print(10+5)
-```
-
-Output
-
-```
-15
-```
-
----
-
-# Konsep IPO
-
-Semua program pada dasarnya memiliki tiga bagian.
-
-## Input
-
-Data yang diberikan oleh pengguna.
-
-Contoh:
+Di dalam kotak tersebut kita bisa menyimpan:
 
 - Nama
 - Umur
-- Email
 - Nilai
-
----
-
-## Process
-
-Komputer mengolah data tersebut.
-
-Contoh:
-
-- Menghitung
-- Membandingkan
-- Menyimpan
-- Mengubah
-
----
-
-## Output
-
-Hasil yang ditampilkan kepada pengguna.
+- Alamat
+- Angka
+- Tulisan
 
 Contoh:
 
 ```
-Halo Sandy
-Umur kamu 16 tahun
+Kotak Nama
+──────────────
+Sandy
+```
+
+Di Python kita menulisnya seperti ini
+
+```python
+nama = "Sandy"
+```
+
+Artinya
+
+```
+Simpan tulisan "Sandy"
+ke dalam variable bernama nama
 ```
 
 ---
 
-# Contoh IPO
+# Kenapa Harus Menggunakan Variable?
 
-Misalkan kita membuat kalkulator.
-
-Input
-
-```
-10
-20
-```
-
-↓
-
-Process
-
-```
-10 + 20
-```
-
-↓
-
-Output
-
-```
-30
-```
-
-Contoh lain
-
-Input
-
-```
-Nama
-Umur
-Email
-```
-
-↓
-
-Process
-
-```
-Program menyimpan data
-```
-
-↓
-
-Output
-
-```
-Nama : Sandy
-Umur : 23
-Email : sandy@email.com
-```
-
----
-
-# Mengenal input()
-
-Selain menampilkan tulisan, program juga bisa meminta data dari pengguna.
+Tanpa variable kita harus menulis data berulang kali.
 
 Contoh
 
 ```python
-nama = input("Masukkan Nama : ")
+print("Sandy")
+print("Sandy")
+print("Sandy")
 ```
 
-Program akan berhenti sementara dan menunggu pengguna mengetik sesuatu.
+Lebih baik
+
+```python
+nama = "Sandy"
+
+print(nama)
+print(nama)
+print(nama)
+```
+
+Jika nama berubah, kita cukup mengubah satu baris saja.
 
 ---
 
-# Menampilkan Kembali Data
+# Cara Membuat Variable
 
-Data yang dimasukkan dapat ditampilkan kembali.
+Bentuk umum
 
 ```python
-nama = input("Masukkan Nama : ")
+nama_variable = nilai
+```
+
+Contoh
+
+```python
+nama = "Andi"
+umur = 16
+tinggi = 170
+```
+
+---
+
+# Menampilkan Isi Variable
+
+Variable dapat ditampilkan menggunakan `print()`.
+
+```python
+nama = "Sandy"
 
 print(nama)
 ```
 
-Jika pengguna mengetik
-
-```
-Sandy
-```
-
 Output
 
 ```
@@ -276,55 +133,349 @@ Sandy
 
 ---
 
-# Alur Program Biodata
+# Mengubah Isi Variable
 
-Input
+Isi variable bisa berubah.
 
-- Nama Lengkap
-- Nama Panggilan
-- Umur
-- Email
+```python
+score = 50
 
-↓
+print(score)
 
-Process
+score = 100
 
-Program menyimpan data ke dalam variabel.
-
-↓
+print(score)
+```
 
 Output
 
-Program menampilkan kembali seluruh biodata.
+```
+50
+100
+```
+
+Program akan menggunakan nilai terbaru.
+
+---
+
+# Aturan Penamaan Variable
+
+Variable boleh menggunakan:
+
+- Huruf
+- Angka
+- Underscore (\_)
+
+Contoh
+
+```python
+nama
+umur
+student_name
+nilai1
+```
+
+---
+
+# Yang Tidak Boleh
+
+Variable tidak boleh diawali angka.
+
+❌ Salah
+
+```python
+1nama = "Andi"
+```
+
+✅ Benar
+
+```python
+nama1 = "Andi"
+```
+
+---
+
+Tidak boleh memakai spasi.
+
+❌ Salah
+
+```python
+full name = "Andi"
+```
+
+✅ Benar
+
+```python
+full_name = "Andi"
+```
+
+---
+
+Tidak boleh memakai simbol.
+
+❌ Salah
+
+```python
+nama!
+nama@
+nama#
+```
+
+---
+
+Gunakan nama yang mudah dipahami.
+
+❌ Kurang baik
+
+```python
+a = "Andi"
+b = 16
+```
+
+✅ Lebih baik
+
+```python
+nama = "Andi"
+umur = 16
+```
+
+---
+
+# Mengenal Tipe Data
+
+Data memiliki jenis yang berbeda.
+
+Contoh
+
+```
+Nama
+Umur
+Tinggi
+Sudah Lulus
+```
+
+Semuanya tidak memiliki jenis data yang sama.
+
+---
+
+# String (str)
+
+String adalah data berupa teks.
+
+Contoh
+
+```python
+nama = "Sandy"
+kota = "Jakarta"
+```
+
+Output
+
+```
+Sandy
+Jakarta
+```
+
+String selalu menggunakan:
+
+```
+" "
+```
+
+atau
+
+```
+' '
+```
+
+---
+
+# Integer (int)
+
+Integer adalah bilangan bulat.
+
+Contoh
+
+```python
+umur = 16
+nilai = 100
+```
+
+Output
+
+```
+16
+100
+```
+
+Tidak memakai tanda kutip.
+
+---
+
+# Float (float)
+
+Float adalah bilangan desimal.
+
+Contoh
+
+```python
+tinggi = 170.5
+berat = 55.8
+```
+
+Output
+
+```
+170.5
+55.8
+```
+
+---
+
+# Boolean (bool)
+
+Boolean hanya memiliki dua nilai.
+
+```
+True
+False
+```
+
+Contoh
+
+```python
+is_student = True
+```
+
+atau
+
+```python
+lampu_menyala = False
+```
+
+Boolean sering digunakan saat membuat logika program.
+
+---
+
+# Melihat Tipe Data
+
+Python memiliki fungsi
+
+```python
+type()
+```
+
+Contoh
+
+```python
+nama = "Sandy"
+umur = 16
+
+print(type(nama))
+print(type(umur))
+```
+
+Output
+
+```
+<class 'str'>
+<class 'int'>
+```
+
+---
+
+# Menggabungkan Variable
+
+Kita bisa menampilkan beberapa variable sekaligus.
+
+```python
+nama = "Sandy"
+umur = 16
+
+print(nama, umur)
+```
+
+Output
+
+```
+Sandy 16
+```
+
+---
+
+# Contoh Program
+
+```python
+nama = "Andi"
+umur = 16
+tinggi = 170.5
+
+print(nama)
+print(umur)
+print(tinggi)
+```
+
+Output
+
+```
+Andi
+16
+170.5
+```
 
 ---
 
 # Project Hari Ini
 
-Membuat program Biodata.
+## Story Generator
 
-Program meminta pengguna mengisi:
+Siswa membuat cerita sederhana menggunakan beberapa variable.
 
-- Full Name
-- Nick Name
-- Age
-- Email
+Contoh
 
-Kemudian program menampilkan kembali data tersebut.
+```python
+nama = "Budi"
+hewan = "Kucing"
+tempat = "Pantai"
 
-Contoh implementasi proyek mengacu pada file **Biodata.py** yang telah disediakan. :contentReference[oaicite:0]{index=0}
+print(nama, "bermain bersama", hewan, "di", tempat)
+```
+
+Output
+
+```
+Budi bermain bersama Kucing di Pantai
+```
 
 ---
 
 # Challenge
 
-Jika sudah selesai, coba tambahkan sendiri:
+Tambahkan variable berikut:
 
-- Hobby
-- Favorite Food
-- Favorite Color
-- School
-- Dream Job
+- makanan_favorit
+- warna_favorit
+- cita_cita
+- sekolah
+- hobi
+
+Lalu buat cerita yang lebih panjang.
+
+Contoh
+
+```
+Halo, nama saya Sandy.
+
+Saya suka makan Bakso.
+
+Hobi saya bermain basket.
+
+Suatu hari saya pergi ke pantai bersama seekor kucing.
+
+Cita-cita saya adalah menjadi Software Engineer.
+```
+
+Gunakan minimal **8 variable** dalam cerita.
 
 ---
 
@@ -332,26 +483,32 @@ Jika sudah selesai, coba tambahkan sendiri:
 
 Hari ini kita telah belajar:
 
-✅ Apa itu Python
+✅ Apa itu Variable
 
-✅ Apa itu Program
+✅ Cara membuat Variable
 
-✅ Mengenal Text Editor
+✅ Aturan penamaan Variable
 
-✅ Fungsi print()
+✅ String (str)
 
-✅ Fungsi input()
+✅ Integer (int)
 
-✅ Konsep IPO (Input → Process → Output)
+✅ Float (float)
 
-✅ Membuat Program Biodata
+✅ Boolean (bool)
+
+✅ Fungsi `type()`
+
+✅ Membuat Story Generator menggunakan Variable
 
 ---
 
 # Persiapan Pertemuan Selanjutnya
 
-Pada pertemuan berikutnya kita akan mempelajari:
+Pada pertemuan berikutnya kita akan belajar:
 
-- Variable
-- Rules Penamaan Variable
-- Tipe Data Dasar Python
+- Menggunakan `input()`
+- Menggabungkan Input dan Variable
+- Membuat program interaktif
+- Konsep IPO dalam program nyata
+- Project: Game Profile
