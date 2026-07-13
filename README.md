@@ -1,9 +1,9 @@
-# Pertemuan 5 — Basic Python Library
+# Pertemuan 6 — Basic Operations (Operator pada Python)
 
 > **Grade:** 10 SMA
 > **Durasi:** 70 Menit
 > **Platform:** Python
-> **Project:** Dice Simulator
+> **Project:** Kasir Sederhana
 
 ---
 
@@ -11,11 +11,13 @@
 
 Pada akhir pembelajaran, siswa mampu:
 
-- Memahami apa itu library pada Python.
-- Menggunakan perintah `import`.
-- Memahami fungsi library bawaan Python.
-- Menggunakan library `random`, `time`, dan `os`.
-- Membuat program simulasi lempar dadu (Dice Simulator).
+- Memahami fungsi operator dalam Python.
+- Menggunakan Operator Aritmatika.
+- Menggunakan Operator Assignment.
+- Menggunakan Operator Comparison.
+- Menggunakan Operator Logical.
+- Menggabungkan operator dalam sebuah program.
+- Membuat program Kasir Sederhana.
 
 ---
 
@@ -23,483 +25,648 @@ Pada akhir pembelajaran, siswa mampu:
 
 Pada pertemuan sebelumnya kita telah belajar:
 
-- String Formatting
-- f-string
-- format()
-- Escape Character
-- Membuat tampilan output lebih rapi
+- Library Python
+- import
+- random
+- time
+- os
 
-Hari ini kita akan belajar menggunakan **library**, yaitu kumpulan kode yang sudah dibuat sehingga kita tidak perlu membuat semuanya dari awal.
-
----
-
-# Apa itu Library?
-
-Library adalah kumpulan fungsi yang telah dibuat oleh programmer lain sehingga bisa kita gunakan kembali.
-
-Bayangkan seperti sebuah **kotak peralatan**.
-
-Daripada membuat obeng sendiri, kita tinggal mengambil obeng dari kotak.
-
-Begitu juga di Python.
-
-Daripada membuat semuanya sendiri, kita cukup menggunakan library yang sudah tersedia.
+Hari ini kita akan belajar bagaimana komputer **menghitung**, **membandingkan**, dan **mengambil keputusan** menggunakan operator.
 
 ---
 
-# Kenapa Menggunakan Library?
+# Apa itu Operator?
 
-Tanpa library kita harus membuat banyak kode sendiri.
+Operator adalah simbol yang digunakan untuk melakukan suatu operasi pada data.
 
-Dengan library kita bisa:
+Contohnya:
 
-- Menghemat waktu
-- Membuat program lebih cepat
-- Mengurangi jumlah kode
-- Menggunakan fitur yang sudah terpercaya
+```
++
+-
+*
+/
+==
+>
+<
+```
+
+Operator membantu komputer melakukan berbagai perhitungan dan logika.
 
 ---
 
-# Mengenal import
+# Jenis Operator
 
-Sebelum menggunakan library kita harus mengimpornya.
+Hari ini kita akan mempelajari empat jenis operator.
 
-Contoh
+- Operator Aritmatika
+- Operator Assignment
+- Operator Comparison
+- Operator Logical
+
+---
+
+# Operator Aritmatika
+
+Operator aritmatika digunakan untuk melakukan perhitungan matematika.
+
+| Operator | Fungsi             |
+| -------- | ------------------ |
+| +        | Penjumlahan        |
+| -        | Pengurangan        |
+| \*       | Perkalian          |
+| /        | Pembagian          |
+| //       | Pembagian Bulat    |
+| %        | Sisa Bagi (Modulo) |
+| \*\*     | Pangkat            |
+
+---
+
+# Penjumlahan
 
 ```python
-import random
+a = 10
+b = 5
+
+print(a + b)
+```
+
+Output
+
+```
+15
+```
+
+---
+
+# Pengurangan
+
+```python
+print(10 - 4)
+```
+
+Output
+
+```
+6
+```
+
+---
+
+# Perkalian
+
+```python
+print(8 * 3)
+```
+
+Output
+
+```
+24
+```
+
+---
+
+# Pembagian
+
+```python
+print(10 / 2)
+```
+
+Output
+
+```
+5.0
+```
+
+Perhatikan bahwa hasil pembagian selalu bertipe **float**.
+
+---
+
+# Pembagian Bulat
+
+```python
+print(10 // 3)
+```
+
+Output
+
+```
+3
+```
+
+Bagian desimal akan dibuang.
+
+---
+
+# Modulo (%)
+
+Modulo digunakan untuk mencari sisa hasil pembagian.
+
+```python
+print(10 % 3)
+```
+
+Output
+
+```
+1
+```
+
+Contoh lain
+
+```
+8 % 2 = 0
+```
+
+Artinya 8 habis dibagi 2.
+
+Modulo sering digunakan untuk mengecek bilangan genap dan ganjil.
+
+---
+
+# Pangkat
+
+```python
+print(2 ** 3)
+```
+
+Output
+
+```
+8
+```
+
+Karena
+
+```
+2 × 2 × 2 = 8
+```
+
+---
+
+# Operator Assignment
+
+Operator Assignment digunakan untuk memberikan atau memperbarui nilai suatu variable.
+
+Operator yang sering digunakan:
+
+| Operator | Contoh  |
+| -------- | ------- |
+| =        | x = 5   |
+| +=       | x += 2  |
+| -=       | x -= 2  |
+| \*=      | x \*= 2 |
+| /=       | x /= 2  |
+
+---
+
+# Assignment Dasar
+
+```python
+score = 100
 ```
 
 Artinya
 
 ```
-Gunakan library random.
+Masukkan nilai 100 ke dalam variable score.
 ```
 
 ---
 
-# Library Bawaan Python
-
-Python memiliki banyak library bawaan, contohnya:
-
-- random
-- math
-- os
-- time
-- datetime
-
-Hari ini kita akan mempelajari tiga library.
-
-- random
-- time
-- os
-
----
-
-# Library random
-
-Library `random` digunakan untuk menghasilkan angka secara acak.
-
-Import terlebih dahulu.
+# Operator +=
 
 ```python
-import random
-```
+score = 100
 
----
+score += 20
 
-# random.randint()
-
-Digunakan untuk menghasilkan angka acak dalam rentang tertentu.
-
-Contoh
-
-```python
-import random
-
-angka = random.randint(1, 6)
-
-print(angka)
+print(score)
 ```
 
 Output
 
 ```
-4
+120
 ```
 
-Setiap program dijalankan, hasilnya bisa berbeda.
+Sama dengan
+
+```python
+score = score + 20
+```
 
 ---
 
-# Contoh Penggunaan
+# Operator -=
 
 ```python
-import random
+uang = 50000
 
-print(random.randint(1, 10))
+uang -= 10000
+
+print(uang)
 ```
 
-Output bisa menjadi
+Output
 
 ```
-2
+40000
+```
+
+---
+
+# Operator \*=
+
+```python
+jumlah = 5
+
+jumlah *= 3
+
+print(jumlah)
+```
+
+Output
+
+```
+15
+```
+
+---
+
+# Operator Comparison
+
+Operator Comparison digunakan untuk membandingkan dua nilai.
+
+Hasilnya selalu:
+
+```
+True
 ```
 
 atau
 
 ```
-9
-```
-
-atau angka lain antara 1 sampai 10.
-
----
-
-# Library time
-
-Library `time` digunakan untuk mengatur waktu.
-
-Import
-
-```python
-import time
+False
 ```
 
 ---
 
-# time.sleep()
+| Operator | Arti                  |
+| -------- | --------------------- |
+| ==       | Sama dengan           |
+| !=       | Tidak sama dengan     |
+| >        | Lebih besar           |
+| <        | Lebih kecil           |
+| >=       | Lebih besar atau sama |
+| <=       | Lebih kecil atau sama |
 
-Digunakan untuk memberi jeda.
+---
 
-Contoh
+# Contoh Comparison
 
 ```python
-import time
-
-print("Loading...")
-
-time.sleep(3)
-
-print("Selesai")
+print(10 > 5)
 ```
 
 Output
 
 ```
-Loading...
-
-(tunggu 3 detik)
-
-Selesai
+True
 ```
 
 ---
 
-# Kenapa Menggunakan sleep()?
-
-Agar program terasa lebih realistis.
-
-Contohnya
-
-- Loading game
-- Mengunduh file
-- Menghitung skor
-- Melempar dadu
-
----
-
-# Library os
-
-Library `os` digunakan untuk berinteraksi dengan sistem operasi.
-
-Import
-
 ```python
-import os
+print(3 > 7)
+```
+
+Output
+
+```
+False
 ```
 
 ---
 
-# Membersihkan Layar
-
-Pada Windows
-
 ```python
-os.system("cls")
+print(10 == 10)
 ```
 
-Pada Linux atau Mac
+Output
 
-```python
-os.system("clear")
 ```
-
-Program akan membersihkan tampilan terminal.
+True
+```
 
 ---
 
-# Menggabungkan Library
-
-Kita dapat menggunakan lebih dari satu library.
-
 ```python
-import random
-import time
-import os
+print(10 != 5)
 ```
 
-Semuanya dapat digunakan dalam satu program.
+Output
+
+```
+True
+```
+
+---
+
+# Operator Logical
+
+Operator Logical digunakan untuk menggabungkan beberapa kondisi.
+
+Operator yang digunakan:
+
+| Operator | Fungsi                   |
+| -------- | ------------------------ |
+| and      | Semua kondisi harus True |
+| or       | Salah satu kondisi True  |
+| not      | Membalik hasil           |
+
+---
+
+# Operator AND
+
+```python
+umur = 18
+
+print(umur >= 17 and umur <= 25)
+```
+
+Output
+
+```
+True
+```
+
+Karena kedua kondisi benar.
+
+---
+
+# Operator OR
+
+```python
+print(10 > 20 or 10 < 20)
+```
+
+Output
+
+```
+True
+```
+
+Karena salah satu kondisi benar.
+
+---
+
+# Operator NOT
+
+```python
+print(not True)
+```
+
+Output
+
+```
+False
+```
+
+---
+
+```python
+print(not False)
+```
+
+Output
+
+```
+True
+```
+
+---
+
+# Menggabungkan Operator
+
+Contoh
+
+```python
+harga = 5000
+jumlah = 3
+
+total = harga * jumlah
+
+print(total)
+```
+
+Output
+
+```
+15000
+```
 
 ---
 
 # Contoh Program
 
 ```python
-import random
-import time
+harga = int(input("Harga Barang : "))
+jumlah = int(input("Jumlah Barang : "))
 
-print("Rolling Dice...")
+total = harga * jumlah
 
-time.sleep(2)
-
-print(random.randint(1,6))
+print()
+print("===== STRUK PEMBELIAN =====")
+print(f"Harga Barang : Rp {harga}")
+print(f"Jumlah Barang : {jumlah}")
+print(f"Total Bayar : Rp {total}")
 ```
 
 Output
 
 ```
-Rolling Dice...
+Harga Barang : 5000
+Jumlah Barang : 4
 
-(tunggu 2 detik)
-
-5
-```
-
----
-
-# Alur Program Dice Simulator
-
-```
-Program Dimulai
-
-↓
-
-Pengguna menekan Enter
-
-↓
-
-Loading...
-
-↓
-
-Program menunggu 2 detik
-
-↓
-
-Menghasilkan angka acak 1-6
-
-↓
-
-Menampilkan hasil dadu
-
-↓
-
-Program selesai
+===== STRUK PEMBELIAN =====
+Harga Barang : Rp 5000
+Jumlah Barang : 4
+Total Bayar : Rp 20000
 ```
 
 ---
 
 # Project Hari Ini
 
-## Dice Simulator
+## Kasir Sederhana
 
-Buat program simulasi lempar dadu.
+Buat program yang meminta pengguna memasukkan:
 
-Langkah-langkah:
+- Nama Barang
+- Harga Barang
+- Jumlah Barang
 
-1. Import `random`
-2. Import `time`
-3. Tampilkan tulisan
+Program kemudian menghitung:
 
 ```
-Rolling Dice...
+Total = Harga × Jumlah
 ```
 
-4. Tunggu selama 2 detik.
-5. Tampilkan angka acak dari 1 sampai 6.
+Lalu tampilkan hasilnya dalam bentuk struk.
 
 Contoh
 
 ```
-Rolling Dice...
+===========================
+      MINI CASHIER
+===========================
 
-🎲 Hasil Dadu : 4
+Nama Barang  : Pensil
+Harga        : Rp 5.000
+Jumlah       : 4
+
+---------------------------
+Total Bayar  : Rp 20.000
+===========================
 ```
-
----
-
-# Pengembangan Project
-
-Tambahkan tampilan seperti berikut.
-
-```
-=========================
-      DICE SIMULATOR
-=========================
-
-Rolling...
-
-🎲
-🎲
-🎲
-
-Hasil Dadu : 6
-
-=========================
-```
-
-Gunakan `time.sleep()` agar animasi terasa lebih nyata.
 
 ---
 
 # Challenge 1
 
-Buat dua buah dadu.
+Tambahkan fitur:
+
+- Diskon 10%
+- Hitung Total Setelah Diskon
 
 Contoh
 
 ```
-Dadu 1 : 5
+Subtotal : Rp 100000
+Diskon   : Rp 10000
 
-Dadu 2 : 3
-
-Total : 8
+Total    : Rp 90000
 ```
 
 ---
 
 # Challenge 2
 
-Buat permainan sederhana.
+Tambahkan input:
 
-Aturan:
+- Uang Pembeli
 
-Jika hasil dadu
-
-```
-6
-```
-
-Maka tampilkan
+Kemudian hitung
 
 ```
-Jackpot!
+Kembalian
 ```
 
-Jika selain 6
+Contoh
 
 ```
-Coba Lagi!
+Total Bayar : Rp 45000
+
+Uang Pembeli : Rp 50000
+
+Kembalian : Rp 5000
 ```
 
 ---
 
 # Challenge 3
 
-Gunakan `os.system("cls")` agar layar dibersihkan sebelum hasil akhir ditampilkan.
+Gunakan Operator Comparison.
 
-Contoh
+Jika uang pembeli kurang.
+
+Tampilkan
 
 ```
-Rolling...
+Uang Tidak Cukup
+```
 
-(terminal dibersihkan)
+Jika cukup.
 
-====================
-HASIL DADU
+Tampilkan
 
-🎲 5
-
-====================
+```
+Terima Kasih Sudah Berbelanja
 ```
 
 ---
 
 # Mini Challenge
 
-Buat simulator acak lainnya.
+Buat program kasir untuk salah satu tempat berikut.
 
-Contoh:
+- Toko Buku
+- Minimarket
+- Toko Game
+- Toko Komputer
+- Kafetaria Sekolah
+- Bioskop
 
-- Lempar Koin
-- Batu Gunting Kertas
-- Lucky Number
-- Spin Wheel
-- Tebak Warna
-- Gacha Item
-- Lucky Box
-
-Gunakan minimal satu library yang telah dipelajari.
+Tambahkan minimal **5 barang** beserta harga masing-masing.
 
 ---
 
 # Kesalahan yang Sering Terjadi
 
-❌ Lupa mengimpor library
+❌ Menggunakan `=` untuk membandingkan nilai.
+
+Salah
 
 ```python
-print(random.randint(1,6))
+print(10 = 10)
 ```
 
-Error karena belum menulis
+Benar
 
 ```python
-import random
+print(10 == 10)
 ```
 
 ---
 
-❌ Salah menulis nama library
+❌ Lupa mengubah input menjadi Integer.
+
+Salah
 
 ```python
-Random.randint()
+harga = input("Harga : ")
+jumlah = input("Jumlah : ")
+
+print(harga * jumlah)
 ```
 
-Python membedakan huruf besar dan kecil.
+Karena `input()` menghasilkan String.
+
+Benar
+
+```python
+harga = int(input("Harga : "))
+jumlah = int(input("Jumlah : "))
+```
+
+---
+
+❌ Salah menggunakan operator logika.
+
+Contoh
+
+```python
+umur >= 17 or umur <= 25
+```
+
+Hampir selalu bernilai True.
 
 Yang benar
 
 ```python
-random.randint()
-```
-
----
-
-❌ Salah menentukan batas angka
-
-```python
-random.randint(6,1)
-```
-
-Harus dimulai dari angka yang lebih kecil.
-
-```python
-random.randint(1,6)
-```
-
----
-
-❌ Lupa memberi tanda kurung pada `sleep()`
-
-```python
-time.sleep
-```
-
-Yang benar
-
-```python
-time.sleep(2)
+umur >= 17 and umur <= 25
 ```
 
 ---
@@ -508,25 +675,19 @@ time.sleep(2)
 
 Hari ini kita telah belajar:
 
-✅ Apa itu Library
+✅ Operator Aritmatika
 
-✅ Perintah `import`
+✅ Operator Assignment
 
-✅ Library `random`
+✅ Operator Comparison
 
-✅ `random.randint()`
+✅ Operator Logical
 
-✅ Library `time`
+✅ Menggabungkan beberapa operator
 
-✅ `time.sleep()`
+✅ Menghitung menggunakan operator
 
-✅ Library `os`
-
-✅ `os.system()`
-
-✅ Menggunakan beberapa library sekaligus
-
-✅ Membuat Dice Simulator
+✅ Membuat Program Kasir Sederhana
 
 ---
 
@@ -534,9 +695,8 @@ Hari ini kita telah belajar:
 
 Pada pertemuan berikutnya kita akan belajar:
 
-- Operator Aritmatika
-- Operator Assignment
-- Operator Comparison
-- Operator Logical
-- Menggunakan operator dalam program
-- Project: Kasir Sederhana
+- Conditional (IF)
+- IF, ELIF, ELSE
+- Indentasi pada Python
+- Pengambilan Keputusan
+- Project: Cek Kelulusan Siswa
