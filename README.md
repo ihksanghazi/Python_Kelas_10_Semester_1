@@ -1,9 +1,9 @@
-# Pertemuan 7 — Conditional (IF, ELIF, ELSE)
+# Pertemuan 8 — Nested Conditional (Nested IF)
 
 > **Grade:** 10 SMA
 > **Durasi:** 70 Menit
 > **Platform:** Python
-> **Project:** Cek Kelulusan Siswa
+> **Project:** Aplikasi Pembuatan SIM
 
 ---
 
@@ -11,12 +11,12 @@
 
 Pada akhir pembelajaran, siswa mampu:
 
-- Memahami konsep pengambilan keputusan (Decision Making).
-- Memahami fungsi `if`, `elif`, dan `else`.
-- Memahami pentingnya indentasi pada Python.
-- Menggunakan operator comparison dan logical pada percabangan.
-- Membuat program sederhana yang dapat mengambil keputusan.
-- Membuat aplikasi Cek Kelulusan Siswa.
+- Memahami konsep Nested IF.
+- Mengetahui perbedaan IF biasa dan Nested IF.
+- Membuat percabangan bertingkat.
+- Menggabungkan beberapa kondisi dalam satu program.
+- Menganalisis alur logika yang kompleks.
+- Membuat simulasi Aplikasi Pembuatan SIM.
 
 ---
 
@@ -24,60 +24,62 @@ Pada akhir pembelajaran, siswa mampu:
 
 Pada pertemuan sebelumnya kita telah belajar:
 
-- Operator Aritmatika
-- Operator Assignment
+- IF
+- ELIF
+- ELSE
 - Operator Comparison
 - Operator Logical
+- Pengambilan Keputusan
 
-Hari ini kita akan menggunakan semua operator tersebut untuk membuat komputer **mengambil keputusan**.
-
----
-
-# Apa itu Conditional?
-
-Conditional adalah proses pengambilan keputusan berdasarkan suatu kondisi.
-
-Contoh dalam kehidupan sehari-hari:
-
-```
-Jika hujan
-→ membawa payung
-
-Jika tidak hujan
-→ tidak membawa payung
-```
-
-Komputer juga bekerja dengan cara yang sama.
+Hari ini kita akan membuat keputusan yang lebih kompleks menggunakan **Nested IF**.
 
 ---
 
-# Mengapa Conditional Dibutuhkan?
+# Apa itu Nested IF?
 
-Banyak program menggunakan percabangan.
+Nested IF adalah **IF di dalam IF**.
 
-Contohnya:
+Artinya, setelah suatu kondisi terpenuhi, program akan memeriksa kondisi berikutnya.
 
-- Login akun
-- ATM
-- Mesin kasir
-- Game
-- Sistem absensi
-- Penilaian siswa
+Contoh kehidupan sehari-hari.
 
-Semua program tersebut harus memilih tindakan berdasarkan kondisi tertentu.
+```
+Apakah umur sudah 17 tahun?
+
+↓
+
+Ya
+
+↓
+
+Apakah sudah lulus tes kesehatan?
+
+↓
+
+Ya
+
+↓
+
+Apakah lulus ujian praktik?
+
+↓
+
+Ya
+
+↓
+
+SIM dapat dibuat.
+```
+
+Karena terdapat beberapa tahapan pemeriksaan, kita membutuhkan Nested IF.
 
 ---
 
-# Struktur IF
+# Perbedaan IF Biasa dan Nested IF
 
-Sintaks dasar
+## IF Biasa
 
-```python
-if kondisi:
-    perintah
-```
-
-Contoh
+Hanya memeriksa satu kondisi.
 
 ```python
 umur = 18
@@ -86,203 +88,134 @@ if umur >= 17:
     print("Boleh Membuat SIM")
 ```
 
-Output
+---
 
+## Nested IF
+
+Memeriksa beberapa kondisi secara bertahap.
+
+```python
+umur = 18
+sehat = True
+
+if umur >= 17:
+    if sehat:
+        print("Boleh Mengikuti Tes SIM")
 ```
-Boleh Membuat SIM
-```
+
+Program hanya masuk ke IF kedua jika IF pertama bernilai **True**.
 
 ---
 
-# Bagaimana IF Bekerja?
+# Struktur Nested IF
 
-Program membaca kondisi terlebih dahulu.
+```python
+if kondisi_1:
+    if kondisi_2:
+        print("Aksi")
+```
+
+Urutan pemeriksaan:
 
 ```
-Apakah umur >= 17 ?
+Kondisi 1
 
-Ya
 ↓
 
-Jalankan kode
+Jika True
 
-Tidak
 ↓
 
-Lewati kode
+Kondisi 2
+
+↓
+
+Jika True
+
+↓
+
+Program dijalankan
 ```
 
 ---
 
-# Contoh Lain
-
-```python
-nilai = 90
-
-if nilai >= 75:
-    print("Lulus")
-```
-
-Output
-
-```
-Lulus
-```
-
----
-
-Jika nilainya
-
-```python
-nilai = 60
-```
-
-Maka tidak ada output karena kondisi bernilai **False**.
-
----
-
-# Mengenal ELSE
-
-`else` dijalankan ketika kondisi pada `if` bernilai **False**.
-
-Contoh
-
-```python
-nilai = 60
-
-if nilai >= 75:
-    print("Lulus")
-else:
-    print("Tidak Lulus")
-```
-
-Output
-
-```
-Tidak Lulus
-```
-
----
-
-# Alur IF ELSE
-
-```
-        Kondisi
-
-        True
-          │
-          ▼
-     Jalankan IF
-
-        False
-          │
-          ▼
-    Jalankan ELSE
-```
-
----
-
-# Mengenal ELIF
-
-Kadang kita memiliki lebih dari dua pilihan.
-
-Gunakan
-
-```python
-elif
-```
-
-Contoh
-
-```python
-nilai = 85
-
-if nilai >= 90:
-    print("Grade A")
-elif nilai >= 80:
-    print("Grade B")
-else:
-    print("Grade C")
-```
-
-Output
-
-```
-Grade B
-```
-
----
-
-# Urutan Pemeriksaan
-
-Python membaca kondisi dari atas ke bawah.
-
-Jika salah satu kondisi sudah benar, maka kondisi berikutnya tidak diperiksa lagi.
-
-Contoh
-
-```python
-nilai = 95
-
-if nilai >= 90:
-    print("A")
-elif nilai >= 80:
-    print("B")
-else:
-    print("C")
-```
-
-Output
-
-```
-A
-```
-
----
-
-# Pentingnya Indentasi
-
-Python menggunakan indentasi untuk menentukan blok kode.
-
-Contoh yang benar
-
-```python
-if nilai >= 75:
-    print("Lulus")
-```
-
----
-
-Contoh yang salah
-
-```python
-if nilai >= 75:
-print("Lulus")
-```
-
-Python akan menghasilkan error.
-
-Gunakan **4 spasi** atau **1 tombol Tab** setelah tanda titik dua (`:`).
-
----
-
-# Menggunakan Operator Comparison
+# Contoh Sederhana
 
 ```python
 umur = 20
+punya_ktp = True
 
 if umur >= 17:
-    print("Dewasa")
+    if punya_ktp:
+        print("Silakan Daftar")
 ```
 
-Operator yang sering digunakan:
+Output
 
-- >
-- <
-- > =
-- <=
-- ==
-- !=
+```
+Silakan Daftar
+```
+
+---
+
+# Contoh Dengan ELSE
+
+```python
+umur = 16
+
+if umur >= 17:
+    print("Cukup Umur")
+else:
+    print("Belum Cukup Umur")
+```
+
+Output
+
+```
+Belum Cukup Umur
+```
+
+---
+
+# Nested IF dengan ELSE
+
+```python
+umur = 20
+punya_ktp = False
+
+if umur >= 17:
+    if punya_ktp:
+        print("Pendaftaran Berhasil")
+    else:
+        print("Harus Memiliki KTP")
+else:
+    print("Belum Cukup Umur")
+```
+
+Output
+
+```
+Harus Memiliki KTP
+```
+
+---
+
+# Menggunakan Input
+
+Nested IF dapat digabungkan dengan input.
+
+```python
+umur = int(input("Masukkan Umur : "))
+```
+
+Kemudian
+
+```python
+if umur >= 17:
+    print("Boleh Daftar")
+else:
+    print("Belum Boleh")
+```
 
 ---
 
@@ -292,28 +225,45 @@ Contoh
 
 ```python
 umur = 20
+sehat = True
 
-if umur >= 17 and umur <= 25:
-    print("Remaja Akhir")
+if umur >= 17:
+    if sehat == True:
+        print("Lolos Tahap Awal")
 ```
 
-Kedua kondisi harus bernilai True.
+Atau lebih sederhana.
+
+```python
+if umur >= 17:
+    if sehat:
+        print("Lolos Tahap Awal")
+```
 
 ---
 
-Contoh menggunakan OR
-
-```python
-hari = "Sabtu"
-
-if hari == "Sabtu" or hari == "Minggu":
-    print("Libur")
-```
-
-Output
+# Diagram Nested IF
 
 ```
-Libur
+              Umur >= 17 ?
+
+              Ya
+              │
+              ▼
+
+        Punya KTP ?
+
+          Ya
+          │
+          ▼
+
+      Lulus Tes Kesehatan ?
+
+          Ya
+          │
+          ▼
+
+     BOLEH MEMBUAT SIM
 ```
 
 ---
@@ -321,251 +271,294 @@ Libur
 # Contoh Program
 
 ```python
-nilai = int(input("Masukkan Nilai : "))
+umur = int(input("Masukkan Umur : "))
+ktp = input("Punya KTP? (ya/tidak) : ")
 
-if nilai >= 75:
-    print("Selamat, Anda Lulus!")
+if umur >= 17:
+    if ktp == "ya":
+        print("Silakan Mengikuti Tes SIM")
+    else:
+        print("Harus Memiliki KTP")
 else:
-    print("Maaf, Anda Belum Lulus.")
-```
-
-Output
-
-```
-Masukkan Nilai : 85
-
-Selamat, Anda Lulus!
+    print("Belum Cukup Umur")
 ```
 
 ---
 
-# Menentukan Grade
+# Studi Kasus
 
-```python
-nilai = int(input("Nilai : "))
+Syarat membuat SIM:
 
-if nilai >= 90:
-    print("Grade A")
-elif nilai >= 80:
-    print("Grade B")
-elif nilai >= 70:
-    print("Grade C")
-else:
-    print("Grade D")
-```
+- Umur minimal 17 tahun.
+- Memiliki KTP.
+- Lulus Tes Kesehatan.
+
+Jika salah satu syarat tidak terpenuhi, program harus memberikan alasan mengapa pendaftaran ditolak.
 
 ---
 
-# Diagram Percabangan
+# Alur Program
 
 ```
-          Nilai
+Mulai
 
-            │
-            ▼
+↓
 
-      Nilai >= 75 ?
+Input Umur
 
-       ┌──────────┐
-     Ya│          │Tidak
-       ▼          ▼
+↓
 
-    LULUS     TIDAK LULUS
+Apakah umur >= 17?
+
+↓
+
+Tidak
+↓
+
+Gagal
+
+↓
+
+Ya
+
+↓
+
+Punya KTP?
+
+↓
+
+Tidak
+↓
+
+Gagal
+
+↓
+
+Ya
+
+↓
+
+Lulus Tes Kesehatan?
+
+↓
+
+Tidak
+↓
+
+Gagal
+
+↓
+
+Ya
+
+↓
+
+Pendaftaran Berhasil
 ```
 
 ---
 
 # Project Hari Ini
 
-## Cek Kelulusan Siswa
+## Aplikasi Pembuatan SIM
 
 Buat program yang meminta pengguna memasukkan:
 
-- Nama Siswa
-- Nilai
+- Nama
+- Umur
+- Memiliki KTP? (ya/tidak)
+- Lulus Tes Kesehatan? (ya/tidak)
 
 Kemudian tampilkan hasilnya.
-
-Aturan:
-
-```
-Nilai >= 75
-→ Lulus
-
-Nilai < 75
-→ Tidak Lulus
-```
 
 Contoh
 
 ```
 ==========================
-CEK KELULUSAN SISWA
+PENDAFTARAN SIM
 ==========================
 
-Nama  : Andi
-Nilai : 88
+Nama : Andi
 
-Status : LULUS
+Status :
+
+Pendaftaran Berhasil
 
 ==========================
+```
+
+Jika gagal.
+
+Contoh
+
+```
+==========================
+
+Nama : Andi
+
+Status :
+
+Belum Cukup Umur
+
+==========================
+```
+
+Atau
+
+```
+Harus Memiliki KTP
+```
+
+Atau
+
+```
+Tidak Lulus Tes Kesehatan
 ```
 
 ---
 
 # Challenge 1
 
-Tambahkan penilaian Grade.
-
-Aturan
+Tambahkan satu syarat lagi.
 
 ```
-90 - 100 → A
-
-80 - 89 → B
-
-70 - 79 → C
-
-< 70 → D
+Lulus Tes Teori
 ```
 
-Contoh
-
-```
-Nama : Sandy
-
-Nilai : 95
-
-Grade : A
-```
+Program hanya menerima peserta jika semua syarat terpenuhi.
 
 ---
 
 # Challenge 2
 
-Tambahkan kategori.
+Tambahkan kategori SIM.
 
 ```
-A → Sangat Baik
+SIM A
 
-B → Baik
+SIM C
+```
 
-C → Cukup
+Jika memilih selain dua pilihan tersebut.
 
-D → Perlu Belajar Lagi
+Tampilkan
+
+```
+Jenis SIM Tidak Tersedia
 ```
 
 ---
 
 # Challenge 3
 
-Tambahkan validasi nilai.
+Tambahkan hasil akhir.
 
-Jika nilai
-
-```
-< 0
-```
-
-atau
+Jika seluruh syarat terpenuhi.
 
 ```
-> 100
+========================
+
+Selamat!
+
+Anda Berhasil Mendaftar SIM
+
+Silakan Menunggu Jadwal Ujian
+
+========================
 ```
 
-Program menampilkan
+Jika gagal.
 
 ```
-Input Tidak Valid
+Mohon Lengkapi Persyaratan Terlebih Dahulu
 ```
 
 ---
 
 # Mini Challenge
 
-Buat salah satu program berikut.
+Buat salah satu simulasi berikut menggunakan Nested IF.
 
-- Penentu Diskon Belanja
-- Penentu Umur (Anak, Remaja, Dewasa)
-- Login Sederhana
-- Penentu Cuaca
-- Penilaian Film
-- Penentu Kelulusan Ujian SIM
+- Login ATM
+- Registrasi Sekolah
+- Booking Hotel
+- Pendaftaran Turnamen Game
+- Seleksi Organisasi
+- Registrasi Event
 
-Gunakan minimal:
+Gunakan minimal **3 syarat** sebelum program menyatakan berhasil.
 
-- 1 IF
-- 2 ELIF
-- 1 ELSE
+---
+
+# Tips Membuat Nested IF
+
+✔ Gunakan Nested IF jika proses pemeriksaan dilakukan **bertahap**.
+
+✔ Gunakan nama variable yang jelas.
+
+✔ Pastikan indentasi rapi agar program mudah dibaca.
+
+✔ Berikan pesan yang berbeda untuk setiap kondisi gagal agar pengguna mengetahui penyebabnya.
 
 ---
 
 # Kesalahan yang Sering Terjadi
+
+❌ Lupa indentasi.
+
+Salah
+
+```python
+if umur >= 17:
+if ktp == "ya":
+    print("Lolos")
+```
+
+Benar
+
+```python
+if umur >= 17:
+    if ktp == "ya":
+        print("Lolos")
+```
+
+---
 
 ❌ Menggunakan `=` pada kondisi.
 
 Salah
 
 ```python
-if nilai = 75:
+if ktp = "ya":
 ```
 
 Benar
 
 ```python
-if nilai == 75:
+if ktp == "ya":
 ```
 
 ---
 
-❌ Lupa tanda titik dua (`:`)
+❌ Salah menempatkan `else`.
 
 Salah
 
 ```python
-if nilai >= 75
+if umur >= 17:
+    if ktp == "ya":
+        print("Lolos")
+else:
+    print("Gagal")
 ```
 
-Benar
-
-```python
-if nilai >= 75:
-```
+Pastikan `else` memiliki pasangan `if` yang sesuai.
 
 ---
 
-❌ Indentasi salah
+❌ Terlalu banyak Nested IF.
 
-Salah
-
-```python
-if nilai >= 75:
-print("Lulus")
-```
-
-Benar
-
-```python
-if nilai >= 75:
-    print("Lulus")
-```
-
----
-
-❌ Urutan kondisi salah
-
-Salah
-
-```python
-if nilai >= 70:
-    print("C")
-elif nilai >= 90:
-    print("A")
-```
-
-Karena nilai 95 akan langsung masuk ke kondisi pertama.
-
-Urutan yang benar dimulai dari nilai tertinggi.
+Jika percabangan mulai terlalu dalam (lebih dari 3–4 tingkat), pertimbangkan menggunakan `elif` atau menggabungkan kondisi dengan operator logical agar kode lebih mudah dibaca.
 
 ---
 
@@ -573,23 +566,19 @@ Urutan yang benar dimulai dari nilai tertinggi.
 
 Hari ini kita telah belajar:
 
-✅ Konsep Conditional
+✅ Konsep Nested IF
 
-✅ IF
+✅ Perbedaan IF dan Nested IF
 
-✅ ELSE
+✅ Percabangan Bertingkat
 
-✅ ELIF
+✅ Nested IF dengan ELSE
 
-✅ Indentasi Python
+✅ Menggabungkan Input dan Nested IF
 
-✅ Operator Comparison
+✅ Menggunakan Operator Logical
 
-✅ Operator Logical
-
-✅ Membuat keputusan pada program
-
-✅ Membuat aplikasi Cek Kelulusan Siswa
+✅ Membuat Simulasi Pendaftaran SIM
 
 ---
 
@@ -597,8 +586,9 @@ Hari ini kita telah belajar:
 
 Pada pertemuan berikutnya kita akan belajar:
 
-- Nested IF (IF di dalam IF)
-- Percabangan bertingkat
-- Menggabungkan banyak kondisi
-- Studi kasus logika kompleks
-- Project: Aplikasi Pembuatan SIM
+- Perulangan (Looping)
+- While Loop
+- For Loop
+- Fungsi `range()`
+- Menghindari Infinite Loop
+- Project: Password Checker & Tabel Perkalian
