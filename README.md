@@ -1,9 +1,9 @@
-# Pertemuan 10 — Looping Lanjutan (For Loop & Tabel Perkalian)
+# Pertemuan 11 — Nested Loop (Loop di Dalam Loop)
 
 > **Grade:** 10 SMA
 > **Durasi:** 70 Menit
 > **Platform:** Python
-> **Project:** Tabel Perkalian
+> **Project:** Membuat Pola (Pattern)
 
 ---
 
@@ -11,11 +11,12 @@
 
 Pada akhir pembelajaran, siswa mampu:
 
-- Memahami penggunaan `for` secara lebih mendalam.
-- Menggunakan fungsi `range()` dengan berbagai parameter.
-- Membuat tabel perkalian menggunakan perulangan.
-- Menggabungkan input, operator, dan perulangan.
-- Menghindari penulisan kode yang berulang (redundansi).
+- Memahami konsep Nested Loop.
+- Mengetahui perbedaan Loop biasa dan Nested Loop.
+- Menggunakan `for` di dalam `for`.
+- Membuat berbagai pola menggunakan Nested Loop.
+- Menganalisis hubungan antara baris dan kolom.
+- Membuat pola sederhana menggunakan karakter.
 
 ---
 
@@ -23,570 +24,543 @@ Pada akhir pembelajaran, siswa mampu:
 
 Pada pertemuan sebelumnya kita telah belajar:
 
-- While Loop
 - For Loop
+- While Loop
 - range()
-- Counter
-- Infinite Loop
-- Password Checker
+- Tabel Perkalian
 
-Hari ini kita akan menggunakan **For Loop** untuk membuat program yang lebih bermanfaat.
+Hari ini kita akan belajar bagaimana membuat **perulangan di dalam perulangan**.
 
 ---
 
-# Mengapa Menggunakan For Loop?
+# Apa itu Nested Loop?
 
-Bayangkan kita ingin membuat tabel perkalian angka 5.
+Nested Loop adalah **Loop yang berada di dalam Loop lainnya**.
 
-Tanpa Loop
+Artinya, ketika Loop luar berjalan satu kali, Loop dalam akan berjalan hingga selesai.
 
-```python
-print("5 x 1 =", 5 * 1)
-print("5 x 2 =", 5 * 2)
-print("5 x 3 =", 5 * 3)
-print("5 x 4 =", 5 * 4)
-print("5 x 5 =", 5 * 5)
-print("5 x 6 =", 5 * 6)
-print("5 x 7 =", 5 * 7)
-print("5 x 8 =", 5 * 8)
-print("5 x 9 =", 5 * 9)
-print("5 x 10 =", 5 * 10)
+Contohnya seperti kalender.
+
+```
+Minggu
+
+↓
+
+Senin
+Selasa
+Rabu
+Kamis
+Jumat
+Sabtu
+Minggu
 ```
 
-Terlalu panjang.
-
-Dengan Loop
-
-```python
-for i in range(1,11):
-    print("5 x", i, "=", 5 * i)
-```
-
-Lebih singkat dan mudah dipahami.
+Setiap minggu memiliki beberapa hari.
 
 ---
 
-# Review range()
+# Analogi Nested Loop
 
-Bentuk pertama
+Bayangkan sebuah gedung sekolah.
+
+```
+Lantai 1
+
+→ Ruang 1
+→ Ruang 2
+→ Ruang 3
+
+Lantai 2
+
+→ Ruang 1
+→ Ruang 2
+→ Ruang 3
+```
+
+Setiap lantai memiliki beberapa ruangan.
+
+Loop luar mengulang lantai.
+
+Loop dalam mengulang ruangan.
+
+---
+
+# Struktur Nested Loop
 
 ```python
-range(stop)
+for i in range(...):
+
+    for j in range(...):
+
+        print(...)
+```
+
+Loop luar mengatur jumlah **baris**.
+
+Loop dalam mengatur jumlah **kolom**.
+
+---
+
+# Contoh Pertama
+
+```python
+for i in range(3):
+    for j in range(3):
+        print("*")
+```
+
+Output
+
+```
+*
+*
+*
+*
+*
+*
+*
+*
+*
+```
+
+Karena setiap `print()` berpindah ke baris baru.
+
+---
+
+# Menggunakan end=""
+
+Agar hasil tetap pada baris yang sama gunakan
+
+```python
+end=""
 ```
 
 Contoh
 
 ```python
-range(5)
+for i in range(5):
+    print("*", end="")
 ```
 
-Menghasilkan
+Output
 
 ```
-0
-1
-2
-3
-4
+*****
 ```
 
 ---
 
-Bentuk kedua
+# Membuat Persegi
 
 ```python
-range(start, stop)
+for i in range(5):
+
+    for j in range(5):
+        print("*", end="")
+
+    print()
 ```
 
-Contoh
+Output
+
+```
+*****
+*****
+*****
+*****
+*****
+```
+
+Perhatikan
 
 ```python
-range(1,6)
+print()
 ```
 
-Menghasilkan
-
-```
-1
-2
-3
-4
-5
-```
+digunakan untuk berpindah ke baris berikutnya.
 
 ---
 
-Bentuk ketiga
-
-```python
-range(start, stop, step)
-```
-
-Contoh
-
-```python
-range(2,11,2)
-```
-
-Menghasilkan
+# Memahami Baris dan Kolom
 
 ```
-2
-4
-6
-8
-10
+Baris
+
+↓
+
+*****
+
+*****
+
+*****
+
+↑
+
+Kolom
 ```
+
+Loop luar mengulang jumlah baris.
+
+Loop dalam mengulang jumlah kolom.
 
 ---
 
 # Menampilkan Angka
 
 ```python
-for i in range(1,11):
-    print(i)
+for i in range(3):
+
+    for j in range(5):
+        print(j, end=" ")
+
+    print()
 ```
 
 Output
 
 ```
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
+0 1 2 3 4
+0 1 2 3 4
+0 1 2 3 4
 ```
 
 ---
 
-# Menampilkan Bilangan Genap
+# Menggunakan Variable Loop
 
 ```python
-for i in range(2,21,2):
-    print(i)
+for baris in range(3):
+
+    for kolom in range(4):
+        print("*", end=" ")
+
+    print()
 ```
 
-Output
-
-```
-2
-4
-6
-8
-10
-12
-14
-16
-18
-20
-```
+Menggunakan nama variable yang jelas membuat kode lebih mudah dipahami.
 
 ---
 
-# Menampilkan Bilangan Ganjil
+# Membuat Persegi Panjang
 
 ```python
-for i in range(1,20,2):
-    print(i)
+for baris in range(4):
+
+    for kolom in range(8):
+        print("#", end=" ")
+
+    print()
 ```
 
 Output
 
 ```
-1
-3
-5
-7
-9
-11
-13
-15
-17
-19
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
 ```
 
 ---
 
 # Menggunakan Input
 
-Program dapat meminta angka terlebih dahulu.
+Pengguna dapat menentukan ukuran pola.
 
 ```python
-angka = int(input("Masukkan Angka : "))
+ukuran = int(input("Masukkan Ukuran : "))
 ```
 
 Kemudian
 
 ```python
-for i in range(1,11):
-    print(angka * i)
+for i in range(ukuran):
+
+    for j in range(ukuran):
+        print("*", end="")
+
+    print()
 ```
 
 ---
 
-# Membuat Tabel Perkalian
-
-```python
-angka = int(input("Masukkan Angka : "))
-
-for i in range(1,11):
-    print(f"{angka} x {i} = {angka * i}")
-```
-
-Output
+# Diagram Nested Loop
 
 ```
-Masukkan Angka : 7
-
-7 x 1 = 7
-7 x 2 = 14
-7 x 3 = 21
-...
-7 x 10 = 70
-```
-
----
-
-# Menggunakan f-string
-
-Contoh
-
-```python
-angka = 9
-
-for i in range(1,11):
-    print(f"{angka} x {i} = {angka*i}")
-```
-
-Output menjadi lebih rapi.
-
----
-
-# Diagram Program
-
-```
-Mulai
+Loop Luar
 
 ↓
 
-Input Angka
+Baris 1
 
 ↓
 
-Perulangan
-
-1 sampai 10
+Loop Dalam
 
 ↓
 
-Hitung
-
-Angka × i
-
-↓
-
-Tampilkan
+Kolom 1
+Kolom 2
+Kolom 3
 
 ↓
 
 Selesai
+
+↓
+
+Baris 2
+
+↓
+
+Loop Dalam Lagi
 ```
-
----
-
-# Menggunakan Operator di Dalam Loop
-
-```python
-for i in range(1,6):
-    hasil = i * 10
-    print(hasil)
-```
-
-Output
-
-```
-10
-20
-30
-40
-50
-```
-
----
-
-# Menggabungkan Loop dan IF
-
-Kita juga bisa menggunakan IF di dalam Loop.
-
-```python
-for i in range(1,11):
-
-    if i % 2 == 0:
-        print(i)
-```
-
-Output
-
-```
-2
-4
-6
-8
-10
-```
-
-Program hanya menampilkan bilangan genap.
 
 ---
 
 # Contoh Program Lengkap
 
 ```python
-angka = int(input("Masukkan Angka : "))
+ukuran = int(input("Masukkan Ukuran : "))
 
 print()
-print("======================")
-print("TABEL PERKALIAN")
-print("======================")
 
-for i in range(1,11):
-    print(f"{angka} x {i} = {angka*i}")
+for baris in range(ukuran):
 
-print("======================")
+    for kolom in range(ukuran):
+        print("*", end=" ")
+
+    print()
+```
+
+Output
+
+```
+Masukkan Ukuran : 5
+
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+* * * * *
 ```
 
 ---
 
 # Project Hari Ini
 
-## Tabel Perkalian
+## Membuat Pola
 
-Buat program yang meminta pengguna memasukkan sebuah angka.
+Buat program yang meminta pengguna memasukkan ukuran pola.
 
-Kemudian tampilkan tabel perkalian dari angka tersebut mulai dari:
-
-```
-1
-
-sampai
-
-10
-```
-
-Contoh
+Misalnya
 
 ```
-=========================
-TABEL PERKALIAN
-=========================
-
-8 x 1 = 8
-8 x 2 = 16
-8 x 3 = 24
-8 x 4 = 32
-8 x 5 = 40
-8 x 6 = 48
-8 x 7 = 56
-8 x 8 = 64
-8 x 9 = 72
-8 x 10 = 80
-
-=========================
+Ukuran : 6
 ```
+
+Program menghasilkan
+
+```
+******
+******
+******
+******
+******
+******
+```
+
+Gunakan **Nested Loop**.
 
 ---
 
 # Challenge 1
 
-Biarkan pengguna menentukan batas perkalian.
+Buat pola angka.
 
-Input
-
-```
-Angka : 5
-
-Sampai : 20
-```
-
-Output
+Contoh
 
 ```
-5 x 1 = 5
-
-...
-
-5 x 20 = 100
+11111
+22222
+33333
+44444
+55555
 ```
+
+Petunjuk
+
+Gunakan variable dari Loop luar.
 
 ---
 
 # Challenge 2
 
-Tambahkan keterangan.
-
-Jika hasil perkalian lebih dari 50.
-
-Tampilkan
+Buat pola seperti berikut.
 
 ```
-Besar
+12345
+12345
+12345
+12345
+12345
 ```
 
-Jika tidak.
+Petunjuk
 
-Tampilkan
-
-```
-Kecil
-```
-
-Contoh
-
-```
-5 x 9 = 45 → Kecil
-
-5 x 10 = 50 → Kecil
-
-5 x 11 = 55 → Besar
-```
+Gunakan variable dari Loop dalam.
 
 ---
 
 # Challenge 3
 
-Hitung jumlah seluruh hasil perkalian.
+Buat papan permainan sederhana.
 
 Contoh
 
 ```
-5 x 1 = 5
+□ □ □ □ □
 
-...
+□ □ □ □ □
 
-5 x 10 = 50
+□ □ □ □ □
 
--------------------
+□ □ □ □ □
 
-Total = 275
+□ □ □ □ □
 ```
 
-Petunjuk
-
-Gunakan variable
-
-```python
-total = 0
-```
-
-Kemudian tambahkan setiap hasil perkalian ke dalam variable tersebut.
+Gunakan karakter lain jika terminal tidak mendukung simbol kotak.
 
 ---
 
 # Mini Challenge
 
-Buat salah satu program berikut menggunakan **For Loop**.
+Buat salah satu pola berikut.
 
-- Tabel Pembagian
-- Tabel Penjumlahan
-- Tabel Pengurangan
-- Konversi Meter ke Centimeter
-- Konversi Celsius ke Fahrenheit
-- Daftar Nomor Antrian
+Pola 1
 
-Gunakan minimal **1 input** dan **1 perulangan**.
+```
+@@@@@
+@@@@@
+@@@@@
+@@@@@
+@@@@@
+```
+
+---
+
+Pola 2
+
+```
+AAAAA
+BBBBB
+CCCCC
+DDDDD
+EEEEE
+```
+
+---
+
+Pola 3
+
+```
+#####
+#####
+#####
+#####
+#####
+```
+
+Gunakan ukuran yang dimasukkan oleh pengguna.
 
 ---
 
 # Tips
 
-✔ Gunakan `range(1,11)` jika ingin menghitung dari 1 sampai 10.
+✔ Loop luar biasanya digunakan untuk **baris**.
 
-✔ Gunakan **f-string** agar output lebih mudah dibaca.
+✔ Loop dalam biasanya digunakan untuk **kolom**.
 
-✔ Simpan hasil perhitungan ke dalam variable jika akan digunakan kembali.
+✔ Gunakan `end=""` agar karakter tetap berada pada baris yang sama.
 
-✔ Hindari menulis kode yang sama berulang-ulang.
+✔ Gunakan `print()` kosong untuk pindah ke baris berikutnya.
+
+✔ Berikan nama variable yang jelas seperti `baris` dan `kolom`.
 
 ---
 
 # Kesalahan yang Sering Terjadi
 
-❌ Salah menentukan batas `range()`.
-
-```python
-range(10)
-```
-
-Menghasilkan
-
-```
-0 sampai 9
-```
-
-Jika ingin
-
-```
-1 sampai 10
-```
-
-Gunakan
-
-```python
-range(1,11)
-```
-
----
-
-❌ Lupa mengubah input menjadi Integer.
+❌ Lupa menggunakan `end=""`.
 
 Salah
 
 ```python
-angka = input()
+print("*")
+```
+
+Output
+
+```
+*
+*
+*
+*
+*
 ```
 
 Benar
 
 ```python
-angka = int(input())
+print("*", end="")
+```
+
+Output
+
+```
+*****
 ```
 
 ---
 
-❌ Salah menggunakan operator perkalian.
+❌ Lupa `print()` setelah Loop dalam selesai.
 
-Salah
-
-```python
-angka + i
-```
-
-Padahal yang diinginkan adalah
-
-```python
-angka * i
-```
+Akibatnya semua karakter akan tercetak dalam satu baris panjang.
 
 ---
 
-❌ Salah menulis f-string.
+❌ Salah indentasi.
 
 Salah
 
 ```python
-print("{angka}")
+for i in range(5):
+for j in range(5):
+    print("*")
 ```
 
 Benar
 
 ```python
-print(f"{angka}")
+for i in range(5):
+    for j in range(5):
+        print("*", end="")
+
+    print()
 ```
+
+---
+
+❌ Menggunakan ukuran yang salah.
+
+Jika pengguna memasukkan ukuran.
+
+```
+5
+```
+
+Pastikan kedua Loop menggunakan ukuran tersebut.
 
 ---
 
@@ -594,19 +568,19 @@ print(f"{angka}")
 
 Hari ini kita telah belajar:
 
-✅ For Loop
+✅ Konsep Nested Loop
 
-✅ range()
+✅ Loop di dalam Loop
 
-✅ Input pada Loop
+✅ Hubungan Baris dan Kolom
 
-✅ Membuat Tabel Perkalian
+✅ `end=""`
 
-✅ Menggabungkan Loop dan IF
+✅ Membuat Pola
 
-✅ Menggunakan Operator dalam Loop
+✅ Menggunakan Input pada Nested Loop
 
-✅ Mengurangi penulisan kode yang berulang
+✅ Membuat papan sederhana menggunakan Nested Loop
 
 ---
 
@@ -614,8 +588,9 @@ Hari ini kita telah belajar:
 
 Pada pertemuan berikutnya kita akan belajar:
 
-- Nested Loop
-- Loop di dalam Loop
-- Membuat berbagai pola (Pattern)
-- Menggunakan beberapa perulangan sekaligus
-- Project: Membuat Pola
+- Function
+- Keyword `def`
+- Memanggil Function
+- Parameter sederhana
+- Manfaat Function untuk membuat kode lebih rapi
+- Project: Sapaan Robot
