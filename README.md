@@ -1,9 +1,9 @@
-# Pertemuan 6 — Basic Operations (Operator pada Python)
+# Pertemuan 7 — Conditional (IF, ELIF, ELSE)
 
 > **Grade:** 10 SMA
 > **Durasi:** 70 Menit
 > **Platform:** Python
-> **Project:** Kasir Sederhana
+> **Project:** Cek Kelulusan Siswa
 
 ---
 
@@ -11,13 +11,12 @@
 
 Pada akhir pembelajaran, siswa mampu:
 
-- Memahami fungsi operator dalam Python.
-- Menggunakan Operator Aritmatika.
-- Menggunakan Operator Assignment.
-- Menggunakan Operator Comparison.
-- Menggunakan Operator Logical.
-- Menggabungkan operator dalam sebuah program.
-- Membuat program Kasir Sederhana.
+- Memahami konsep pengambilan keputusan (Decision Making).
+- Memahami fungsi `if`, `elif`, dan `else`.
+- Memahami pentingnya indentasi pada Python.
+- Menggunakan operator comparison dan logical pada percabangan.
+- Membuat program sederhana yang dapat mengambil keputusan.
+- Membuat aplikasi Cek Kelulusan Siswa.
 
 ---
 
@@ -25,446 +24,296 @@ Pada akhir pembelajaran, siswa mampu:
 
 Pada pertemuan sebelumnya kita telah belajar:
 
-- Library Python
-- import
-- random
-- time
-- os
-
-Hari ini kita akan belajar bagaimana komputer **menghitung**, **membandingkan**, dan **mengambil keputusan** menggunakan operator.
-
----
-
-# Apa itu Operator?
-
-Operator adalah simbol yang digunakan untuk melakukan suatu operasi pada data.
-
-Contohnya:
-
-```
-+
--
-*
-/
-==
->
-<
-```
-
-Operator membantu komputer melakukan berbagai perhitungan dan logika.
-
----
-
-# Jenis Operator
-
-Hari ini kita akan mempelajari empat jenis operator.
-
 - Operator Aritmatika
 - Operator Assignment
 - Operator Comparison
 - Operator Logical
 
----
-
-# Operator Aritmatika
-
-Operator aritmatika digunakan untuk melakukan perhitungan matematika.
-
-| Operator | Fungsi             |
-| -------- | ------------------ |
-| +        | Penjumlahan        |
-| -        | Pengurangan        |
-| \*       | Perkalian          |
-| /        | Pembagian          |
-| //       | Pembagian Bulat    |
-| %        | Sisa Bagi (Modulo) |
-| \*\*     | Pangkat            |
+Hari ini kita akan menggunakan semua operator tersebut untuk membuat komputer **mengambil keputusan**.
 
 ---
 
-# Penjumlahan
+# Apa itu Conditional?
+
+Conditional adalah proses pengambilan keputusan berdasarkan suatu kondisi.
+
+Contoh dalam kehidupan sehari-hari:
+
+```
+Jika hujan
+→ membawa payung
+
+Jika tidak hujan
+→ tidak membawa payung
+```
+
+Komputer juga bekerja dengan cara yang sama.
+
+---
+
+# Mengapa Conditional Dibutuhkan?
+
+Banyak program menggunakan percabangan.
+
+Contohnya:
+
+- Login akun
+- ATM
+- Mesin kasir
+- Game
+- Sistem absensi
+- Penilaian siswa
+
+Semua program tersebut harus memilih tindakan berdasarkan kondisi tertentu.
+
+---
+
+# Struktur IF
+
+Sintaks dasar
 
 ```python
-a = 10
-b = 5
-
-print(a + b)
+if kondisi:
+    perintah
 ```
-
-Output
-
-```
-15
-```
-
----
-
-# Pengurangan
-
-```python
-print(10 - 4)
-```
-
-Output
-
-```
-6
-```
-
----
-
-# Perkalian
-
-```python
-print(8 * 3)
-```
-
-Output
-
-```
-24
-```
-
----
-
-# Pembagian
-
-```python
-print(10 / 2)
-```
-
-Output
-
-```
-5.0
-```
-
-Perhatikan bahwa hasil pembagian selalu bertipe **float**.
-
----
-
-# Pembagian Bulat
-
-```python
-print(10 // 3)
-```
-
-Output
-
-```
-3
-```
-
-Bagian desimal akan dibuang.
-
----
-
-# Modulo (%)
-
-Modulo digunakan untuk mencari sisa hasil pembagian.
-
-```python
-print(10 % 3)
-```
-
-Output
-
-```
-1
-```
-
-Contoh lain
-
-```
-8 % 2 = 0
-```
-
-Artinya 8 habis dibagi 2.
-
-Modulo sering digunakan untuk mengecek bilangan genap dan ganjil.
-
----
-
-# Pangkat
-
-```python
-print(2 ** 3)
-```
-
-Output
-
-```
-8
-```
-
-Karena
-
-```
-2 × 2 × 2 = 8
-```
-
----
-
-# Operator Assignment
-
-Operator Assignment digunakan untuk memberikan atau memperbarui nilai suatu variable.
-
-Operator yang sering digunakan:
-
-| Operator | Contoh  |
-| -------- | ------- |
-| =        | x = 5   |
-| +=       | x += 2  |
-| -=       | x -= 2  |
-| \*=      | x \*= 2 |
-| /=       | x /= 2  |
-
----
-
-# Assignment Dasar
-
-```python
-score = 100
-```
-
-Artinya
-
-```
-Masukkan nilai 100 ke dalam variable score.
-```
-
----
-
-# Operator +=
-
-```python
-score = 100
-
-score += 20
-
-print(score)
-```
-
-Output
-
-```
-120
-```
-
-Sama dengan
-
-```python
-score = score + 20
-```
-
----
-
-# Operator -=
-
-```python
-uang = 50000
-
-uang -= 10000
-
-print(uang)
-```
-
-Output
-
-```
-40000
-```
-
----
-
-# Operator \*=
-
-```python
-jumlah = 5
-
-jumlah *= 3
-
-print(jumlah)
-```
-
-Output
-
-```
-15
-```
-
----
-
-# Operator Comparison
-
-Operator Comparison digunakan untuk membandingkan dua nilai.
-
-Hasilnya selalu:
-
-```
-True
-```
-
-atau
-
-```
-False
-```
-
----
-
-| Operator | Arti                  |
-| -------- | --------------------- |
-| ==       | Sama dengan           |
-| !=       | Tidak sama dengan     |
-| >        | Lebih besar           |
-| <        | Lebih kecil           |
-| >=       | Lebih besar atau sama |
-| <=       | Lebih kecil atau sama |
-
----
-
-# Contoh Comparison
-
-```python
-print(10 > 5)
-```
-
-Output
-
-```
-True
-```
-
----
-
-```python
-print(3 > 7)
-```
-
-Output
-
-```
-False
-```
-
----
-
-```python
-print(10 == 10)
-```
-
-Output
-
-```
-True
-```
-
----
-
-```python
-print(10 != 5)
-```
-
-Output
-
-```
-True
-```
-
----
-
-# Operator Logical
-
-Operator Logical digunakan untuk menggabungkan beberapa kondisi.
-
-Operator yang digunakan:
-
-| Operator | Fungsi                   |
-| -------- | ------------------------ |
-| and      | Semua kondisi harus True |
-| or       | Salah satu kondisi True  |
-| not      | Membalik hasil           |
-
----
-
-# Operator AND
-
-```python
-umur = 18
-
-print(umur >= 17 and umur <= 25)
-```
-
-Output
-
-```
-True
-```
-
-Karena kedua kondisi benar.
-
----
-
-# Operator OR
-
-```python
-print(10 > 20 or 10 < 20)
-```
-
-Output
-
-```
-True
-```
-
-Karena salah satu kondisi benar.
-
----
-
-# Operator NOT
-
-```python
-print(not True)
-```
-
-Output
-
-```
-False
-```
-
----
-
-```python
-print(not False)
-```
-
-Output
-
-```
-True
-```
-
----
-
-# Menggabungkan Operator
 
 Contoh
 
 ```python
-harga = 5000
-jumlah = 3
+umur = 18
 
-total = harga * jumlah
-
-print(total)
+if umur >= 17:
+    print("Boleh Membuat SIM")
 ```
 
 Output
 
 ```
-15000
+Boleh Membuat SIM
+```
+
+---
+
+# Bagaimana IF Bekerja?
+
+Program membaca kondisi terlebih dahulu.
+
+```
+Apakah umur >= 17 ?
+
+Ya
+↓
+
+Jalankan kode
+
+Tidak
+↓
+
+Lewati kode
+```
+
+---
+
+# Contoh Lain
+
+```python
+nilai = 90
+
+if nilai >= 75:
+    print("Lulus")
+```
+
+Output
+
+```
+Lulus
+```
+
+---
+
+Jika nilainya
+
+```python
+nilai = 60
+```
+
+Maka tidak ada output karena kondisi bernilai **False**.
+
+---
+
+# Mengenal ELSE
+
+`else` dijalankan ketika kondisi pada `if` bernilai **False**.
+
+Contoh
+
+```python
+nilai = 60
+
+if nilai >= 75:
+    print("Lulus")
+else:
+    print("Tidak Lulus")
+```
+
+Output
+
+```
+Tidak Lulus
+```
+
+---
+
+# Alur IF ELSE
+
+```
+        Kondisi
+
+        True
+          │
+          ▼
+     Jalankan IF
+
+        False
+          │
+          ▼
+    Jalankan ELSE
+```
+
+---
+
+# Mengenal ELIF
+
+Kadang kita memiliki lebih dari dua pilihan.
+
+Gunakan
+
+```python
+elif
+```
+
+Contoh
+
+```python
+nilai = 85
+
+if nilai >= 90:
+    print("Grade A")
+elif nilai >= 80:
+    print("Grade B")
+else:
+    print("Grade C")
+```
+
+Output
+
+```
+Grade B
+```
+
+---
+
+# Urutan Pemeriksaan
+
+Python membaca kondisi dari atas ke bawah.
+
+Jika salah satu kondisi sudah benar, maka kondisi berikutnya tidak diperiksa lagi.
+
+Contoh
+
+```python
+nilai = 95
+
+if nilai >= 90:
+    print("A")
+elif nilai >= 80:
+    print("B")
+else:
+    print("C")
+```
+
+Output
+
+```
+A
+```
+
+---
+
+# Pentingnya Indentasi
+
+Python menggunakan indentasi untuk menentukan blok kode.
+
+Contoh yang benar
+
+```python
+if nilai >= 75:
+    print("Lulus")
+```
+
+---
+
+Contoh yang salah
+
+```python
+if nilai >= 75:
+print("Lulus")
+```
+
+Python akan menghasilkan error.
+
+Gunakan **4 spasi** atau **1 tombol Tab** setelah tanda titik dua (`:`).
+
+---
+
+# Menggunakan Operator Comparison
+
+```python
+umur = 20
+
+if umur >= 17:
+    print("Dewasa")
+```
+
+Operator yang sering digunakan:
+
+- >
+- <
+- > =
+- <=
+- ==
+- !=
+
+---
+
+# Menggunakan Operator Logical
+
+Contoh
+
+```python
+umur = 20
+
+if umur >= 17 and umur <= 25:
+    print("Remaja Akhir")
+```
+
+Kedua kondisi harus bernilai True.
+
+---
+
+Contoh menggunakan OR
+
+```python
+hari = "Sabtu"
+
+if hari == "Sabtu" or hari == "Minggu":
+    print("Libur")
+```
+
+Output
+
+```
+Libur
 ```
 
 ---
@@ -472,202 +321,251 @@ Output
 # Contoh Program
 
 ```python
-harga = int(input("Harga Barang : "))
-jumlah = int(input("Jumlah Barang : "))
+nilai = int(input("Masukkan Nilai : "))
 
-total = harga * jumlah
-
-print()
-print("===== STRUK PEMBELIAN =====")
-print(f"Harga Barang : Rp {harga}")
-print(f"Jumlah Barang : {jumlah}")
-print(f"Total Bayar : Rp {total}")
+if nilai >= 75:
+    print("Selamat, Anda Lulus!")
+else:
+    print("Maaf, Anda Belum Lulus.")
 ```
 
 Output
 
 ```
-Harga Barang : 5000
-Jumlah Barang : 4
+Masukkan Nilai : 85
 
-===== STRUK PEMBELIAN =====
-Harga Barang : Rp 5000
-Jumlah Barang : 4
-Total Bayar : Rp 20000
+Selamat, Anda Lulus!
+```
+
+---
+
+# Menentukan Grade
+
+```python
+nilai = int(input("Nilai : "))
+
+if nilai >= 90:
+    print("Grade A")
+elif nilai >= 80:
+    print("Grade B")
+elif nilai >= 70:
+    print("Grade C")
+else:
+    print("Grade D")
+```
+
+---
+
+# Diagram Percabangan
+
+```
+          Nilai
+
+            │
+            ▼
+
+      Nilai >= 75 ?
+
+       ┌──────────┐
+     Ya│          │Tidak
+       ▼          ▼
+
+    LULUS     TIDAK LULUS
 ```
 
 ---
 
 # Project Hari Ini
 
-## Kasir Sederhana
+## Cek Kelulusan Siswa
 
 Buat program yang meminta pengguna memasukkan:
 
-- Nama Barang
-- Harga Barang
-- Jumlah Barang
+- Nama Siswa
+- Nilai
 
-Program kemudian menghitung:
+Kemudian tampilkan hasilnya.
+
+Aturan:
 
 ```
-Total = Harga × Jumlah
-```
+Nilai >= 75
+→ Lulus
 
-Lalu tampilkan hasilnya dalam bentuk struk.
+Nilai < 75
+→ Tidak Lulus
+```
 
 Contoh
 
 ```
-===========================
-      MINI CASHIER
-===========================
+==========================
+CEK KELULUSAN SISWA
+==========================
 
-Nama Barang  : Pensil
-Harga        : Rp 5.000
-Jumlah       : 4
+Nama  : Andi
+Nilai : 88
 
----------------------------
-Total Bayar  : Rp 20.000
-===========================
+Status : LULUS
+
+==========================
 ```
 
 ---
 
 # Challenge 1
 
-Tambahkan fitur:
+Tambahkan penilaian Grade.
 
-- Diskon 10%
-- Hitung Total Setelah Diskon
+Aturan
+
+```
+90 - 100 → A
+
+80 - 89 → B
+
+70 - 79 → C
+
+< 70 → D
+```
 
 Contoh
 
 ```
-Subtotal : Rp 100000
-Diskon   : Rp 10000
+Nama : Sandy
 
-Total    : Rp 90000
+Nilai : 95
+
+Grade : A
 ```
 
 ---
 
 # Challenge 2
 
-Tambahkan input:
-
-- Uang Pembeli
-
-Kemudian hitung
+Tambahkan kategori.
 
 ```
-Kembalian
-```
+A → Sangat Baik
 
-Contoh
+B → Baik
 
-```
-Total Bayar : Rp 45000
+C → Cukup
 
-Uang Pembeli : Rp 50000
-
-Kembalian : Rp 5000
+D → Perlu Belajar Lagi
 ```
 
 ---
 
 # Challenge 3
 
-Gunakan Operator Comparison.
+Tambahkan validasi nilai.
 
-Jika uang pembeli kurang.
-
-Tampilkan
+Jika nilai
 
 ```
-Uang Tidak Cukup
+< 0
 ```
 
-Jika cukup.
-
-Tampilkan
+atau
 
 ```
-Terima Kasih Sudah Berbelanja
+> 100
+```
+
+Program menampilkan
+
+```
+Input Tidak Valid
 ```
 
 ---
 
 # Mini Challenge
 
-Buat program kasir untuk salah satu tempat berikut.
+Buat salah satu program berikut.
 
-- Toko Buku
-- Minimarket
-- Toko Game
-- Toko Komputer
-- Kafetaria Sekolah
-- Bioskop
+- Penentu Diskon Belanja
+- Penentu Umur (Anak, Remaja, Dewasa)
+- Login Sederhana
+- Penentu Cuaca
+- Penilaian Film
+- Penentu Kelulusan Ujian SIM
 
-Tambahkan minimal **5 barang** beserta harga masing-masing.
+Gunakan minimal:
+
+- 1 IF
+- 2 ELIF
+- 1 ELSE
 
 ---
 
 # Kesalahan yang Sering Terjadi
 
-❌ Menggunakan `=` untuk membandingkan nilai.
+❌ Menggunakan `=` pada kondisi.
 
 Salah
 
 ```python
-print(10 = 10)
+if nilai = 75:
 ```
 
 Benar
 
 ```python
-print(10 == 10)
+if nilai == 75:
 ```
 
 ---
 
-❌ Lupa mengubah input menjadi Integer.
+❌ Lupa tanda titik dua (`:`)
 
 Salah
 
 ```python
-harga = input("Harga : ")
-jumlah = input("Jumlah : ")
-
-print(harga * jumlah)
+if nilai >= 75
 ```
-
-Karena `input()` menghasilkan String.
 
 Benar
 
 ```python
-harga = int(input("Harga : "))
-jumlah = int(input("Jumlah : "))
+if nilai >= 75:
 ```
 
 ---
 
-❌ Salah menggunakan operator logika.
+❌ Indentasi salah
 
-Contoh
-
-```python
-umur >= 17 or umur <= 25
-```
-
-Hampir selalu bernilai True.
-
-Yang benar
+Salah
 
 ```python
-umur >= 17 and umur <= 25
+if nilai >= 75:
+print("Lulus")
 ```
+
+Benar
+
+```python
+if nilai >= 75:
+    print("Lulus")
+```
+
+---
+
+❌ Urutan kondisi salah
+
+Salah
+
+```python
+if nilai >= 70:
+    print("C")
+elif nilai >= 90:
+    print("A")
+```
+
+Karena nilai 95 akan langsung masuk ke kondisi pertama.
+
+Urutan yang benar dimulai dari nilai tertinggi.
 
 ---
 
@@ -675,19 +573,23 @@ umur >= 17 and umur <= 25
 
 Hari ini kita telah belajar:
 
-✅ Operator Aritmatika
+✅ Konsep Conditional
 
-✅ Operator Assignment
+✅ IF
+
+✅ ELSE
+
+✅ ELIF
+
+✅ Indentasi Python
 
 ✅ Operator Comparison
 
 ✅ Operator Logical
 
-✅ Menggabungkan beberapa operator
+✅ Membuat keputusan pada program
 
-✅ Menghitung menggunakan operator
-
-✅ Membuat Program Kasir Sederhana
+✅ Membuat aplikasi Cek Kelulusan Siswa
 
 ---
 
@@ -695,8 +597,8 @@ Hari ini kita telah belajar:
 
 Pada pertemuan berikutnya kita akan belajar:
 
-- Conditional (IF)
-- IF, ELIF, ELSE
-- Indentasi pada Python
-- Pengambilan Keputusan
-- Project: Cek Kelulusan Siswa
+- Nested IF (IF di dalam IF)
+- Percabangan bertingkat
+- Menggabungkan banyak kondisi
+- Studi kasus logika kompleks
+- Project: Aplikasi Pembuatan SIM
