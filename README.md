@@ -1,9 +1,9 @@
-# Pertemuan 15 — Final Project (Design & Development)
+# Pertemuan 16 — Final Project Presentation & Evaluation
 
 > **Grade:** 10 SMA
 > **Durasi:** 70 Menit
 > **Platform:** Python
-> **Project:** Free Project (Perancangan & Pengembangan)
+> **Project:** Final Project Presentation
 
 ---
 
@@ -11,22 +11,481 @@
 
 Pada akhir pembelajaran, siswa mampu:
 
-- Menentukan ide proyek secara mandiri.
-- Membuat Flowchart sederhana sebelum mulai coding.
-- Menggabungkan seluruh materi Python yang telah dipelajari.
-- Menyusun program secara terstruktur menggunakan Function.
-- Melakukan debugging secara mandiri.
-- Memulai pengembangan Final Project.
+- Menyelesaikan Final Project hingga dapat dijalankan tanpa error.
+- Menjelaskan alur logika program yang telah dibuat.
+- Melakukan presentasi hasil karya secara sistematis.
+- Memberikan dan menerima umpan balik (feedback).
+- Melakukan evaluasi terhadap hasil belajar selama satu semester.
 
 ---
 
-# Review Semester Ini
+# Review Pertemuan Sebelumnya
 
-Selama satu semester kita telah mempelajari berbagai konsep dasar Python.
+Pada pertemuan sebelumnya kita telah:
 
-Materi yang telah dipelajari:
+- Menentukan ide proyek.
+- Membuat Flowchart.
+- Menyusun struktur program.
+- Mengembangkan Final Project.
+- Melakukan testing dan debugging.
 
-✅ Python Dasar
+Hari ini kita akan **menyelesaikan proyek** dan mempresentasikan hasil karya kepada teman-teman di kelas.
+
+---
+
+# Apa itu Presentasi Project?
+
+Presentasi Project adalah proses menjelaskan hasil program yang telah dibuat kepada orang lain.
+
+Tujuannya bukan hanya menunjukkan hasil akhir, tetapi juga menjelaskan bagaimana program tersebut bekerja.
+
+Seorang programmer harus mampu menjelaskan hasil pekerjaannya dengan bahasa yang mudah dipahami.
+
+---
+
+# Apa itu Code Review?
+
+Code Review adalah proses melihat kembali kode yang telah dibuat untuk memastikan bahwa program:
+
+- Berjalan dengan baik.
+- Mudah dibaca.
+- Mudah dipahami.
+- Tidak memiliki bug.
+- Menggunakan struktur kode yang rapi.
+
+Dalam dunia kerja, Code Review merupakan salah satu proses yang sangat penting sebelum sebuah aplikasi dirilis.
+
+---
+
+# Checklist Sebelum Presentasi
+
+Pastikan program sudah memenuhi beberapa hal berikut.
+
+☑ Program dapat dijalankan.
+
+☑ Tidak ada Syntax Error.
+
+☑ Tidak ada Runtime Error.
+
+☑ Menggunakan nama variable yang jelas.
+
+☑ Memiliki output yang rapi.
+
+☑ Menggunakan Function.
+
+☑ Menggunakan IF atau Nested IF.
+
+☑ Menggunakan Loop.
+
+☑ Sudah diuji dengan beberapa input.
+
+---
+
+# Alur Presentasi
+
+Setiap siswa akan melakukan presentasi dengan urutan berikut.
+
+```
+Perkenalan
+
+↓
+
+Menjelaskan Ide Project
+
+↓
+
+Menjelaskan Flowchart
+
+↓
+
+Menjalankan Program
+
+↓
+
+Menjelaskan Kode
+
+↓
+
+Demo Program
+
+↓
+
+Tanya Jawab
+
+↓
+
+Selesai
+```
+
+---
+
+# Menjelaskan Ide Project
+
+Saat presentasi, jelaskan beberapa hal berikut.
+
+- Nama Project.
+- Tujuan Project.
+- Masalah apa yang ingin diselesaikan.
+- Mengapa memilih Project tersebut.
+
+Contoh.
+
+```
+Nama Project
+
+Mini Cashier
+
+Tujuan
+
+Menghitung total belanja secara otomatis.
+```
+
+---
+
+# Menjelaskan Flowchart
+
+Tunjukkan Flowchart yang telah dibuat.
+
+Kemudian jelaskan alurnya.
+
+Contoh.
+
+```
+Mulai
+
+↓
+
+Input Nama Barang
+
+↓
+
+Input Harga
+
+↓
+
+Input Jumlah
+
+↓
+
+Hitung Total
+
+↓
+
+Tampilkan Hasil
+
+↓
+
+Selesai
+```
+
+---
+
+# Menjelaskan Kode
+
+Saat menjelaskan kode, fokus pada bagian penting.
+
+Misalnya.
+
+```
+Input
+
+↓
+
+Function
+
+↓
+
+Perhitungan
+
+↓
+
+Percabangan
+
+↓
+
+Perulangan
+
+↓
+
+Output
+```
+
+Tidak perlu menjelaskan setiap baris kode satu per satu.
+
+---
+
+# Demo Program
+
+Jalankan program di depan kelas.
+
+Coba beberapa contoh input.
+
+Misalnya.
+
+```
+Harga
+
+10000
+
+Jumlah
+
+5
+```
+
+Pastikan hasilnya benar.
+
+Kemudian coba input lain.
+
+```
+Harga
+
+25000
+
+Jumlah
+
+3
+```
+
+Program harus tetap berjalan dengan baik.
+
+---
+
+# Menjawab Pertanyaan
+
+Jika guru atau teman bertanya.
+
+Jawablah dengan tenang.
+
+Tidak masalah jika belum mengetahui semuanya.
+
+Yang terpenting adalah dapat menjelaskan logika program yang telah dibuat.
+
+---
+
+# Memberikan Feedback
+
+Saat teman melakukan presentasi.
+
+Berikan komentar yang membangun.
+
+Contoh.
+
+```
+Saya suka tampilan programnya.
+
+Mungkin tampilannya bisa dibuat lebih rapi.
+
+Akan lebih menarik jika ditambahkan menu utama.
+```
+
+Hindari komentar yang menjatuhkan.
+
+---
+
+# Refleksi Belajar
+
+Luangkan waktu untuk menjawab pertanyaan berikut.
+
+Apa materi yang paling mudah dipahami?
+
+Apa materi yang paling sulit?
+
+Project apa yang paling menarik?
+
+Apa yang ingin dipelajari selanjutnya?
+
+Bagaimana perasaanmu setelah berhasil membuat program sendiri?
+
+---
+
+# Project Hari Ini
+
+## Presentasi Final Project
+
+Setiap siswa mempresentasikan proyek yang telah dibuat.
+
+Presentasi minimal menjelaskan.
+
+### 1. Nama Project
+
+Contoh
+
+```
+Mini Cashier
+```
+
+---
+
+### 2. Tujuan Program
+
+Contoh
+
+```
+Menghitung total belanja.
+```
+
+---
+
+### 3. Flowchart
+
+Jelaskan alur program.
+
+---
+
+### 4. Demo Program
+
+Jalankan program.
+
+Masukkan beberapa contoh input.
+
+---
+
+### 5. Penjelasan Kode
+
+Jelaskan bagian berikut.
+
+- Variable
+- Function
+- IF
+- Loop
+- Output
+
+---
+
+### 6. Kesimpulan
+
+Apa yang dipelajari selama membuat project?
+
+---
+
+# Challenge 1
+
+Tambahkan satu fitur baru sebelum presentasi.
+
+Contoh.
+
+- Menu Utama
+- Validasi Input
+- Tampilan Lebih Menarik
+- Warna Terminal (Opsional)
+- Informasi Tambahan
+
+---
+
+# Challenge 2
+
+Cari satu bagian kode yang masih bisa dibuat lebih sederhana.
+
+Perbaiki agar lebih mudah dibaca.
+
+---
+
+# Challenge 3
+
+Lakukan pengujian menggunakan minimal **3 skenario berbeda**.
+
+Contoh.
+
+### Skenario 1
+
+Input normal.
+
+Program berjalan dengan baik.
+
+---
+
+### Skenario 2
+
+Input kosong atau tidak sesuai.
+
+Program tetap aman.
+
+---
+
+### Skenario 3
+
+Input dengan nilai berbeda.
+
+Hasil tetap benar.
+
+---
+
+# Rubrik Penilaian
+
+| Aspek                        | Bobot |
+| ---------------------------- | ----: |
+| Program Berjalan Tanpa Error |   25% |
+| Logika Program               |   20% |
+| Penggunaan Konsep Python     |   20% |
+| Kerapihan Kode               |   15% |
+| Presentasi & Komunikasi      |   10% |
+| Kreativitas Project          |   10% |
+
+---
+
+# Tips Presentasi
+
+✔ Datang dengan program yang sudah siap dijalankan.
+
+✔ Jelaskan menggunakan bahasa yang sederhana.
+
+✔ Tunjukkan bagian kode yang paling penting.
+
+✔ Jangan menghafal, pahami alur program.
+
+✔ Jika terjadi error, tetap tenang dan coba lakukan debugging.
+
+✔ Percaya diri saat menjawab pertanyaan.
+
+---
+
+# Kesalahan yang Sering Terjadi
+
+❌ Program belum diuji sebelum presentasi.
+
+Selalu jalankan program beberapa kali sebelum tampil di depan kelas.
+
+---
+
+❌ Menjelaskan semua baris kode.
+
+Fokus pada logika utama program, bukan setiap karakter yang diketik.
+
+---
+
+❌ Nama variable tidak jelas.
+
+Contoh.
+
+```python
+a = 10
+b = 20
+```
+
+Lebih baik.
+
+```python
+harga = 10
+jumlah = 20
+```
+
+---
+
+❌ Tidak menjelaskan alasan memilih solusi.
+
+Saat presentasi, jelaskan **mengapa** memilih cara tersebut, bukan hanya **bagaimana** program bekerja.
+
+---
+
+# Refleksi Akhir Semester
+
+Selamat!
+
+Kamu telah menyelesaikan materi **Basic Programming Language (Python) Semester 1**.
+
+Selama 16 pertemuan kamu telah mempelajari:
+
+✅ Dasar Python
 
 ✅ Input & Output
 
@@ -50,519 +509,22 @@ Materi yang telah dipelajari:
 
 ✅ Function
 
-✅ Parameter & Return
+✅ Parameter & Return Value
 
 ✅ Debugging
 
-Hari ini kita akan menggabungkan seluruh materi tersebut menjadi sebuah proyek.
+✅ Final Project
+
+Kemampuan-kemampuan ini merupakan fondasi yang sangat penting sebelum mempelajari materi Python yang lebih lanjut.
 
 ---
 
-# Apa itu Final Project?
+# Penutup
 
-Final Project adalah proyek yang dibuat untuk menunjukkan bahwa kita telah memahami seluruh materi selama satu semester.
+Selamat atas kerja keras kalian selama satu semester!
 
-Pada proyek ini siswa bebas memilih ide aplikasi yang ingin dibuat.
+Ingatlah bahwa kemampuan programming bukan diukur dari seberapa banyak bahasa pemrograman yang dipelajari, tetapi dari seberapa sering kalian mencoba, gagal, memperbaiki, dan terus belajar.
 
-Yang terpenting adalah program dapat berjalan dengan baik.
+Teruslah berlatih, bereksperimen, dan jangan takut membuat kesalahan, karena setiap programmer hebat juga memulai dari program sederhana seperti yang telah kalian buat hari ini.
 
----
-
-# Tahapan Membuat Program
-
-Seorang programmer biasanya mengikuti tahapan berikut.
-
-```
-Ide
-
-↓
-
-Flowchart
-
-↓
-
-Coding
-
-↓
-
-Testing
-
-↓
-
-Debugging
-
-↓
-
-Program Selesai
-```
-
-Jangan langsung menulis kode tanpa membuat rencana terlebih dahulu.
-
----
-
-# Menentukan Ide
-
-Pilih proyek yang sederhana tetapi menarik.
-
-Contoh:
-
-- Kasir Mini
-- Login Sederhana
-- Data Siswa
-- Tebak Angka
-- Kalkulator
-- Jadwal Pelajaran
-- Sistem Nilai
-- Daftar Belanja
-- Pendaftaran Lomba
-- Menu Restoran
-
-Pilih proyek yang sesuai dengan kemampuan.
-
----
-
-# Mengenal Flowchart
-
-Flowchart adalah diagram yang menggambarkan alur kerja program.
-
-Flowchart membantu kita memahami urutan proses sebelum mulai menulis kode.
-
----
-
-# Simbol Flowchart Dasar
-
-## Start / End
-
-```
-(Oval)
-
-Mulai
-
-Selesai
-```
-
----
-
-## Process
-
-```
-[ Persegi Panjang ]
-
-Menghitung Total
-
-Menyimpan Data
-```
-
----
-
-## Input / Output
-
-```
-/ Jajar Genjang /
-
-Masukkan Nama
-
-Tampilkan Hasil
-```
-
----
-
-## Decision
-
-```
-< Belah Ketupat >
-
-Apakah Nilai >= 75 ?
-
-Ya / Tidak
-```
-
----
-
-# Contoh Flowchart
-
-Program Kelulusan
-
-```
-Mulai
-
-↓
-
-Input Nama
-
-↓
-
-Input Nilai
-
-↓
-
-Nilai >= 75 ?
-
-↓
-
-Ya --------> Lulus
-
-↓
-
-Tidak -----> Tidak Lulus
-
-↓
-
-Selesai
-```
-
----
-
-# Membagi Program Menjadi Beberapa Bagian
-
-Program yang baik terdiri dari beberapa bagian.
-
-Misalnya
-
-```
-Menu
-
-↓
-
-Input
-
-↓
-
-Perhitungan
-
-↓
-
-Output
-
-↓
-
-Selesai
-```
-
-Jika memungkinkan gunakan Function agar program lebih rapi.
-
----
-
-# Menggunakan Function
-
-Contoh
-
-```python
-def menu():
-    pass
-
-def input_data():
-    pass
-
-def proses():
-    pass
-
-def output():
-    pass
-```
-
-Program menjadi lebih mudah dibaca dibandingkan semua kode ditulis dalam satu tempat.
-
----
-
-# Materi yang Sebaiknya Digunakan
-
-Usahakan Final Project menggunakan beberapa konsep berikut.
-
-- input()
-- print()
-- Variable
-- Operator
-- IF
-- Loop
-- Function
-
-Semakin banyak konsep yang digunakan, semakin baik latihan yang diperoleh.
-
----
-
-# Contoh Struktur Program
-
-```python
-def tampil_judul():
-    print("======================")
-    print("TOKO MINI")
-    print("======================")
-
-def hitung_total(harga, jumlah):
-    return harga * jumlah
-
-tampil_judul()
-
-harga = int(input("Harga : "))
-jumlah = int(input("Jumlah : "))
-
-total = hitung_total(harga, jumlah)
-
-print("Total :", total)
-```
-
----
-
-# Testing Program
-
-Setelah selesai menulis kode, lakukan pengujian.
-
-Coba berbagai kemungkinan.
-
-Contoh
-
-Input benar.
-
-```
-Harga : 10000
-
-Jumlah : 2
-```
-
-Apakah hasilnya benar?
-
----
-
-Coba juga input yang berbeda.
-
-```
-Harga : 0
-
-Jumlah : 5
-```
-
-Apakah program masih berjalan?
-
----
-
-# Debugging
-
-Jika terjadi Error.
-
-Lakukan langkah berikut.
-
-1. Baca Error Message.
-2. Cari baris yang bermasalah.
-3. Perbaiki Error.
-4. Jalankan kembali program.
-
-Jangan langsung mengubah seluruh kode.
-
----
-
-# Checklist Final Project
-
-Sebelum proyek dianggap selesai, pastikan.
-
-☐ Program dapat dijalankan.
-
-☐ Tidak ada Syntax Error.
-
-☐ Tidak ada Runtime Error.
-
-☐ Output sesuai harapan.
-
-☐ Nama variable mudah dipahami.
-
-☐ Kode memiliki indentasi yang rapi.
-
-☐ Menggunakan Function.
-
-☐ Menggunakan minimal satu percabangan.
-
-☐ Menggunakan minimal satu perulangan.
-
----
-
-# Project Hari Ini
-
-## Free Project (Tahap Perancangan & Pengembangan)
-
-Siswa bebas memilih salah satu proyek berikut atau membuat ide sendiri.
-
-### Pilihan 1
-
-Kasir Sederhana
-
----
-
-### Pilihan 2
-
-Login Sederhana
-
----
-
-### Pilihan 3
-
-Sistem Penilaian Siswa
-
----
-
-### Pilihan 4
-
-Kalkulator
-
----
-
-### Pilihan 5
-
-Perpustakaan Mini
-
----
-
-### Pilihan 6
-
-Daftar Belanja
-
----
-
-### Pilihan 7
-
-Pendaftaran Lomba
-
----
-
-### Pilihan 8
-
-Quiz Sederhana
-
----
-
-### Pilihan 9
-
-Game Tebak Angka
-
----
-
-### Pilihan 10
-
-Ide Bebas
-
----
-
-# Persyaratan Project
-
-Project minimal harus menggunakan:
-
-✅ Input
-
-✅ Output
-
-✅ Variable
-
-✅ Operator
-
-✅ IF
-
-✅ Loop
-
-✅ Function
-
-Selain itu, siswa harus membuat **Flowchart sederhana** sebelum mulai menulis kode.
-
----
-
-# Challenge 1
-
-Tambahkan menu utama.
-
-Contoh
-
-```
-=====================
-
-MENU
-
-1. Mulai
-
-2. Bantuan
-
-3. Keluar
-
-=====================
-```
-
----
-
-# Challenge 2
-
-Buat tampilan program lebih menarik menggunakan.
-
-- Garis pembatas
-- Judul
-- f-string
-- String Formatting
-
----
-
-# Challenge 3
-
-Tambahkan validasi input agar program tidak mudah mengalami Error.
-
-Contoh
-
-```
-Input Tidak Valid
-```
-
----
-
-# Tips Mengerjakan Final Project
-
-✔ Tentukan tujuan program terlebih dahulu.
-
-✔ Buat Flowchart sebelum coding.
-
-✔ Kerjakan sedikit demi sedikit.
-
-✔ Uji program setiap selesai menambahkan fitur.
-
-✔ Simpan file secara berkala.
-
-✔ Jangan takut melakukan debugging.
-
----
-
-# Rubrik Penilaian
-
-| Aspek               | Penilaian  |
-| ------------------- | ---------- |
-| Program Berjalan    | ⭐⭐⭐⭐⭐ |
-| Flowchart           | ⭐⭐⭐⭐⭐ |
-| Penggunaan Function | ⭐⭐⭐⭐⭐ |
-| Logika Program      | ⭐⭐⭐⭐⭐ |
-| Tampilan Output     | ⭐⭐⭐⭐⭐ |
-| Kerapihan Kode      | ⭐⭐⭐⭐⭐ |
-
----
-
-# Ringkasan
-
-Hari ini kita telah belajar:
-
-✅ Menentukan ide proyek
-
-✅ Membuat Flowchart
-
-✅ Menyusun struktur program
-
-✅ Menggabungkan seluruh materi Python
-
-✅ Testing Program
-
-✅ Debugging
-
-✅ Memulai Final Project
-
----
-
-# Persiapan Pertemuan Selanjutnya
-
-Pada pertemuan berikutnya kita akan:
-
-- Menyelesaikan Final Project.
-- Melakukan Code Review.
-- Mempresentasikan hasil karya di depan kelas.
-- Memberikan dan menerima umpan balik.
-- Melakukan refleksi pembelajaran selama satu semester.
+**Congratulations and Happy Coding! 🚀🐍**
