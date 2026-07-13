@@ -1,9 +1,9 @@
-# Pertemuan 9 — Looping (While Loop & For Loop)
+# Pertemuan 10 — Looping Lanjutan (For Loop & Tabel Perkalian)
 
 > **Grade:** 10 SMA
 > **Durasi:** 70 Menit
 > **Platform:** Python
-> **Project:** Password Checker & Tabel Perkalian (Bagian 1)
+> **Project:** Tabel Perkalian
 
 ---
 
@@ -11,12 +11,11 @@
 
 Pada akhir pembelajaran, siswa mampu:
 
-- Memahami konsep perulangan (Looping).
-- Mengetahui mengapa Loop diperlukan.
-- Menggunakan `while` dan `for`.
-- Menggunakan fungsi `range()`.
-- Memahami Infinite Loop.
-- Membuat program Password Checker sederhana.
+- Memahami penggunaan `for` secara lebih mendalam.
+- Menggunakan fungsi `range()` dengan berbagai parameter.
+- Membuat tabel perkalian menggunakan perulangan.
+- Menggabungkan input, operator, dan perulangan.
+- Menghindari penulisan kode yang berulang (redundansi).
 
 ---
 
@@ -24,211 +23,56 @@ Pada akhir pembelajaran, siswa mampu:
 
 Pada pertemuan sebelumnya kita telah belajar:
 
-- IF
-- ELSE
-- ELIF
-- Nested IF
+- While Loop
+- For Loop
+- range()
+- Counter
+- Infinite Loop
+- Password Checker
 
-Hari ini kita akan belajar bagaimana membuat komputer **mengulang pekerjaan secara otomatis**.
+Hari ini kita akan menggunakan **For Loop** untuk membuat program yang lebih bermanfaat.
 
 ---
 
-# Apa itu Looping?
+# Mengapa Menggunakan For Loop?
 
-Looping adalah proses mengulang suatu perintah beberapa kali.
-
-Tanpa Loop kita harus menulis kode berulang-ulang.
-
-Contoh.
+Bayangkan kita ingin membuat tabel perkalian angka 5.
 
 Tanpa Loop
 
 ```python
-print("Halo")
-print("Halo")
-print("Halo")
-print("Halo")
-print("Halo")
+print("5 x 1 =", 5 * 1)
+print("5 x 2 =", 5 * 2)
+print("5 x 3 =", 5 * 3)
+print("5 x 4 =", 5 * 4)
+print("5 x 5 =", 5 * 5)
+print("5 x 6 =", 5 * 6)
+print("5 x 7 =", 5 * 7)
+print("5 x 8 =", 5 * 8)
+print("5 x 9 =", 5 * 9)
+print("5 x 10 =", 5 * 10)
 ```
+
+Terlalu panjang.
 
 Dengan Loop
 
 ```python
-for i in range(5):
-    print("Halo")
+for i in range(1,11):
+    print("5 x", i, "=", 5 * i)
 ```
 
-Hasilnya sama, tetapi kodenya jauh lebih singkat.
+Lebih singkat dan mudah dipahami.
 
 ---
 
-# Kenapa Menggunakan Loop?
+# Review range()
 
-Loop digunakan ketika pekerjaan dilakukan berulang.
-
-Contohnya:
-
-- Menghitung angka
-- Menampilkan daftar
-- Memeriksa data
-- Membuat tabel
-- Meminta input berulang
-- Game
-
----
-
-# Jenis Loop pada Python
-
-Python memiliki dua jenis Loop utama.
-
-- While Loop
-- For Loop
-
----
-
-# While Loop
-
-While digunakan ketika kita belum tahu pasti berapa kali perulangan dilakukan.
-
-Struktur
+Bentuk pertama
 
 ```python
-while kondisi:
-    perintah
+range(stop)
 ```
-
-Selama kondisi bernilai **True**, program akan terus mengulang.
-
----
-
-# Contoh While
-
-```python
-angka = 1
-
-while angka <= 5:
-    print(angka)
-    angka += 1
-```
-
-Output
-
-```
-1
-2
-3
-4
-5
-```
-
----
-
-# Bagaimana While Bekerja?
-
-```
-angka = 1
-
-↓
-
-Apakah angka <= 5 ?
-
-↓
-
-Ya
-
-↓
-
-Cetak angka
-
-↓
-
-Tambah 1
-
-↓
-
-Kembali ke kondisi
-```
-
-Program berhenti ketika kondisi bernilai False.
-
----
-
-# Counter
-
-Counter adalah variable yang menghitung jumlah perulangan.
-
-Contoh
-
-```python
-counter = 1
-
-while counter <= 3:
-    print(counter)
-    counter += 1
-```
-
----
-
-# Infinite Loop
-
-Infinite Loop adalah perulangan yang tidak pernah berhenti.
-
-Contoh
-
-```python
-while True:
-    print("Halo")
-```
-
-Program akan berjalan terus hingga dihentikan.
-
----
-
-# Kesalahan Umum While
-
-```python
-angka = 1
-
-while angka <= 5:
-    print(angka)
-```
-
-Program akan berjalan selamanya karena nilai `angka` tidak pernah berubah.
-
-Harus ditambahkan.
-
-```python
-angka += 1
-```
-
----
-
-# For Loop
-
-For digunakan ketika jumlah perulangan sudah diketahui.
-
-Contoh
-
-```python
-for i in range(5):
-    print("Python")
-```
-
-Output
-
-```
-Python
-Python
-Python
-Python
-Python
-```
-
----
-
-# Mengenal range()
-
-`range()` menghasilkan urutan angka.
 
 Contoh
 
@@ -248,14 +92,19 @@ Menghasilkan
 
 ---
 
-# range(start, stop)
+Bentuk kedua
 
 ```python
-for i in range(1,6):
-    print(i)
+range(start, stop)
 ```
 
-Output
+Contoh
+
+```python
+range(1,6)
+```
+
+Menghasilkan
 
 ```
 1
@@ -267,14 +116,19 @@ Output
 
 ---
 
-# range(start, stop, step)
+Bentuk ketiga
 
 ```python
-for i in range(2,11,2):
-    print(i)
+range(start, stop, step)
 ```
 
-Output
+Contoh
+
+```python
+range(2,11,2)
+```
+
+Menghasilkan
 
 ```
 2
@@ -286,33 +140,7 @@ Output
 
 ---
 
-# While vs For
-
-## While
-
-Digunakan jika jumlah perulangan belum pasti.
-
-Contoh:
-
-- Login
-- Password
-- Menu Program
-
----
-
-## For
-
-Digunakan jika jumlah perulangan sudah diketahui.
-
-Contoh:
-
-- Cetak angka 1-100
-- Daftar siswa
-- Tabel perkalian
-
----
-
-# Contoh Program For
+# Menampilkan Angka
 
 ```python
 for i in range(1,11):
@@ -336,52 +164,133 @@ Output
 
 ---
 
-# Contoh Program While
+# Menampilkan Bilangan Genap
 
 ```python
-nilai = 1
-
-while nilai <= 5:
-    print("Belajar Python")
-    nilai += 1
+for i in range(2,21,2):
+    print(i)
 ```
 
 Output
 
 ```
-Belajar Python
-Belajar Python
-Belajar Python
-Belajar Python
-Belajar Python
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
 ```
 
 ---
 
-# Diagram Loop
+# Menampilkan Bilangan Ganjil
+
+```python
+for i in range(1,20,2):
+    print(i)
+```
+
+Output
+
+```
+1
+3
+5
+7
+9
+11
+13
+15
+17
+19
+```
+
+---
+
+# Menggunakan Input
+
+Program dapat meminta angka terlebih dahulu.
+
+```python
+angka = int(input("Masukkan Angka : "))
+```
+
+Kemudian
+
+```python
+for i in range(1,11):
+    print(angka * i)
+```
+
+---
+
+# Membuat Tabel Perkalian
+
+```python
+angka = int(input("Masukkan Angka : "))
+
+for i in range(1,11):
+    print(f"{angka} x {i} = {angka * i}")
+```
+
+Output
+
+```
+Masukkan Angka : 7
+
+7 x 1 = 7
+7 x 2 = 14
+7 x 3 = 21
+...
+7 x 10 = 70
+```
+
+---
+
+# Menggunakan f-string
+
+Contoh
+
+```python
+angka = 9
+
+for i in range(1,11):
+    print(f"{angka} x {i} = {angka*i}")
+```
+
+Output menjadi lebih rapi.
+
+---
+
+# Diagram Program
 
 ```
 Mulai
 
 ↓
 
-Kondisi Benar?
+Input Angka
 
 ↓
 
-Ya
+Perulangan
+
+1 sampai 10
 
 ↓
 
-Jalankan Program
+Hitung
+
+Angka × i
 
 ↓
 
-Kembali ke Kondisi
-
-↓
-
-Tidak
+Tampilkan
 
 ↓
 
@@ -390,142 +299,294 @@ Selesai
 
 ---
 
+# Menggunakan Operator di Dalam Loop
+
+```python
+for i in range(1,6):
+    hasil = i * 10
+    print(hasil)
+```
+
+Output
+
+```
+10
+20
+30
+40
+50
+```
+
+---
+
+# Menggabungkan Loop dan IF
+
+Kita juga bisa menggunakan IF di dalam Loop.
+
+```python
+for i in range(1,11):
+
+    if i % 2 == 0:
+        print(i)
+```
+
+Output
+
+```
+2
+4
+6
+8
+10
+```
+
+Program hanya menampilkan bilangan genap.
+
+---
+
+# Contoh Program Lengkap
+
+```python
+angka = int(input("Masukkan Angka : "))
+
+print()
+print("======================")
+print("TABEL PERKALIAN")
+print("======================")
+
+for i in range(1,11):
+    print(f"{angka} x {i} = {angka*i}")
+
+print("======================")
+```
+
+---
+
 # Project Hari Ini
 
-## Password Checker
+## Tabel Perkalian
 
-Buat program yang meminta pengguna memasukkan password.
+Buat program yang meminta pengguna memasukkan sebuah angka.
 
-Aturan:
-
-Password yang benar adalah
+Kemudian tampilkan tabel perkalian dari angka tersebut mulai dari:
 
 ```
-python123
-```
+1
 
-Program akan terus meminta password sampai pengguna memasukkan password yang benar.
+sampai
+
+10
+```
 
 Contoh
 
 ```
-Masukkan Password :
-abc
+=========================
+TABEL PERKALIAN
+=========================
 
-Password Salah
+8 x 1 = 8
+8 x 2 = 16
+8 x 3 = 24
+8 x 4 = 32
+8 x 5 = 40
+8 x 6 = 48
+8 x 7 = 56
+8 x 8 = 64
+8 x 9 = 72
+8 x 10 = 80
 
-Masukkan Password :
-123
-
-Password Salah
-
-Masukkan Password :
-python123
-
-Login Berhasil
+=========================
 ```
-
-Gunakan **While Loop**.
 
 ---
 
 # Challenge 1
 
-Batasi percobaan login sebanyak **3 kali**.
+Biarkan pengguna menentukan batas perkalian.
 
-Jika gagal.
-
-Tampilkan
+Input
 
 ```
-Akun Diblokir
+Angka : 5
+
+Sampai : 20
+```
+
+Output
+
+```
+5 x 1 = 5
+
+...
+
+5 x 20 = 100
 ```
 
 ---
 
 # Challenge 2
 
-Tambahkan username.
+Tambahkan keterangan.
 
-Program meminta:
+Jika hasil perkalian lebih dari 50.
 
-- Username
-- Password
+Tampilkan
 
-Baru melakukan pengecekan login.
+```
+Besar
+```
+
+Jika tidak.
+
+Tampilkan
+
+```
+Kecil
+```
+
+Contoh
+
+```
+5 x 9 = 45 → Kecil
+
+5 x 10 = 50 → Kecil
+
+5 x 11 = 55 → Besar
+```
 
 ---
 
 # Challenge 3
 
-Setelah login berhasil.
+Hitung jumlah seluruh hasil perkalian.
 
-Tampilkan
+Contoh
 
 ```
-======================
+5 x 1 = 5
 
-Selamat Datang
+...
 
-======================
+5 x 10 = 50
+
+-------------------
+
+Total = 275
 ```
+
+Petunjuk
+
+Gunakan variable
+
+```python
+total = 0
+```
+
+Kemudian tambahkan setiap hasil perkalian ke dalam variable tersebut.
 
 ---
 
 # Mini Challenge
 
-Buat salah satu program berikut.
+Buat salah satu program berikut menggunakan **For Loop**.
 
-- Login Game
-- Login ATM
-- Login WiFi
-- PIN Handphone
-- Login Website
+- Tabel Pembagian
+- Tabel Penjumlahan
+- Tabel Pengurangan
+- Konversi Meter ke Centimeter
+- Konversi Celsius ke Fahrenheit
+- Daftar Nomor Antrian
 
-Gunakan **While Loop**.
+Gunakan minimal **1 input** dan **1 perulangan**.
+
+---
+
+# Tips
+
+✔ Gunakan `range(1,11)` jika ingin menghitung dari 1 sampai 10.
+
+✔ Gunakan **f-string** agar output lebih mudah dibaca.
+
+✔ Simpan hasil perhitungan ke dalam variable jika akan digunakan kembali.
+
+✔ Hindari menulis kode yang sama berulang-ulang.
 
 ---
 
 # Kesalahan yang Sering Terjadi
 
-❌ Lupa menambah counter.
+❌ Salah menentukan batas `range()`.
+
+```python
+range(10)
+```
+
+Menghasilkan
+
+```
+0 sampai 9
+```
+
+Jika ingin
+
+```
+1 sampai 10
+```
+
+Gunakan
+
+```python
+range(1,11)
+```
+
+---
+
+❌ Lupa mengubah input menjadi Integer.
 
 Salah
 
 ```python
-angka = 1
-
-while angka <= 5:
-    print(angka)
+angka = input()
 ```
 
 Benar
 
 ```python
-angka += 1
+angka = int(input())
 ```
 
 ---
 
-❌ Salah menentukan range.
+❌ Salah menggunakan operator perkalian.
+
+Salah
 
 ```python
-range(5)
+angka + i
 ```
 
-Dimulai dari angka **0**, bukan **1**.
-
-Jika ingin mulai dari 1.
+Padahal yang diinginkan adalah
 
 ```python
-range(1,6)
+angka * i
 ```
 
 ---
 
-❌ Infinite Loop tanpa sengaja.
+❌ Salah menulis f-string.
 
-Selalu pastikan kondisi akhirnya dapat menjadi **False**.
+Salah
+
+```python
+print("{angka}")
+```
+
+Benar
+
+```python
+print(f"{angka}")
+```
 
 ---
 
@@ -533,21 +594,19 @@ Selalu pastikan kondisi akhirnya dapat menjadi **False**.
 
 Hari ini kita telah belajar:
 
-✅ Konsep Looping
-
-✅ While Loop
-
 ✅ For Loop
 
-✅ Fungsi `range()`
+✅ range()
 
-✅ Counter
+✅ Input pada Loop
 
-✅ Infinite Loop
+✅ Membuat Tabel Perkalian
 
-✅ Perbedaan While dan For
+✅ Menggabungkan Loop dan IF
 
-✅ Membuat Password Checker
+✅ Menggunakan Operator dalam Loop
+
+✅ Mengurangi penulisan kode yang berulang
 
 ---
 
@@ -555,8 +614,8 @@ Hari ini kita telah belajar:
 
 Pada pertemuan berikutnya kita akan belajar:
 
-- Menggunakan `for` untuk membuat pola angka
-- Tabel Perkalian
-- Latihan berbagai bentuk perulangan
-- Kombinasi Loop dan Conditional
-- Project: Tabel Perkalian
+- Nested Loop
+- Loop di dalam Loop
+- Membuat berbagai pola (Pattern)
+- Menggunakan beberapa perulangan sekaligus
+- Project: Membuat Pola
