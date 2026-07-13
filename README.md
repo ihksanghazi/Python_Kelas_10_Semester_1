@@ -1,9 +1,9 @@
-# Pertemuan 4 — String Formatting (Membuat Output Lebih Rapi)
+# Pertemuan 5 — Basic Python Library
 
 > **Grade:** 10 SMA
 > **Durasi:** 70 Menit
 > **Platform:** Python
-> **Project:** Digital ID Card
+> **Project:** Dice Simulator
 
 ---
 
@@ -11,12 +11,11 @@
 
 Pada akhir pembelajaran, siswa mampu:
 
-- Memahami apa itu String Formatting.
-- Menggabungkan teks dan variable dengan beberapa cara.
-- Menggunakan operator koma (,), operator (+), method `.format()`, dan **f-string**.
-- Memilih cara formatting yang paling tepat.
-- Membuat tampilan output yang lebih rapi.
-- Membuat program Digital ID Card.
+- Memahami apa itu library pada Python.
+- Menggunakan perintah `import`.
+- Memahami fungsi library bawaan Python.
+- Menggunakan library `random`, `time`, dan `os`.
+- Membuat program simulasi lempar dadu (Dice Simulator).
 
 ---
 
@@ -24,520 +23,484 @@ Pada akhir pembelajaran, siswa mampu:
 
 Pada pertemuan sebelumnya kita telah belajar:
 
-- input()
-- Variable
-- Integer
-- Float
-- IPO
-- Program Interaktif
+- String Formatting
+- f-string
+- format()
+- Escape Character
+- Membuat tampilan output lebih rapi
 
-Hari ini kita akan belajar bagaimana menampilkan data dengan lebih rapi.
-
----
-
-# Apa itu String Formatting?
-
-String Formatting adalah cara menyusun teks agar informasi yang ditampilkan menjadi lebih jelas, rapi, dan mudah dibaca.
-
-Contoh yang kurang rapi:
-
-```
-Sandy23JakartaProgrammer
-```
-
-Lebih baik
-
-```
-Nama   : Sandy
-Umur   : 23
-Kota   : Jakarta
-Profesi: Programmer
-```
+Hari ini kita akan belajar menggunakan **library**, yaitu kumpulan kode yang sudah dibuat sehingga kita tidak perlu membuat semuanya dari awal.
 
 ---
 
-# Cara 1 — Menggunakan Tanda Koma (,)
+# Apa itu Library?
 
-Python dapat menampilkan beberapa data sekaligus.
+Library adalah kumpulan fungsi yang telah dibuat oleh programmer lain sehingga bisa kita gunakan kembali.
 
-```python
-nama = "Sandy"
-umur = 23
+Bayangkan seperti sebuah **kotak peralatan**.
 
-print("Nama :", nama)
-print("Umur :", umur)
-```
+Daripada membuat obeng sendiri, kita tinggal mengambil obeng dari kotak.
 
-Output
+Begitu juga di Python.
 
-```
-Nama : Sandy
-Umur : 23
-```
-
-Ini adalah cara yang paling mudah.
+Daripada membuat semuanya sendiri, kita cukup menggunakan library yang sudah tersedia.
 
 ---
 
-# Cara 2 — Menggunakan Operator (+)
+# Kenapa Menggunakan Library?
 
-String juga bisa digabungkan menggunakan tanda tambah.
+Tanpa library kita harus membuat banyak kode sendiri.
 
-```python
-nama = "Sandy"
+Dengan library kita bisa:
 
-print("Halo " + nama)
-```
-
-Output
-
-```
-Halo Sandy
-```
+- Menghemat waktu
+- Membuat program lebih cepat
+- Mengurangi jumlah kode
+- Menggunakan fitur yang sudah terpercaya
 
 ---
 
-# Kenapa Bisa Error?
+# Mengenal import
 
-Perhatikan contoh berikut.
-
-```python
-umur = 23
-
-print("Umur saya " + umur)
-```
-
-Output
-
-```
-TypeError
-```
-
-Karena Python tidak bisa menggabungkan String dengan Integer secara langsung.
-
----
-
-# Mengubah Integer Menjadi String
-
-Gunakan fungsi
-
-```python
-str()
-```
+Sebelum menggunakan library kita harus mengimpornya.
 
 Contoh
 
 ```python
-umur = 23
-
-print("Umur saya " + str(umur))
+import random
 ```
 
-Output
+Artinya
 
 ```
-Umur saya 23
+Gunakan library random.
 ```
 
 ---
 
-# Cara 3 — Menggunakan format()
+# Library Bawaan Python
 
-Python menyediakan method
+Python memiliki banyak library bawaan, contohnya:
+
+- random
+- math
+- os
+- time
+- datetime
+
+Hari ini kita akan mempelajari tiga library.
+
+- random
+- time
+- os
+
+---
+
+# Library random
+
+Library `random` digunakan untuk menghasilkan angka secara acak.
+
+Import terlebih dahulu.
 
 ```python
-format()
+import random
 ```
+
+---
+
+# random.randint()
+
+Digunakan untuk menghasilkan angka acak dalam rentang tertentu.
 
 Contoh
 
 ```python
-nama = "Sandy"
-umur = 23
+import random
 
-print("Nama saya {} dan umur saya {} tahun".format(nama, umur))
+angka = random.randint(1, 6)
+
+print(angka)
 ```
 
 Output
 
 ```
-Nama saya Sandy dan umur saya 23 tahun
+4
 ```
 
-Tanda
-
-```
-{}
-```
-
-akan diganti sesuai urutan data.
+Setiap program dijalankan, hasilnya bisa berbeda.
 
 ---
 
-# Menggunakan Banyak Placeholder
+# Contoh Penggunaan
 
 ```python
-nama = "Andi"
-umur = 16
-kelas = "10A"
+import random
 
-print("{} berumur {} tahun dan berada di kelas {}".format(nama, umur, kelas))
+print(random.randint(1, 10))
 ```
 
-Output
+Output bisa menjadi
 
 ```
-Andi berumur 16 tahun dan berada di kelas 10A
+2
+```
+
+atau
+
+```
+9
+```
+
+atau angka lain antara 1 sampai 10.
+
+---
+
+# Library time
+
+Library `time` digunakan untuk mengatur waktu.
+
+Import
+
+```python
+import time
 ```
 
 ---
 
-# Cara 4 — Menggunakan f-string
+# time.sleep()
 
-Mulai Python 3.6 terdapat cara yang lebih mudah.
-
-Namanya
-
-```
-f-string
-```
+Digunakan untuk memberi jeda.
 
 Contoh
 
 ```python
-nama = "Sandy"
-umur = 23
+import time
 
-print(f"Nama saya {nama}")
-print(f"Umur saya {umur}")
+print("Loading...")
+
+time.sleep(3)
+
+print("Selesai")
 ```
 
 Output
 
 ```
-Nama saya Sandy
-Umur saya 23
+Loading...
+
+(tunggu 3 detik)
+
+Selesai
 ```
 
 ---
 
-# Kenapa f-string Lebih Baik?
+# Kenapa Menggunakan sleep()?
 
-Dengan f-string kita tidak perlu:
+Agar program terasa lebih realistis.
 
-- memakai tanda +
-- memakai format()
+Contohnya
 
-Kode menjadi lebih pendek dan mudah dibaca.
+- Loading game
+- Mengunduh file
+- Menghitung skor
+- Melempar dadu
 
-Contoh
+---
+
+# Library os
+
+Library `os` digunakan untuk berinteraksi dengan sistem operasi.
+
+Import
 
 ```python
-nama = "Sandy"
-game = "Minecraft"
-
-print(f"{nama} sedang bermain {game}")
-```
-
-Output
-
-```
-Sandy sedang bermain Minecraft
+import os
 ```
 
 ---
 
-# Perbandingan Semua Cara
+# Membersihkan Layar
 
-## Menggunakan Koma
+Pada Windows
 
 ```python
-print("Nama :", nama)
+os.system("cls")
 ```
+
+Pada Linux atau Mac
+
+```python
+os.system("clear")
+```
+
+Program akan membersihkan tampilan terminal.
 
 ---
 
-## Menggunakan +
+# Menggabungkan Library
+
+Kita dapat menggunakan lebih dari satu library.
 
 ```python
-print("Nama : " + nama)
+import random
+import time
+import os
 ```
 
----
-
-## Menggunakan format()
-
-```python
-print("Nama : {}".format(nama))
-```
-
----
-
-## Menggunakan f-string
-
-```python
-print(f"Nama : {nama}")
-```
-
----
-
-Saat ini **f-string** adalah cara yang paling direkomendasikan karena lebih mudah dibaca.
-
----
-
-# Karakter Khusus (Escape Character)
-
-Kadang kita ingin membuat tampilan lebih rapi.
-
----
-
-## Baris Baru
-
-Gunakan
-
-```python
-\n
-```
-
-Contoh
-
-```python
-print("Python\nProgramming")
-```
-
-Output
-
-```
-Python
-Programming
-```
-
----
-
-## Tab
-
-Gunakan
-
-```python
-\t
-```
-
-Contoh
-
-```python
-print("Nama\t: Sandy")
-print("Umur\t: 23")
-```
-
-Output
-
-```
-Nama    : Sandy
-Umur    : 23
-```
-
----
-
-## Tanda Kutip
-
-```python
-print("Saya belajar \"Python\"")
-```
-
-Output
-
-```
-Saya belajar "Python"
-```
-
----
-
-# Membuat Tampilan Lebih Menarik
-
-Contoh
-
-```python
-print("===================")
-print("   DATA SISWA")
-print("===================")
-```
-
-Output
-
-```
-===================
-   DATA SISWA
-===================
-```
+Semuanya dapat digunakan dalam satu program.
 
 ---
 
 # Contoh Program
 
 ```python
-nama = input("Nama : ")
-umur = int(input("Umur : "))
-kelas = input("Kelas : ")
+import random
+import time
 
-print()
-print("====================")
-print("   DATA SISWA")
-print("====================")
-print(f"Nama  : {nama}")
-print(f"Umur  : {umur}")
-print(f"Kelas : {kelas}")
-print("====================")
+print("Rolling Dice...")
+
+time.sleep(2)
+
+print(random.randint(1,6))
 ```
 
 Output
 
 ```
-====================
-   DATA SISWA
-====================
-Nama  : Sandy
-Umur  : 23
-Kelas : X-A
-====================
+Rolling Dice...
+
+(tunggu 2 detik)
+
+5
+```
+
+---
+
+# Alur Program Dice Simulator
+
+```
+Program Dimulai
+
+↓
+
+Pengguna menekan Enter
+
+↓
+
+Loading...
+
+↓
+
+Program menunggu 2 detik
+
+↓
+
+Menghasilkan angka acak 1-6
+
+↓
+
+Menampilkan hasil dadu
+
+↓
+
+Program selesai
 ```
 
 ---
 
 # Project Hari Ini
 
-## Digital ID Card
+## Dice Simulator
 
-Buat program yang meminta pengguna memasukkan:
+Buat program simulasi lempar dadu.
 
-- Nama
-- Umur
-- Sekolah
-- Kelas
-- Kota
-- Hobi
-- Cita-cita
+Langkah-langkah:
 
-Kemudian tampilkan dalam bentuk kartu identitas.
+1. Import `random`
+2. Import `time`
+3. Tampilkan tulisan
+
+```
+Rolling Dice...
+```
+
+4. Tunggu selama 2 detik.
+5. Tampilkan angka acak dari 1 sampai 6.
 
 Contoh
 
 ```
-================================
-        STUDENT ID CARD
-================================
+Rolling Dice...
 
-Nama       : Sandy
-Umur       : 23
-Sekolah    : Jade School
-Kelas      : X-A
-Kota       : Jakarta
-Hobi       : Coding
-Cita-cita  : Software Engineer
-
-================================
+🎲 Hasil Dadu : 4
 ```
 
-Gunakan **f-string** agar kode lebih mudah dibaca.
+---
+
+# Pengembangan Project
+
+Tambahkan tampilan seperti berikut.
+
+```
+=========================
+      DICE SIMULATOR
+=========================
+
+Rolling...
+
+🎲
+🎲
+🎲
+
+Hasil Dadu : 6
+
+=========================
+```
+
+Gunakan `time.sleep()` agar animasi terasa lebih nyata.
 
 ---
 
 # Challenge 1
 
-Tambahkan informasi berikut.
+Buat dua buah dadu.
 
-- Email
-- Nomor HP
-- Game Favorit
-- Makanan Favorit
-- Warna Favorit
+Contoh
+
+```
+Dadu 1 : 5
+
+Dadu 2 : 3
+
+Total : 8
+```
 
 ---
 
 # Challenge 2
 
-Buat tampilan yang lebih menarik menggunakan:
+Buat permainan sederhana.
 
-- Garis pemisah
-- Judul
-- Tab (`\t`)
-- Baris baru (`\n`)
+Aturan:
+
+Jika hasil dadu
+
+```
+6
+```
+
+Maka tampilkan
+
+```
+Jackpot!
+```
+
+Jika selain 6
+
+```
+Coba Lagi!
+```
+
+---
+
+# Challenge 3
+
+Gunakan `os.system("cls")` agar layar dibersihkan sebelum hasil akhir ditampilkan.
 
 Contoh
 
 ```
-****************************************
-          STUDENT PROFILE
-****************************************
+Rolling...
 
-Nama          : Sandy
-Sekolah       : Jade School
-Kelas         : X-A
-Game Favorit  : Minecraft
-Hobi          : Coding
-Cita-cita     : AI Engineer
+(terminal dibersihkan)
 
-****************************************
+====================
+HASIL DADU
+
+🎲 5
+
+====================
 ```
 
 ---
 
 # Mini Challenge
 
-Buat **ID Card** untuk salah satu karakter berikut:
+Buat simulator acak lainnya.
 
-- Superhero
-- Karakter Anime
-- Tokoh Game
-- Karakter Roblox
-- Karakter Minecraft
+Contoh:
 
-Gunakan minimal **8 informasi**.
+- Lempar Koin
+- Batu Gunting Kertas
+- Lucky Number
+- Spin Wheel
+- Tebak Warna
+- Gacha Item
+- Lucky Box
+
+Gunakan minimal satu library yang telah dipelajari.
 
 ---
 
 # Kesalahan yang Sering Terjadi
 
-❌ Lupa menambahkan huruf **f**
+❌ Lupa mengimpor library
 
 ```python
-print("{nama}")
+print(random.randint(1,6))
 ```
 
-Harusnya
+Error karena belum menulis
 
 ```python
-print(f"{nama}")
-```
-
----
-
-❌ Menggunakan operator + dengan Integer
-
-```python
-print("Umur : " + umur)
-```
-
-Harus diubah menjadi
-
-```python
-print("Umur : " + str(umur))
-```
-
-atau lebih baik
-
-```python
-print(f"Umur : {umur}")
+import random
 ```
 
 ---
 
-❌ Placeholder format() tidak sesuai jumlah data
+❌ Salah menulis nama library
 
 ```python
-print("{} {}".format(nama))
+Random.randint()
 ```
 
-Jumlah `{}` harus sama dengan jumlah data yang dikirim.
+Python membedakan huruf besar dan kecil.
+
+Yang benar
+
+```python
+random.randint()
+```
+
+---
+
+❌ Salah menentukan batas angka
+
+```python
+random.randint(6,1)
+```
+
+Harus dimulai dari angka yang lebih kecil.
+
+```python
+random.randint(1,6)
+```
+
+---
+
+❌ Lupa memberi tanda kurung pada `sleep()`
+
+```python
+time.sleep
+```
+
+Yang benar
+
+```python
+time.sleep(2)
+```
 
 ---
 
@@ -545,23 +508,25 @@ Jumlah `{}` harus sama dengan jumlah data yang dikirim.
 
 Hari ini kita telah belajar:
 
-✅ String Formatting
+✅ Apa itu Library
 
-✅ Operator Koma (,)
+✅ Perintah `import`
 
-✅ Operator (+)
+✅ Library `random`
 
-✅ Konversi menggunakan `str()`
+✅ `random.randint()`
 
-✅ Method `.format()`
+✅ Library `time`
 
-✅ f-string
+✅ `time.sleep()`
 
-✅ Escape Character (`\n`, `\t`, `\"`)
+✅ Library `os`
 
-✅ Membuat tampilan output lebih rapi
+✅ `os.system()`
 
-✅ Membuat Digital ID Card
+✅ Menggunakan beberapa library sekaligus
+
+✅ Membuat Dice Simulator
 
 ---
 
@@ -569,9 +534,9 @@ Hari ini kita telah belajar:
 
 Pada pertemuan berikutnya kita akan belajar:
 
-- Library pada Python
-- Import Module
-- Library `random`
-- Library `time`
-- Library `os`
-- Project: Dice Simulator
+- Operator Aritmatika
+- Operator Assignment
+- Operator Comparison
+- Operator Logical
+- Menggunakan operator dalam program
+- Project: Kasir Sederhana
