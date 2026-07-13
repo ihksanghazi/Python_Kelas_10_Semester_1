@@ -1,9 +1,9 @@
-# Pertemuan 11 — Nested Loop (Loop di Dalam Loop)
+# Pertemuan 12 — Function (Membuat dan Menggunakan Function)
 
 > **Grade:** 10 SMA
 > **Durasi:** 70 Menit
 > **Platform:** Python
-> **Project:** Membuat Pola (Pattern)
+> **Project:** Sapaan Robot
 
 ---
 
@@ -11,12 +11,12 @@
 
 Pada akhir pembelajaran, siswa mampu:
 
-- Memahami konsep Nested Loop.
-- Mengetahui perbedaan Loop biasa dan Nested Loop.
-- Menggunakan `for` di dalam `for`.
-- Membuat berbagai pola menggunakan Nested Loop.
-- Menganalisis hubungan antara baris dan kolom.
-- Membuat pola sederhana menggunakan karakter.
+- Memahami konsep Function.
+- Memahami manfaat Function dalam pemrograman.
+- Membuat Function menggunakan `def`.
+- Memanggil Function.
+- Menggunakan Function untuk mengurangi penulisan kode yang berulang.
+- Membuat program Sapaan Robot menggunakan Function.
 
 ---
 
@@ -24,509 +24,511 @@ Pada akhir pembelajaran, siswa mampu:
 
 Pada pertemuan sebelumnya kita telah belajar:
 
-- For Loop
-- While Loop
-- range()
-- Tabel Perkalian
+- Nested Loop
+- Baris dan Kolom
+- end=""
+- Membuat berbagai pola
 
-Hari ini kita akan belajar bagaimana membuat **perulangan di dalam perulangan**.
+Hari ini kita akan belajar bagaimana **mengelompokkan kode** agar program menjadi lebih rapi dan mudah digunakan kembali.
 
 ---
 
-# Apa itu Nested Loop?
+# Apa itu Function?
 
-Nested Loop adalah **Loop yang berada di dalam Loop lainnya**.
+Function adalah **sekumpulan kode** yang memiliki tugas tertentu dan dapat digunakan berulang kali.
 
-Artinya, ketika Loop luar berjalan satu kali, Loop dalam akan berjalan hingga selesai.
-
-Contohnya seperti kalender.
+Bayangkan Function seperti sebuah mesin.
 
 ```
-Minggu
+Tombol Ditekan
 
 ↓
 
-Senin
-Selasa
-Rabu
-Kamis
-Jumat
-Sabtu
-Minggu
+Mesin Bekerja
+
+↓
+
+Hasil Keluar
 ```
 
-Setiap minggu memiliki beberapa hari.
+Kita cukup memanggil mesin tersebut setiap kali dibutuhkan.
 
 ---
 
-# Analogi Nested Loop
+# Kenapa Menggunakan Function?
 
-Bayangkan sebuah gedung sekolah.
+Bayangkan kita ingin menampilkan sapaan berkali-kali.
 
-```
-Lantai 1
-
-→ Ruang 1
-→ Ruang 2
-→ Ruang 3
-
-Lantai 2
-
-→ Ruang 1
-→ Ruang 2
-→ Ruang 3
-```
-
-Setiap lantai memiliki beberapa ruangan.
-
-Loop luar mengulang lantai.
-
-Loop dalam mengulang ruangan.
-
----
-
-# Struktur Nested Loop
+Tanpa Function
 
 ```python
-for i in range(...):
+print("Halo!")
+print("Selamat Datang!")
+print()
 
-    for j in range(...):
+print("Halo!")
+print("Selamat Datang!")
+print()
 
-        print(...)
+print("Halo!")
+print("Selamat Datang!")
 ```
 
-Loop luar mengatur jumlah **baris**.
-
-Loop dalam mengatur jumlah **kolom**.
+Kode menjadi panjang.
 
 ---
 
-# Contoh Pertama
+Dengan Function
 
 ```python
-for i in range(3):
-    for j in range(3):
-        print("*")
+def sapa():
+
+    print("Halo!")
+    print("Selamat Datang!")
+
+sapa()
+sapa()
+sapa()
 ```
 
-Output
-
-```
-*
-*
-*
-*
-*
-*
-*
-*
-*
-```
-
-Karena setiap `print()` berpindah ke baris baru.
+Kode menjadi lebih pendek dan mudah dibaca.
 
 ---
 
-# Menggunakan end=""
+# Struktur Function
 
-Agar hasil tetap pada baris yang sama gunakan
+Function dibuat menggunakan kata kunci
 
 ```python
-end=""
+def
 ```
+
+Bentuk umum
+
+```python
+def nama_function():
+
+    perintah
+```
+
+---
+
+# Membuat Function
 
 Contoh
 
 ```python
-for i in range(5):
-    print("*", end="")
+def halo():
+
+    print("Halo Dunia")
+```
+
+Program belum menampilkan apa pun.
+
+Mengapa?
+
+Karena Function baru dibuat, tetapi belum dipanggil.
+
+---
+
+# Memanggil Function
+
+Untuk menjalankan Function.
+
+Tuliskan nama Function diikuti tanda kurung.
+
+```python
+halo()
+```
+
+Program
+
+```python
+def halo():
+
+    print("Halo Dunia")
+
+halo()
 ```
 
 Output
 
 ```
-*****
+Halo Dunia
 ```
 
 ---
 
-# Membuat Persegi
+# Memanggil Function Berkali-kali
 
 ```python
-for i in range(5):
+def salam():
 
-    for j in range(5):
-        print("*", end="")
+    print("Selamat Belajar Python!")
 
-    print()
+salam()
+salam()
+salam()
 ```
 
 Output
 
 ```
-*****
-*****
-*****
-*****
-*****
+Selamat Belajar Python!
+
+Selamat Belajar Python!
+
+Selamat Belajar Python!
 ```
-
-Perhatikan
-
-```python
-print()
-```
-
-digunakan untuk berpindah ke baris berikutnya.
 
 ---
 
-# Memahami Baris dan Kolom
+# Nama Function
 
-```
-Baris
+Gunakan nama yang mudah dipahami.
 
-↓
+Contoh
 
-*****
-
-*****
-
-*****
-
-↑
-
-Kolom
+```python
+def tampilkan_menu():
 ```
 
-Loop luar mengulang jumlah baris.
+```python
+def hitung_total():
+```
 
-Loop dalam mengulang jumlah kolom.
+```python
+def cetak_struk():
+```
+
+Hindari nama seperti
+
+```python
+def a():
+```
+
+karena sulit dipahami.
 
 ---
 
-# Menampilkan Angka
+# Function Tidak Mengembalikan Nilai
+
+Function sederhana hanya menjalankan perintah.
+
+Contoh
 
 ```python
-for i in range(3):
+def garis():
 
-    for j in range(5):
-        print(j, end=" ")
+    print("===================")
 
-    print()
+garis()
 ```
 
 Output
 
 ```
-0 1 2 3 4
-0 1 2 3 4
-0 1 2 3 4
+===================
 ```
 
 ---
 
-# Menggunakan Variable Loop
+# Menggunakan Beberapa Function
+
+Kita dapat membuat lebih dari satu Function.
 
 ```python
-for baris in range(3):
+def judul():
 
-    for kolom in range(4):
-        print("*", end=" ")
+    print("TOKO BUKU")
 
-    print()
-```
+def garis():
 
-Menggunakan nama variable yang jelas membuat kode lebih mudah dipahami.
+    print("===================")
 
----
-
-# Membuat Persegi Panjang
-
-```python
-for baris in range(4):
-
-    for kolom in range(8):
-        print("#", end=" ")
-
-    print()
+judul()
+garis()
 ```
 
 Output
 
 ```
-# # # # # # # #
-# # # # # # # #
-# # # # # # # #
-# # # # # # # #
+TOKO BUKU
+===================
 ```
 
 ---
 
-# Menggunakan Input
+# Function dan Input
 
-Pengguna dapat menentukan ukuran pola.
-
-```python
-ukuran = int(input("Masukkan Ukuran : "))
-```
-
-Kemudian
+Function juga bisa menggunakan variable yang dibuat di luar Function.
 
 ```python
-for i in range(ukuran):
+nama = input("Nama : ")
 
-    for j in range(ukuran):
-        print("*", end="")
+def sapa():
 
-    print()
-```
+    print("Halo", nama)
 
----
-
-# Diagram Nested Loop
-
-```
-Loop Luar
-
-↓
-
-Baris 1
-
-↓
-
-Loop Dalam
-
-↓
-
-Kolom 1
-Kolom 2
-Kolom 3
-
-↓
-
-Selesai
-
-↓
-
-Baris 2
-
-↓
-
-Loop Dalam Lagi
-```
-
----
-
-# Contoh Program Lengkap
-
-```python
-ukuran = int(input("Masukkan Ukuran : "))
-
-print()
-
-for baris in range(ukuran):
-
-    for kolom in range(ukuran):
-        print("*", end=" ")
-
-    print()
+sapa()
 ```
 
 Output
 
 ```
-Masukkan Ukuran : 5
+Halo Sandy
+```
 
-* * * * *
-* * * * *
-* * * * *
-* * * * *
-* * * * *
+---
+
+# Diagram Function
+
+```
+Program
+
+↓
+
+Memanggil Function
+
+↓
+
+Function Berjalan
+
+↓
+
+Perintah Dieksekusi
+
+↓
+
+Kembali ke Program
+```
+
+---
+
+# Contoh Program
+
+```python
+def salam():
+
+    print("====================")
+    print("Selamat Datang")
+    print("====================")
+
+salam()
+```
+
+Output
+
+```
+====================
+Selamat Datang
+====================
+```
+
+---
+
+# Menggunakan Function Berkali-kali
+
+```python
+def robot():
+
+    print("Halo, Saya Robot!")
+
+robot()
+robot()
+robot()
+```
+
+Output
+
+```
+Halo, Saya Robot!
+
+Halo, Saya Robot!
+
+Halo, Saya Robot!
 ```
 
 ---
 
 # Project Hari Ini
 
-## Membuat Pola
+## Sapaan Robot
 
-Buat program yang meminta pengguna memasukkan ukuran pola.
+Buat sebuah Function bernama
 
-Misalnya
-
-```
-Ukuran : 6
+```python
+robot()
 ```
 
-Program menghasilkan
+Isi Function
 
 ```
-******
-******
-******
-******
-******
-******
+Halo!
+
+Nama saya Robo.
+
+Senang bertemu denganmu.
+
+Selamat belajar Python!
 ```
 
-Gunakan **Nested Loop**.
+Kemudian panggil Function tersebut sebanyak **3 kali**.
+
+Contoh Output
+
+```
+Halo!
+
+Nama saya Robo.
+
+Senang bertemu denganmu.
+
+Selamat belajar Python!
+
+-------------------------
+
+Halo!
+
+Nama saya Robo.
+
+Senang bertemu denganmu.
+
+Selamat belajar Python!
+
+-------------------------
+
+Halo!
+
+Nama saya Robo.
+
+Senang bertemu denganmu.
+
+Selamat belajar Python!
+```
 
 ---
 
 # Challenge 1
 
-Buat pola angka.
+Buat Function
 
-Contoh
-
-```
-11111
-22222
-33333
-44444
-55555
+```python
+garis()
 ```
 
-Petunjuk
+yang menghasilkan
 
-Gunakan variable dari Loop luar.
+```
+========================
+```
+
+Gunakan Function tersebut setiap kali ingin membuat garis.
 
 ---
 
 # Challenge 2
 
-Buat pola seperti berikut.
+Buat Function
 
-```
-12345
-12345
-12345
-12345
-12345
+```python
+judul()
 ```
 
-Petunjuk
+yang menghasilkan
 
-Gunakan variable dari Loop dalam.
+```
+========================
+ROBOT INFORMATION
+========================
+```
+
+Kemudian panggil sebelum Function robot dijalankan.
 
 ---
 
 # Challenge 3
 
-Buat papan permainan sederhana.
+Buat tiga Function berbeda.
 
-Contoh
-
-```
-□ □ □ □ □
-
-□ □ □ □ □
-
-□ □ □ □ □
-
-□ □ □ □ □
-
-□ □ □ □ □
+```python
+def salam():
 ```
 
-Gunakan karakter lain jika terminal tidak mendukung simbol kotak.
+```python
+def perkenalan():
+```
+
+```python
+def penutup():
+```
+
+Lalu panggil secara berurutan sehingga menghasilkan percakapan robot yang lengkap.
 
 ---
 
 # Mini Challenge
 
-Buat salah satu pola berikut.
+Buat salah satu program berikut menggunakan beberapa Function.
 
-Pola 1
+- Mesin ATM
+- Mesin Kasir
+- Login Game
+- Biodata
+- Menu Restoran
+- Informasi Sekolah
 
-```
-@@@@@
-@@@@@
-@@@@@
-@@@@@
-@@@@@
-```
-
----
-
-Pola 2
-
-```
-AAAAA
-BBBBB
-CCCCC
-DDDDD
-EEEEE
-```
-
----
-
-Pola 3
-
-```
-#####
-#####
-#####
-#####
-#####
-```
-
-Gunakan ukuran yang dimasukkan oleh pengguna.
+Minimal memiliki **3 Function** yang berbeda.
 
 ---
 
 # Tips
 
-✔ Loop luar biasanya digunakan untuk **baris**.
+✔ Berikan nama Function yang sesuai dengan tugasnya.
 
-✔ Loop dalam biasanya digunakan untuk **kolom**.
+✔ Gunakan Function untuk kode yang sering digunakan.
 
-✔ Gunakan `end=""` agar karakter tetap berada pada baris yang sama.
+✔ Pisahkan program menjadi beberapa bagian kecil agar lebih mudah dibaca.
 
-✔ Gunakan `print()` kosong untuk pindah ke baris berikutnya.
-
-✔ Berikan nama variable yang jelas seperti `baris` dan `kolom`.
+✔ Jangan lupa memanggil Function setelah dibuat.
 
 ---
 
 # Kesalahan yang Sering Terjadi
 
-❌ Lupa menggunakan `end=""`.
+❌ Lupa memanggil Function.
 
 Salah
 
 ```python
-print("*")
+def halo():
+
+    print("Halo")
 ```
 
-Output
+Program tidak menghasilkan output.
 
+Benar
+
+```python
+halo()
 ```
-*
-*
-*
-*
-*
+
+---
+
+❌ Lupa tanda kurung.
+
+Salah
+
+```python
+halo
 ```
 
 Benar
 
 ```python
-print("*", end="")
+halo()
 ```
-
-Output
-
-```
-*****
-```
-
----
-
-❌ Lupa `print()` setelah Loop dalam selesai.
-
-Akibatnya semua karakter akan tercetak dalam satu baris panjang.
 
 ---
 
@@ -535,32 +537,32 @@ Akibatnya semua karakter akan tercetak dalam satu baris panjang.
 Salah
 
 ```python
-for i in range(5):
-for j in range(5):
-    print("*")
+def halo():
+print("Halo")
 ```
 
 Benar
 
 ```python
-for i in range(5):
-    for j in range(5):
-        print("*", end="")
-
-    print()
+def halo():
+    print("Halo")
 ```
 
 ---
 
-❌ Menggunakan ukuran yang salah.
+❌ Memberi nama Function dengan angka di awal.
 
-Jika pengguna memasukkan ukuran.
+Salah
 
+```python
+def 1halo():
 ```
-5
-```
 
-Pastikan kedua Loop menggunakan ukuran tersebut.
+Benar
+
+```python
+def halo1():
+```
 
 ---
 
@@ -568,19 +570,21 @@ Pastikan kedua Loop menggunakan ukuran tersebut.
 
 Hari ini kita telah belajar:
 
-✅ Konsep Nested Loop
+✅ Apa itu Function
 
-✅ Loop di dalam Loop
+✅ Manfaat Function
 
-✅ Hubungan Baris dan Kolom
+✅ Keyword `def`
 
-✅ `end=""`
+✅ Membuat Function
 
-✅ Membuat Pola
+✅ Memanggil Function
 
-✅ Menggunakan Input pada Nested Loop
+✅ Menggunakan beberapa Function
 
-✅ Membuat papan sederhana menggunakan Nested Loop
+✅ Mengurangi kode yang berulang
+
+✅ Membuat Program Sapaan Robot
 
 ---
 
@@ -588,9 +592,8 @@ Hari ini kita telah belajar:
 
 Pada pertemuan berikutnya kita akan belajar:
 
-- Function
-- Keyword `def`
-- Memanggil Function
-- Parameter sederhana
-- Manfaat Function untuk membuat kode lebih rapi
-- Project: Sapaan Robot
+- Parameter
+- Argument
+- Return Value
+- Mengirim data ke Function
+- Project: Menghitung Luas Persegi Panjang
