@@ -1,9 +1,9 @@
-# Pertemuan 3 — Input, Variable & Konsep IPO (Program Interaktif)
+# Pertemuan 4 — String Formatting (Membuat Output Lebih Rapi)
 
 > **Grade:** 10 SMA
 > **Durasi:** 70 Menit
 > **Platform:** Python
-> **Project:** Game Profile
+> **Project:** Digital ID Card
 
 ---
 
@@ -11,11 +11,12 @@
 
 Pada akhir pembelajaran, siswa mampu:
 
-- Memahami fungsi `input()` pada Python.
-- Mengambil data dari pengguna.
-- Menyimpan hasil input ke dalam variable.
-- Memahami kembali konsep IPO (Input → Process → Output).
-- Membuat program profile interaktif.
+- Memahami apa itu String Formatting.
+- Menggabungkan teks dan variable dengan beberapa cara.
+- Menggunakan operator koma (,), operator (+), method `.format()`, dan **f-string**.
+- Memilih cara formatting yang paling tepat.
+- Membuat tampilan output yang lebih rapi.
+- Membuat program Digital ID Card.
 
 ---
 
@@ -23,197 +24,69 @@ Pada akhir pembelajaran, siswa mampu:
 
 Pada pertemuan sebelumnya kita telah belajar:
 
+- input()
 - Variable
-- Aturan penamaan variable
-- String
 - Integer
 - Float
-- Boolean
+- IPO
+- Program Interaktif
 
-Hari ini kita akan membuat program yang bisa **berinteraksi dengan pengguna.**
-
----
-
-# Apa itu Program Interaktif?
-
-Program interaktif adalah program yang dapat menerima masukan dari pengguna.
-
-Contohnya:
-
-- Login
-- Registrasi akun
-- Mesin ATM
-- Game
-- Formulir online
-
-Program tidak hanya menampilkan informasi, tetapi juga menunggu pengguna memasukkan data.
+Hari ini kita akan belajar bagaimana menampilkan data dengan lebih rapi.
 
 ---
 
-# Mengenal Fungsi input()
+# Apa itu String Formatting?
 
-Fungsi
+String Formatting adalah cara menyusun teks agar informasi yang ditampilkan menjadi lebih jelas, rapi, dan mudah dibaca.
 
-```python
-input()
-```
-
-digunakan untuk meminta data dari pengguna.
-
-Contoh
-
-```python
-nama = input("Masukkan nama : ")
-```
-
-Program akan berhenti sementara hingga pengguna mengetik sesuatu.
-
-Misalnya pengguna mengetik
+Contoh yang kurang rapi:
 
 ```
-Andi
+Sandy23JakartaProgrammer
 ```
 
-Maka isi variable
-
-```python
-nama
-```
-
-adalah
+Lebih baik
 
 ```
-Andi
+Nama   : Sandy
+Umur   : 23
+Kota   : Jakarta
+Profesi: Programmer
 ```
 
 ---
 
-# Menampilkan Hasil Input
+# Cara 1 — Menggunakan Tanda Koma (,)
 
-Data yang dimasukkan pengguna dapat ditampilkan kembali.
+Python dapat menampilkan beberapa data sekaligus.
 
 ```python
-nama = input("Masukkan nama : ")
+nama = "Sandy"
+umur = 23
 
-print(nama)
+print("Nama :", nama)
+print("Umur :", umur)
 ```
 
 Output
 
 ```
-Masukkan nama : Andi
-
-Andi
+Nama : Sandy
+Umur : 23
 ```
+
+Ini adalah cara yang paling mudah.
 
 ---
 
-# Input Selalu Menghasilkan String
+# Cara 2 — Menggunakan Operator (+)
 
-Perhatikan contoh berikut.
-
-```python
-umur = input("Masukkan umur : ")
-
-print(type(umur))
-```
-
-Walaupun pengguna mengetik
-
-```
-16
-```
-
-Output
-
-```
-<class 'str'>
-```
-
-Karena secara default `input()` selalu menghasilkan **String**.
-
----
-
-# Mengubah String Menjadi Integer
-
-Jika kita ingin menggunakan angka, kita harus mengubah tipe datanya.
-
-Gunakan
+String juga bisa digabungkan menggunakan tanda tambah.
 
 ```python
-int()
-```
+nama = "Sandy"
 
-Contoh
-
-```python
-umur = int(input("Masukkan umur : "))
-```
-
-Sekarang
-
-```python
-print(type(umur))
-```
-
-Output
-
-```
-<class 'int'>
-```
-
----
-
-# Mengubah Menjadi Float
-
-Jika menggunakan angka desimal
-
-```python
-tinggi = float(input("Masukkan tinggi : "))
-```
-
-Contoh input
-
-```
-170.5
-```
-
-Output
-
-```
-170.5
-```
-
----
-
-# Mengambil Banyak Input
-
-Kita dapat meminta beberapa data sekaligus.
-
-```python
-nama = input("Nama : ")
-umur = int(input("Umur : "))
-kota = input("Kota : ")
-```
-
-Program akan meminta data satu per satu.
-
----
-
-# Menggabungkan Input dan Output
-
-Contoh
-
-```python
-nama = input("Nama : ")
-
-print("Halo", nama)
-```
-
-Jika pengguna mengetik
-
-```
-Sandy
+print("Halo " + nama)
 ```
 
 Output
@@ -224,87 +97,277 @@ Halo Sandy
 
 ---
 
-# Review Konsep IPO
+# Kenapa Bisa Error?
 
-Semua program memiliki tiga bagian.
+Perhatikan contoh berikut.
 
-## Input
+```python
+umur = 23
 
-Data yang dimasukkan pengguna.
-
-Contoh
-
-- Nama
-- Umur
-- Kota
-- Email
-
-↓
-
-## Process
-
-Program menyimpan dan mengolah data.
-
-↓
-
-## Output
-
-Program menampilkan hasil kepada pengguna.
-
----
-
-# IPO Pada Program Profile
-
-Input
-
+print("Umur saya " + umur)
 ```
-Nama
-Umur
-Game Favorit
-Rank
-```
-
-↓
-
-Process
-
-Program menyimpan semua data ke dalam variable.
-
-↓
 
 Output
 
-Program menampilkan profile pemain.
+```
+TypeError
+```
+
+Karena Python tidak bisa menggabungkan String dengan Integer secara langsung.
 
 ---
 
-# Diagram IPO
+# Mengubah Integer Menjadi String
+
+Gunakan fungsi
+
+```python
+str()
+```
+
+Contoh
+
+```python
+umur = 23
+
+print("Umur saya " + str(umur))
+```
+
+Output
 
 ```
-+------------------+
-|      INPUT       |
-|------------------|
-| Nama             |
-| Umur             |
-| Game Favorit     |
-| Rank             |
-+--------+---------+
-         |
-         v
-+------------------+
-|     PROCESS      |
-|------------------|
-| Simpan ke        |
-| Variable         |
-+--------+---------+
-         |
-         v
-+------------------+
-|      OUTPUT      |
-|------------------|
-| Menampilkan      |
-| Profile Player   |
-+------------------+
+Umur saya 23
+```
+
+---
+
+# Cara 3 — Menggunakan format()
+
+Python menyediakan method
+
+```python
+format()
+```
+
+Contoh
+
+```python
+nama = "Sandy"
+umur = 23
+
+print("Nama saya {} dan umur saya {} tahun".format(nama, umur))
+```
+
+Output
+
+```
+Nama saya Sandy dan umur saya 23 tahun
+```
+
+Tanda
+
+```
+{}
+```
+
+akan diganti sesuai urutan data.
+
+---
+
+# Menggunakan Banyak Placeholder
+
+```python
+nama = "Andi"
+umur = 16
+kelas = "10A"
+
+print("{} berumur {} tahun dan berada di kelas {}".format(nama, umur, kelas))
+```
+
+Output
+
+```
+Andi berumur 16 tahun dan berada di kelas 10A
+```
+
+---
+
+# Cara 4 — Menggunakan f-string
+
+Mulai Python 3.6 terdapat cara yang lebih mudah.
+
+Namanya
+
+```
+f-string
+```
+
+Contoh
+
+```python
+nama = "Sandy"
+umur = 23
+
+print(f"Nama saya {nama}")
+print(f"Umur saya {umur}")
+```
+
+Output
+
+```
+Nama saya Sandy
+Umur saya 23
+```
+
+---
+
+# Kenapa f-string Lebih Baik?
+
+Dengan f-string kita tidak perlu:
+
+- memakai tanda +
+- memakai format()
+
+Kode menjadi lebih pendek dan mudah dibaca.
+
+Contoh
+
+```python
+nama = "Sandy"
+game = "Minecraft"
+
+print(f"{nama} sedang bermain {game}")
+```
+
+Output
+
+```
+Sandy sedang bermain Minecraft
+```
+
+---
+
+# Perbandingan Semua Cara
+
+## Menggunakan Koma
+
+```python
+print("Nama :", nama)
+```
+
+---
+
+## Menggunakan +
+
+```python
+print("Nama : " + nama)
+```
+
+---
+
+## Menggunakan format()
+
+```python
+print("Nama : {}".format(nama))
+```
+
+---
+
+## Menggunakan f-string
+
+```python
+print(f"Nama : {nama}")
+```
+
+---
+
+Saat ini **f-string** adalah cara yang paling direkomendasikan karena lebih mudah dibaca.
+
+---
+
+# Karakter Khusus (Escape Character)
+
+Kadang kita ingin membuat tampilan lebih rapi.
+
+---
+
+## Baris Baru
+
+Gunakan
+
+```python
+\n
+```
+
+Contoh
+
+```python
+print("Python\nProgramming")
+```
+
+Output
+
+```
+Python
+Programming
+```
+
+---
+
+## Tab
+
+Gunakan
+
+```python
+\t
+```
+
+Contoh
+
+```python
+print("Nama\t: Sandy")
+print("Umur\t: 23")
+```
+
+Output
+
+```
+Nama    : Sandy
+Umur    : 23
+```
+
+---
+
+## Tanda Kutip
+
+```python
+print("Saya belajar \"Python\"")
+```
+
+Output
+
+```
+Saya belajar "Python"
+```
+
+---
+
+# Membuat Tampilan Lebih Menarik
+
+Contoh
+
+```python
+print("===================")
+print("   DATA SISWA")
+print("===================")
+```
+
+Output
+
+```
+===================
+   DATA SISWA
+===================
 ```
 
 ---
@@ -312,153 +375,169 @@ Program menampilkan profile pemain.
 # Contoh Program
 
 ```python
-nama = input("Nama Player : ")
+nama = input("Nama : ")
 umur = int(input("Umur : "))
-game = input("Game Favorit : ")
+kelas = input("Kelas : ")
 
-print("===== PROFILE =====")
-print("Nama :", nama)
-print("Umur :", umur)
-print("Game :", game)
+print()
+print("====================")
+print("   DATA SISWA")
+print("====================")
+print(f"Nama  : {nama}")
+print(f"Umur  : {umur}")
+print(f"Kelas : {kelas}")
+print("====================")
 ```
 
 Output
 
 ```
-Nama Player : Sandy
-Umur : 23
-Game Favorit : Minecraft
-
-===== PROFILE =====
-Nama : Sandy
-Umur : 23
-Game : Minecraft
+====================
+   DATA SISWA
+====================
+Nama  : Sandy
+Umur  : 23
+Kelas : X-A
+====================
 ```
 
 ---
 
 # Project Hari Ini
 
-## Game Profile
+## Digital ID Card
 
-Buat program yang meminta pengguna memasukkan data berikut:
+Buat program yang meminta pengguna memasukkan:
 
-- Nama Player
-- Nickname
+- Nama
 - Umur
-- Game Favorit
-- Rank
-- Negara
+- Sekolah
+- Kelas
+- Kota
+- Hobi
+- Cita-cita
 
-Kemudian tampilkan hasilnya seperti berikut.
-
-```
-==========================
-      PLAYER PROFILE
-==========================
-
-Nama        : Sandy
-Nickname    : Zero
-Umur        : 23
-Game        : Minecraft
-Rank        : Diamond
-Negara      : Indonesia
-
-==========================
-```
-
----
-
-# Challenge
-
-Tambahkan informasi berikut.
-
-- Level
-- Total Win
-- Total Match
-- Senjata Favorit
-- Hero Favorit
-
-Kemudian tampilkan hasilnya agar lebih menarik.
+Kemudian tampilkan dalam bentuk kartu identitas.
 
 Contoh
 
 ```
-==========================
-PLAYER PROFILE
-==========================
+================================
+        STUDENT ID CARD
+================================
+
+Nama       : Sandy
+Umur       : 23
+Sekolah    : Jade School
+Kelas      : X-A
+Kota       : Jakarta
+Hobi       : Coding
+Cita-cita  : Software Engineer
+
+================================
+```
+
+Gunakan **f-string** agar kode lebih mudah dibaca.
+
+---
+
+# Challenge 1
+
+Tambahkan informasi berikut.
+
+- Email
+- Nomor HP
+- Game Favorit
+- Makanan Favorit
+- Warna Favorit
+
+---
+
+# Challenge 2
+
+Buat tampilan yang lebih menarik menggunakan:
+
+- Garis pemisah
+- Judul
+- Tab (`\t`)
+- Baris baru (`\n`)
+
+Contoh
+
+```
+****************************************
+          STUDENT PROFILE
+****************************************
 
 Nama          : Sandy
-Nickname      : Zero
-Game          : Valorant
-Rank          : Ascendant
-Level         : 120
-Total Win     : 540
-Weapon        : Vandal
+Sekolah       : Jade School
+Kelas         : X-A
+Game Favorit  : Minecraft
+Hobi          : Coding
+Cita-cita     : AI Engineer
 
-Selamat bermain!
-
-==========================
+****************************************
 ```
 
 ---
 
 # Mini Challenge
 
-Buat profile untuk karakter game favorit kalian.
+Buat **ID Card** untuk salah satu karakter berikut:
 
-Contoh:
+- Superhero
+- Karakter Anime
+- Tokoh Game
+- Karakter Roblox
+- Karakter Minecraft
 
-- Minecraft
-- Roblox
-- Mobile Legends
-- Free Fire
-- Valorant
-- Genshin Impact
-
-Gunakan kreativitas masing-masing.
+Gunakan minimal **8 informasi**.
 
 ---
 
 # Kesalahan yang Sering Terjadi
 
-❌ Lupa tanda kurung
+❌ Lupa menambahkan huruf **f**
 
 ```python
-input
+print("{nama}")
 ```
 
 Harusnya
 
 ```python
-input()
+print(f"{nama}")
 ```
 
 ---
 
-❌ Salah menulis nama variable
+❌ Menggunakan operator + dengan Integer
 
 ```python
-Nama = input()
-
-print(nama)
+print("Umur : " + umur)
 ```
 
-Python membedakan huruf besar dan kecil.
+Harus diubah menjadi
+
+```python
+print("Umur : " + str(umur))
+```
+
+atau lebih baik
+
+```python
+print(f"Umur : {umur}")
+```
 
 ---
 
-❌ Tidak mengubah angka menjadi Integer
+❌ Placeholder format() tidak sesuai jumlah data
 
 ```python
-umur = input()
+print("{} {}".format(nama))
 ```
 
-Jika ingin digunakan sebagai angka
-
-```python
-umur = int(input())
-```
+Jumlah `{}` harus sama dengan jumlah data yang dikirim.
 
 ---
 
@@ -466,21 +545,23 @@ umur = int(input())
 
 Hari ini kita telah belajar:
 
-✅ Program interaktif
+✅ String Formatting
 
-✅ Fungsi `input()`
+✅ Operator Koma (,)
 
-✅ Input String
+✅ Operator (+)
 
-✅ Konversi menggunakan `int()`
+✅ Konversi menggunakan `str()`
 
-✅ Konversi menggunakan `float()`
+✅ Method `.format()`
 
-✅ Menggunakan banyak input
+✅ f-string
 
-✅ Review konsep IPO
+✅ Escape Character (`\n`, `\t`, `\"`)
 
-✅ Membuat Game Profile
+✅ Membuat tampilan output lebih rapi
+
+✅ Membuat Digital ID Card
 
 ---
 
@@ -488,9 +569,9 @@ Hari ini kita telah belajar:
 
 Pada pertemuan berikutnya kita akan belajar:
 
-- String Formatting
-- f-string
-- `.format()`
-- Escape Character
-- Membuat output yang lebih rapi dan profesional
-- Project: Digital ID Card
+- Library pada Python
+- Import Module
+- Library `random`
+- Library `time`
+- Library `os`
+- Project: Dice Simulator
