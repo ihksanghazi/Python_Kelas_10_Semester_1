@@ -1,9 +1,9 @@
-# Pertemuan 12 — Function (Membuat dan Menggunakan Function)
+# Pertemuan 13 — Function dengan Parameter, Argument, dan Return Value
 
 > **Grade:** 10 SMA
 > **Durasi:** 70 Menit
 > **Platform:** Python
-> **Project:** Sapaan Robot
+> **Project:** Menghitung Luas Persegi Panjang
 
 ---
 
@@ -11,12 +11,12 @@
 
 Pada akhir pembelajaran, siswa mampu:
 
-- Memahami konsep Function.
-- Memahami manfaat Function dalam pemrograman.
-- Membuat Function menggunakan `def`.
-- Memanggil Function.
-- Menggunakan Function untuk mengurangi penulisan kode yang berulang.
-- Membuat program Sapaan Robot menggunakan Function.
+- Memahami konsep Parameter dan Argument.
+- Memahami perbedaan Parameter dan Argument.
+- Menggunakan Function yang menerima data.
+- Memahami fungsi `return`.
+- Membuat Function yang mengembalikan hasil perhitungan.
+- Membuat program menghitung luas persegi panjang menggunakan Function.
 
 ---
 
@@ -24,259 +24,266 @@ Pada akhir pembelajaran, siswa mampu:
 
 Pada pertemuan sebelumnya kita telah belajar:
 
-- Nested Loop
-- Baris dan Kolom
-- end=""
-- Membuat berbagai pola
+- Function
+- Keyword `def`
+- Memanggil Function
+- Manfaat Function
 
-Hari ini kita akan belajar bagaimana **mengelompokkan kode** agar program menjadi lebih rapi dan mudah digunakan kembali.
+Hari ini kita akan membuat Function yang lebih pintar, yaitu Function yang bisa menerima data dan menghasilkan nilai.
 
 ---
 
-# Apa itu Function?
+# Apa itu Parameter?
 
-Function adalah **sekumpulan kode** yang memiliki tugas tertentu dan dapat digunakan berulang kali.
+Parameter adalah **variable** yang ditulis pada saat membuat Function.
 
-Bayangkan Function seperti sebuah mesin.
+Contoh
+
+```python
+def sapa(nama):
+
+    print("Halo", nama)
+```
+
+Pada contoh di atas
+
+```python
+nama
+```
+
+adalah **Parameter**.
+
+Parameter berfungsi sebagai tempat untuk menerima data.
+
+---
+
+# Apa itu Argument?
+
+Argument adalah **nilai** yang dikirim ketika Function dipanggil.
+
+Contoh
+
+```python
+sapa("Sandy")
+```
+
+Pada contoh di atas
+
+```python
+"Sandy"
+```
+
+adalah **Argument**.
+
+Argument akan dikirim ke Parameter.
+
+---
+
+# Ilustrasi Parameter dan Argument
 
 ```
-Tombol Ditekan
+Function
 
 ↓
 
-Mesin Bekerja
+Parameter
 
 ↓
 
-Hasil Keluar
-```
+nama
 
-Kita cukup memanggil mesin tersebut setiap kali dibutuhkan.
+↓
 
----
+Argument
 
-# Kenapa Menggunakan Function?
+↓
 
-Bayangkan kita ingin menampilkan sapaan berkali-kali.
+"Sandy"
 
-Tanpa Function
-
-```python
-print("Halo!")
-print("Selamat Datang!")
-print()
-
-print("Halo!")
-print("Selamat Datang!")
-print()
-
-print("Halo!")
-print("Selamat Datang!")
-```
-
-Kode menjadi panjang.
-
----
-
-Dengan Function
-
-```python
-def sapa():
-
-    print("Halo!")
-    print("Selamat Datang!")
-
-sapa()
-sapa()
-sapa()
-```
-
-Kode menjadi lebih pendek dan mudah dibaca.
-
----
-
-# Struktur Function
-
-Function dibuat menggunakan kata kunci
-
-```python
-def
-```
-
-Bentuk umum
-
-```python
-def nama_function():
-
-    perintah
-```
-
----
-
-# Membuat Function
-
-Contoh
-
-```python
-def halo():
-
-    print("Halo Dunia")
-```
-
-Program belum menampilkan apa pun.
-
-Mengapa?
-
-Karena Function baru dibuat, tetapi belum dipanggil.
-
----
-
-# Memanggil Function
-
-Untuk menjalankan Function.
-
-Tuliskan nama Function diikuti tanda kurung.
-
-```python
-halo()
-```
-
-Program
-
-```python
-def halo():
-
-    print("Halo Dunia")
-
-halo()
-```
+↓
 
 Output
 
-```
-Halo Dunia
-```
-
----
-
-# Memanggil Function Berkali-kali
-
-```python
-def salam():
-
-    print("Selamat Belajar Python!")
-
-salam()
-salam()
-salam()
-```
-
-Output
-
-```
-Selamat Belajar Python!
-
-Selamat Belajar Python!
-
-Selamat Belajar Python!
+Halo Sandy
 ```
 
 ---
 
-# Nama Function
-
-Gunakan nama yang mudah dipahami.
-
-Contoh
+# Contoh Sederhana
 
 ```python
-def tampilkan_menu():
-```
-
-```python
-def hitung_total():
-```
-
-```python
-def cetak_struk():
-```
-
-Hindari nama seperti
-
-```python
-def a():
-```
-
-karena sulit dipahami.
-
----
-
-# Function Tidak Mengembalikan Nilai
-
-Function sederhana hanya menjalankan perintah.
-
-Contoh
-
-```python
-def garis():
-
-    print("===================")
-
-garis()
-```
-
-Output
-
-```
-===================
-```
-
----
-
-# Menggunakan Beberapa Function
-
-Kita dapat membuat lebih dari satu Function.
-
-```python
-def judul():
-
-    print("TOKO BUKU")
-
-def garis():
-
-    print("===================")
-
-judul()
-garis()
-```
-
-Output
-
-```
-TOKO BUKU
-===================
-```
-
----
-
-# Function dan Input
-
-Function juga bisa menggunakan variable yang dibuat di luar Function.
-
-```python
-nama = input("Nama : ")
-
-def sapa():
+def sapa(nama):
 
     print("Halo", nama)
 
-sapa()
+sapa("Andi")
 ```
 
 Output
 
 ```
-Halo Sandy
+Halo Andi
+```
+
+---
+
+# Mengirim Banyak Argument
+
+Function dapat menerima lebih dari satu Parameter.
+
+```python
+def perkenalan(nama, umur):
+
+    print("Nama :", nama)
+    print("Umur :", umur)
+```
+
+Memanggil Function
+
+```python
+perkenalan("Sandy", 23)
+```
+
+Output
+
+```
+Nama : Sandy
+Umur : 23
+```
+
+---
+
+# Jumlah Parameter dan Argument
+
+Jumlah Argument harus sama dengan jumlah Parameter.
+
+Contoh yang benar
+
+```python
+def data(nama, umur):
+
+    print(nama)
+    print(umur)
+
+data("Andi", 16)
+```
+
+---
+
+Contoh yang salah
+
+```python
+data("Andi")
+```
+
+Python akan menghasilkan error karena jumlah datanya tidak sesuai.
+
+---
+
+# Apa itu Return Value?
+
+Selama ini Function hanya menampilkan hasil menggunakan
+
+```python
+print()
+```
+
+Tetapi Function juga bisa **mengembalikan nilai**.
+
+Caranya menggunakan
+
+```python
+return
+```
+
+---
+
+# Function dengan Return
+
+```python
+def tambah(a, b):
+
+    return a + b
+```
+
+Memanggil Function
+
+```python
+hasil = tambah(10, 5)
+
+print(hasil)
+```
+
+Output
+
+```
+15
+```
+
+---
+
+# Perbedaan print() dan return
+
+## print()
+
+Menampilkan hasil ke layar.
+
+```python
+def halo():
+
+    print("Halo")
+```
+
+---
+
+## return
+
+Mengirim hasil kembali ke program.
+
+```python
+def tambah(a, b):
+
+    return a + b
+```
+
+Nilai yang dikembalikan masih bisa disimpan ke dalam variable.
+
+---
+
+# Contoh Return
+
+```python
+def luas(panjang, lebar):
+
+    return panjang * lebar
+
+hasil = luas(10,5)
+
+print(hasil)
+```
+
+Output
+
+```
+50
+```
+
+---
+
+# Menyimpan Hasil Return
+
+Karena menggunakan
+
+```python
+return
+```
+
+hasilnya dapat digunakan kembali.
+
+```python
+luas_kamar = luas(8,4)
+
+print(luas_kamar)
 ```
 
 ---
@@ -288,19 +295,27 @@ Program
 
 ↓
 
-Memanggil Function
+Mengirim Argument
 
 ↓
 
-Function Berjalan
+Function
 
 ↓
 
-Perintah Dieksekusi
+Parameter
 
 ↓
 
-Kembali ke Program
+Perhitungan
+
+↓
+
+Return
+
+↓
+
+Program Menerima Hasil
 ```
 
 ---
@@ -308,122 +323,89 @@ Kembali ke Program
 # Contoh Program
 
 ```python
-def salam():
+def luas_persegi_panjang(panjang, lebar):
 
-    print("====================")
-    print("Selamat Datang")
-    print("====================")
+    return panjang * lebar
 
-salam()
+panjang = int(input("Panjang : "))
+lebar = int(input("Lebar : "))
+
+hasil = luas_persegi_panjang(panjang, lebar)
+
+print("Luas =", hasil)
 ```
 
 Output
 
 ```
-====================
-Selamat Datang
-====================
-```
+Panjang : 10
+Lebar : 6
 
----
-
-# Menggunakan Function Berkali-kali
-
-```python
-def robot():
-
-    print("Halo, Saya Robot!")
-
-robot()
-robot()
-robot()
-```
-
-Output
-
-```
-Halo, Saya Robot!
-
-Halo, Saya Robot!
-
-Halo, Saya Robot!
+Luas = 60
 ```
 
 ---
 
 # Project Hari Ini
 
-## Sapaan Robot
+## Menghitung Luas Persegi Panjang
 
-Buat sebuah Function bernama
+Buat sebuah Function.
 
 ```python
-robot()
+def hitung_luas(panjang, lebar):
 ```
 
-Isi Function
+Gunakan
 
-```
-Halo!
-
-Nama saya Robo.
-
-Senang bertemu denganmu.
-
-Selamat belajar Python!
+```python
+return
 ```
 
-Kemudian panggil Function tersebut sebanyak **3 kali**.
+untuk mengembalikan hasil.
 
-Contoh Output
+Program meminta pengguna memasukkan:
+
+- Panjang
+- Lebar
+
+Kemudian tampilkan hasilnya.
+
+Contoh
 
 ```
-Halo!
+========================
 
-Nama saya Robo.
+LUAS PERSEGI PANJANG
 
-Senang bertemu denganmu.
+========================
 
-Selamat belajar Python!
+Panjang : 15
 
--------------------------
+Lebar : 8
 
-Halo!
+Luas : 120
 
-Nama saya Robo.
-
-Senang bertemu denganmu.
-
-Selamat belajar Python!
-
--------------------------
-
-Halo!
-
-Nama saya Robo.
-
-Senang bertemu denganmu.
-
-Selamat belajar Python!
+========================
 ```
 
 ---
 
 # Challenge 1
 
-Buat Function
+Tambahkan Function baru.
 
 ```python
-garis()
+def hitung_keliling(panjang, lebar):
 ```
 
-yang menghasilkan
+Rumus
 
 ```
-========================
+2 × (panjang + lebar)
 ```
 
-Gunakan Function tersebut setiap kali ingin membuat garis.
+Tampilkan hasilnya bersama luas.
 
 ---
 
@@ -432,137 +414,155 @@ Gunakan Function tersebut setiap kali ingin membuat garis.
 Buat Function
 
 ```python
-judul()
+def salam(nama):
 ```
 
-yang menghasilkan
+Output
 
 ```
-========================
-ROBOT INFORMATION
-========================
+Halo Sandy
+
+Selamat Belajar Python!
 ```
 
-Kemudian panggil sebelum Function robot dijalankan.
+Gunakan nama dari input pengguna.
 
 ---
 
 # Challenge 3
 
-Buat tiga Function berbeda.
+Buat Function
 
 ```python
-def salam():
+def hitung_diskon(harga):
 ```
+
+Aturan
+
+```
+Diskon = 10%
+```
+
+Gunakan
 
 ```python
-def perkenalan():
+return
 ```
 
-```python
-def penutup():
-```
-
-Lalu panggil secara berurutan sehingga menghasilkan percakapan robot yang lengkap.
+untuk mengembalikan harga setelah diskon.
 
 ---
 
 # Mini Challenge
 
-Buat salah satu program berikut menggunakan beberapa Function.
+Buat salah satu program berikut menggunakan Function.
 
-- Mesin ATM
-- Mesin Kasir
-- Login Game
-- Biodata
-- Menu Restoran
-- Informasi Sekolah
+- Menghitung Luas Lingkaran
+- Menghitung Luas Segitiga
+- Menghitung Volume Kubus
+- Konversi Suhu
+- Menghitung Nilai Rata-rata
+- Kalkulator Sederhana
 
-Minimal memiliki **3 Function** yang berbeda.
+Gunakan minimal:
+
+- 2 Parameter
+- 1 Return Value
 
 ---
 
 # Tips
 
+✔ Gunakan **Parameter** untuk menerima data.
+
+✔ Gunakan **Argument** saat memanggil Function.
+
+✔ Gunakan **return** jika hasil masih akan digunakan.
+
+✔ Gunakan **print()** hanya untuk menampilkan hasil kepada pengguna.
+
 ✔ Berikan nama Function yang sesuai dengan tugasnya.
-
-✔ Gunakan Function untuk kode yang sering digunakan.
-
-✔ Pisahkan program menjadi beberapa bagian kecil agar lebih mudah dibaca.
-
-✔ Jangan lupa memanggil Function setelah dibuat.
 
 ---
 
 # Kesalahan yang Sering Terjadi
 
-❌ Lupa memanggil Function.
+❌ Jumlah Parameter dan Argument tidak sama.
 
 Salah
 
 ```python
-def halo():
+def tambah(a, b):
 
-    print("Halo")
+    return a + b
+
+tambah(10)
 ```
-
-Program tidak menghasilkan output.
 
 Benar
 
 ```python
-halo()
+tambah(10,5)
 ```
 
 ---
 
-❌ Lupa tanda kurung.
+❌ Mengira `print()` sama dengan `return`.
 
 Salah
 
 ```python
-halo
+def tambah(a,b):
+
+    print(a+b)
+
+hasil = tambah(5,5)
+
+print(hasil)
 ```
 
-Benar
+Output
+
+```
+10
+None
+```
+
+Karena `print()` tidak mengembalikan nilai.
+
+Gunakan
 
 ```python
-halo()
+return a+b
 ```
 
 ---
 
-❌ Salah indentasi.
+❌ Lupa menyimpan hasil Return.
 
 Salah
 
 ```python
-def halo():
-print("Halo")
+luas(5,10)
 ```
 
 Benar
 
 ```python
-def halo():
-    print("Halo")
+hasil = luas(5,10)
+
+print(hasil)
 ```
 
 ---
 
-❌ Memberi nama Function dengan angka di awal.
-
-Salah
+❌ Salah urutan Argument.
 
 ```python
-def 1halo():
+luas(lebar, panjang)
 ```
 
-Benar
-
-```python
-def halo1():
-```
+Pastikan urutan Argument sesuai dengan Parameter yang dibuat.
 
 ---
 
@@ -570,21 +570,21 @@ def halo1():
 
 Hari ini kita telah belajar:
 
-✅ Apa itu Function
+✅ Parameter
 
-✅ Manfaat Function
+✅ Argument
 
-✅ Keyword `def`
+✅ Perbedaan Parameter dan Argument
 
-✅ Membuat Function
+✅ Return Value
 
-✅ Memanggil Function
+✅ Perbedaan `print()` dan `return`
 
-✅ Menggunakan beberapa Function
+✅ Function yang menerima data
 
-✅ Mengurangi kode yang berulang
+✅ Function yang mengembalikan hasil
 
-✅ Membuat Program Sapaan Robot
+✅ Membuat Program Menghitung Luas Persegi Panjang
 
 ---
 
@@ -592,8 +592,8 @@ Hari ini kita telah belajar:
 
 Pada pertemuan berikutnya kita akan belajar:
 
-- Parameter
-- Argument
-- Return Value
-- Mengirim data ke Function
-- Project: Menghitung Luas Persegi Panjang
+- Debugging
+- Jenis-jenis Error
+- Cara membaca Error Message
+- Mencari dan memperbaiki Bug
+- Project: Guessing Number (Aplikasi Kuis Interaktif)
