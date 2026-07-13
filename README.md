@@ -1,9 +1,9 @@
-# Pertemuan 13 — Function dengan Parameter, Argument, dan Return Value
+# Pertemuan 14 — Debugging (Mencari dan Memperbaiki Error)
 
 > **Grade:** 10 SMA
 > **Durasi:** 70 Menit
 > **Platform:** Python
-> **Project:** Menghitung Luas Persegi Panjang
+> **Project:** Guessing Number (Aplikasi Kuis Interaktif)
 
 ---
 
@@ -11,12 +11,12 @@
 
 Pada akhir pembelajaran, siswa mampu:
 
-- Memahami konsep Parameter dan Argument.
-- Memahami perbedaan Parameter dan Argument.
-- Menggunakan Function yang menerima data.
-- Memahami fungsi `return`.
-- Membuat Function yang mengembalikan hasil perhitungan.
-- Membuat program menghitung luas persegi panjang menggunakan Function.
+- Memahami apa itu Bug dan Debugging.
+- Mengenal jenis-jenis Error pada Python.
+- Membaca Error Message.
+- Menemukan penyebab Error.
+- Memperbaiki program yang mengalami Error.
+- Membuat aplikasi Guessing Number sederhana.
 
 ---
 
@@ -25,193 +25,159 @@ Pada akhir pembelajaran, siswa mampu:
 Pada pertemuan sebelumnya kita telah belajar:
 
 - Function
-- Keyword `def`
-- Memanggil Function
-- Manfaat Function
+- Parameter
+- Argument
+- Return Value
 
-Hari ini kita akan membuat Function yang lebih pintar, yaitu Function yang bisa menerima data dan menghasilkan nilai.
+Hari ini kita akan belajar keterampilan yang dimiliki semua programmer, yaitu **Debugging**.
 
 ---
 
-# Apa itu Parameter?
+# Apa itu Bug?
 
-Parameter adalah **variable** yang ditulis pada saat membuat Function.
+Bug adalah kesalahan pada program yang menyebabkan program:
+
+- Tidak dapat dijalankan.
+- Menghasilkan hasil yang salah.
+- Berhenti secara tiba-tiba (Crash).
+
+Contoh sederhana.
+
+Kita ingin menghitung
+
+```
+10 + 5
+```
+
+Tetapi program malah menghasilkan
+
+```
+50
+```
+
+Berarti terdapat Bug pada program.
+
+---
+
+# Apa itu Debugging?
+
+Debugging adalah proses mencari, memahami, dan memperbaiki Bug pada program.
+
+Seorang programmer tidak hanya membuat program, tetapi juga harus mampu memperbaiki kesalahan yang muncul.
+
+---
+
+# Mengapa Debugging Penting?
+
+Dalam dunia nyata, hampir semua programmer melakukan debugging setiap hari.
+
+Karena:
+
+- Tidak ada program yang langsung sempurna.
+- Error adalah bagian dari proses belajar.
+- Semakin cepat menemukan Bug, semakin cepat program selesai.
+
+---
+
+# Jenis-Jenis Error
+
+Secara umum terdapat tiga jenis Error.
+
+- Syntax Error
+- Runtime Error
+- Logical Error
+
+---
+
+# 1. Syntax Error
+
+Syntax Error terjadi karena aturan penulisan Python tidak benar.
 
 Contoh
 
 ```python
-def sapa(nama):
-
-    print("Halo", nama)
+if 10 > 5
+    print("Benar")
 ```
 
-Pada contoh di atas
+Output
+
+```
+SyntaxError
+```
+
+Penyebabnya karena lupa menambahkan tanda
+
+```
+:
+```
+
+Perbaikan
 
 ```python
-nama
+if 10 > 5:
+    print("Benar")
 ```
-
-adalah **Parameter**.
-
-Parameter berfungsi sebagai tempat untuk menerima data.
 
 ---
 
-# Apa itu Argument?
+# 2. Runtime Error
 
-Argument adalah **nilai** yang dikirim ketika Function dipanggil.
+Runtime Error muncul ketika program sedang dijalankan.
 
 Contoh
 
 ```python
-sapa("Sandy")
+angka = int(input("Masukkan Angka : "))
 ```
 
-Pada contoh di atas
-
-```python
-"Sandy"
-```
-
-adalah **Argument**.
-
-Argument akan dikirim ke Parameter.
-
----
-
-# Ilustrasi Parameter dan Argument
+Pengguna memasukkan
 
 ```
-Function
-
-↓
-
-Parameter
-
-↓
-
-nama
-
-↓
-
-Argument
-
-↓
-
-"Sandy"
-
-↓
-
-Output
-
-Halo Sandy
-```
-
----
-
-# Contoh Sederhana
-
-```python
-def sapa(nama):
-
-    print("Halo", nama)
-
-sapa("Andi")
+abc
 ```
 
 Output
 
 ```
-Halo Andi
+ValueError
 ```
+
+Karena huruf tidak dapat diubah menjadi Integer.
 
 ---
 
-# Mengirim Banyak Argument
-
-Function dapat menerima lebih dari satu Parameter.
+Contoh lain
 
 ```python
-def perkenalan(nama, umur):
-
-    print("Nama :", nama)
-    print("Umur :", umur)
-```
-
-Memanggil Function
-
-```python
-perkenalan("Sandy", 23)
+print(10 / 0)
 ```
 
 Output
 
 ```
-Nama : Sandy
-Umur : 23
+ZeroDivisionError
 ```
+
+Karena angka tidak dapat dibagi dengan nol.
 
 ---
 
-# Jumlah Parameter dan Argument
+# 3. Logical Error
 
-Jumlah Argument harus sama dengan jumlah Parameter.
+Logical Error adalah Error yang paling sulit ditemukan.
 
-Contoh yang benar
+Program tetap berjalan, tetapi hasilnya salah.
 
-```python
-def data(nama, umur):
-
-    print(nama)
-    print(umur)
-
-data("Andi", 16)
-```
-
----
-
-Contoh yang salah
+Contoh
 
 ```python
-data("Andi")
-```
+panjang = 10
+lebar = 5
 
-Python akan menghasilkan error karena jumlah datanya tidak sesuai.
+luas = panjang + lebar
 
----
-
-# Apa itu Return Value?
-
-Selama ini Function hanya menampilkan hasil menggunakan
-
-```python
-print()
-```
-
-Tetapi Function juga bisa **mengembalikan nilai**.
-
-Caranya menggunakan
-
-```python
-return
-```
-
----
-
-# Function dengan Return
-
-```python
-def tambah(a, b):
-
-    return a + b
-```
-
-Memanggil Function
-
-```python
-hasil = tambah(10, 5)
-
-print(hasil)
+print(luas)
 ```
 
 Output
@@ -220,349 +186,415 @@ Output
 15
 ```
 
----
+Padahal rumus luas persegi panjang seharusnya
 
-# Perbedaan print() dan return
+```
+panjang × lebar
+```
 
-## print()
-
-Menampilkan hasil ke layar.
+Perbaikan
 
 ```python
-def halo():
-
-    print("Halo")
+luas = panjang * lebar
 ```
 
 ---
 
-## return
+# Membaca Error Message
 
-Mengirim hasil kembali ke program.
+Ketika terjadi Error, Python akan menampilkan pesan.
 
-```python
-def tambah(a, b):
+Contoh
 
-    return a + b
+```
+NameError:
+name 'umur' is not defined
 ```
 
-Nilai yang dikembalikan masih bisa disimpan ke dalam variable.
+Artinya
+
+Variable
+
+```
+umur
+```
+
+belum pernah dibuat.
 
 ---
 
-# Contoh Return
+Contoh
 
 ```python
-def luas(panjang, lebar):
+print(nama)
+```
 
-    return panjang * lebar
+Padahal
 
-hasil = luas(10,5)
+```python
+nama
+```
+
+belum ada.
+
+---
+
+# Cara Melakukan Debugging
+
+Langkah pertama.
+
+Baca Error Message.
+
+↓
+
+Cari baris yang menyebabkan Error.
+
+↓
+
+Pahami penyebabnya.
+
+↓
+
+Perbaiki kode.
+
+↓
+
+Jalankan kembali program.
+
+---
+
+# Teknik Debugging Sederhana
+
+Salah satu cara paling mudah adalah menggunakan
+
+```python
+print()
+```
+
+Contoh
+
+```python
+angka = 10
+
+print(angka)
+
+hasil = angka * 5
 
 print(hasil)
 ```
 
-Output
-
-```
-50
-```
+Dengan begitu kita dapat melihat isi variable selama program berjalan.
 
 ---
 
-# Menyimpan Hasil Return
-
-Karena menggunakan
+# Contoh Program Salah
 
 ```python
-return
-```
+umur = input("Umur : ")
 
-hasilnya dapat digunakan kembali.
-
-```python
-luas_kamar = luas(8,4)
-
-print(luas_kamar)
-```
-
----
-
-# Diagram Function
-
-```
-Program
-
-↓
-
-Mengirim Argument
-
-↓
-
-Function
-
-↓
-
-Parameter
-
-↓
-
-Perhitungan
-
-↓
-
-Return
-
-↓
-
-Program Menerima Hasil
-```
-
----
-
-# Contoh Program
-
-```python
-def luas_persegi_panjang(panjang, lebar):
-
-    return panjang * lebar
-
-panjang = int(input("Panjang : "))
-lebar = int(input("Lebar : "))
-
-hasil = luas_persegi_panjang(panjang, lebar)
-
-print("Luas =", hasil)
+print(umur + 5)
 ```
 
 Output
 
 ```
-Panjang : 10
-Lebar : 6
-
-Luas = 60
+TypeError
 ```
+
+Karena
+
+```
+umur
+```
+
+bertipe String.
+
+Perbaikan
+
+```python
+umur = int(input("Umur : "))
+
+print(umur + 5)
+```
+
+---
+
+# Contoh Program Benar
+
+```python
+angka1 = int(input("Angka Pertama : "))
+angka2 = int(input("Angka Kedua : "))
+
+hasil = angka1 + angka2
+
+print("Hasil :", hasil)
+```
+
+---
+
+# Diagram Debugging
+
+```
+Program Error
+
+↓
+
+Baca Error Message
+
+↓
+
+Cari Baris Error
+
+↓
+
+Perbaiki Kode
+
+↓
+
+Jalankan Lagi
+
+↓
+
+Program Berhasil
+```
+
+---
+
+# Tips Debugging
+
+✔ Baca pesan Error dengan teliti.
+
+✔ Jangan langsung menghapus banyak kode.
+
+✔ Periksa satu Error dalam satu waktu.
+
+✔ Gunakan `print()` untuk melihat isi variable.
+
+✔ Jalankan program kembali setelah diperbaiki.
 
 ---
 
 # Project Hari Ini
 
-## Menghitung Luas Persegi Panjang
+## Guessing Number
 
-Buat sebuah Function.
+Buat permainan sederhana.
 
-```python
-def hitung_luas(panjang, lebar):
-```
-
-Gunakan
-
-```python
-return
-```
-
-untuk mengembalikan hasil.
-
-Program meminta pengguna memasukkan:
-
-- Panjang
-- Lebar
-
-Kemudian tampilkan hasilnya.
+Program menentukan angka rahasia.
 
 Contoh
 
 ```
-========================
+7
+```
 
-LUAS PERSEGI PANJANG
+Kemudian pengguna diminta menebak angka tersebut.
 
-========================
+Jika tebakan benar.
 
-Panjang : 15
+```
+Selamat!
 
-Lebar : 8
+Jawaban Anda Benar!
+```
 
-Luas : 120
+Jika salah.
 
-========================
+```
+Jawaban Masih Salah
+
+Silakan Coba Lagi
+```
+
+Gunakan:
+
+- Variable
+- While Loop
+- IF
+- Input
+
+Contoh
+
+```
+=========================
+GUESSING NUMBER
+=========================
+
+Tebak Angka (1-10)
+
+> 4
+
+Jawaban Salah
+
+> 7
+
+Selamat!
+
+Jawaban Anda Benar!
 ```
 
 ---
 
 # Challenge 1
 
-Tambahkan Function baru.
+Tambahkan petunjuk.
 
-```python
-def hitung_keliling(panjang, lebar):
-```
-
-Rumus
+Jika angka terlalu kecil.
 
 ```
-2 × (panjang + lebar)
+Terlalu Kecil
 ```
 
-Tampilkan hasilnya bersama luas.
+Jika angka terlalu besar.
+
+```
+Terlalu Besar
+```
 
 ---
 
 # Challenge 2
 
-Buat Function
+Hitung jumlah percobaan.
 
-```python
-def salam(nama):
-```
-
-Output
+Contoh
 
 ```
-Halo Sandy
+Selamat!
 
-Selamat Belajar Python!
+Anda berhasil menebak dalam
+
+5 percobaan.
 ```
-
-Gunakan nama dari input pengguna.
 
 ---
 
 # Challenge 3
 
-Buat Function
-
-```python
-def hitung_diskon(harga):
-```
-
-Aturan
+Batasi jumlah percobaan sebanyak
 
 ```
-Diskon = 10%
+5 kali
 ```
 
-Gunakan
+Jika gagal.
 
-```python
-return
 ```
+Game Over
 
-untuk mengembalikan harga setelah diskon.
+Jawaban yang benar adalah 7
+```
 
 ---
 
 # Mini Challenge
 
-Buat salah satu program berikut menggunakan Function.
+Buat salah satu permainan berikut.
 
-- Menghitung Luas Lingkaran
-- Menghitung Luas Segitiga
-- Menghitung Volume Kubus
-- Konversi Suhu
-- Menghitung Nilai Rata-rata
-- Kalkulator Sederhana
+- Tebak Warna
+- Tebak Huruf
+- Tebak Hewan
+- Tebak Buah
+- Tebak Kota
+- Tebak Nama Tokoh
 
-Gunakan minimal:
+Gunakan:
 
-- 2 Parameter
-- 1 Return Value
+- While Loop
+- IF
+- Variable
+- Counter
 
 ---
 
-# Tips
+# Latihan Debugging
 
-✔ Gunakan **Parameter** untuk menerima data.
+Perbaiki program berikut.
 
-✔ Gunakan **Argument** saat memanggil Function.
+## Soal 1
 
-✔ Gunakan **return** jika hasil masih akan digunakan.
+```python
+umur = input("Umur : ")
 
-✔ Gunakan **print()** hanya untuk menampilkan hasil kepada pengguna.
+print(umur + 5)
+```
 
-✔ Berikan nama Function yang sesuai dengan tugasnya.
+Apa penyebab Error?
+
+---
+
+## Soal 2
+
+```python
+nilai = 80
+
+if nilai >= 75
+    print("Lulus")
+```
+
+Apa yang kurang?
+
+---
+
+## Soal 3
+
+```python
+def luas(panjang, lebar):
+
+    return panjang + lebar
+```
+
+Mengapa hasilnya salah?
+
+---
+
+## Soal 4
+
+```python
+for i in range(5)
+
+    print(i)
+```
+
+Apa yang menyebabkan Syntax Error?
 
 ---
 
 # Kesalahan yang Sering Terjadi
 
-❌ Jumlah Parameter dan Argument tidak sama.
+❌ Tidak membaca Error Message.
 
-Salah
-
-```python
-def tambah(a, b):
-
-    return a + b
-
-tambah(10)
-```
-
-Benar
-
-```python
-tambah(10,5)
-```
+Biasakan membaca Error dari atas hingga bawah sebelum memperbaiki kode.
 
 ---
 
-❌ Mengira `print()` sama dengan `return`.
+❌ Langsung mengubah banyak bagian kode sekaligus.
 
-Salah
+Perbaiki satu Error terlebih dahulu, kemudian jalankan kembali program.
+
+---
+
+❌ Salah mengubah tipe data.
+
+Contoh
 
 ```python
-def tambah(a,b):
-
-    print(a+b)
-
-hasil = tambah(5,5)
-
-print(hasil)
+umur = input()
 ```
 
-Output
-
-```
-10
-None
-```
-
-Karena `print()` tidak mengembalikan nilai.
+Padahal akan digunakan untuk perhitungan.
 
 Gunakan
 
 ```python
-return a+b
+umur = int(input())
 ```
 
 ---
 
-❌ Lupa menyimpan hasil Return.
+❌ Menganggap semua Error berasal dari Python.
 
-Salah
-
-```python
-luas(5,10)
-```
-
-Benar
-
-```python
-hasil = luas(5,10)
-
-print(hasil)
-```
-
----
-
-❌ Salah urutan Argument.
-
-```python
-luas(lebar, panjang)
-```
-
-Pastikan urutan Argument sesuai dengan Parameter yang dibuat.
+Sebagian besar Error justru berasal dari logika yang kita tulis.
 
 ---
 
@@ -570,30 +602,34 @@ Pastikan urutan Argument sesuai dengan Parameter yang dibuat.
 
 Hari ini kita telah belajar:
 
-✅ Parameter
+✅ Apa itu Bug
 
-✅ Argument
+✅ Apa itu Debugging
 
-✅ Perbedaan Parameter dan Argument
+✅ Syntax Error
 
-✅ Return Value
+✅ Runtime Error
 
-✅ Perbedaan `print()` dan `return`
+✅ Logical Error
 
-✅ Function yang menerima data
+✅ Membaca Error Message
 
-✅ Function yang mengembalikan hasil
+✅ Teknik Debugging menggunakan `print()`
 
-✅ Membuat Program Menghitung Luas Persegi Panjang
+✅ Cara memperbaiki program yang Error
+
+✅ Membuat Guessing Number
 
 ---
 
 # Persiapan Pertemuan Selanjutnya
 
-Pada pertemuan berikutnya kita akan belajar:
+Pada pertemuan berikutnya kita akan mulai **Final Project**.
 
-- Debugging
-- Jenis-jenis Error
-- Cara membaca Error Message
-- Mencari dan memperbaiki Bug
-- Project: Guessing Number (Aplikasi Kuis Interaktif)
+Kita akan belajar:
+
+- Menentukan ide proyek.
+- Membuat Flowchart.
+- Merancang algoritma.
+- Menggabungkan seluruh materi Python yang telah dipelajari.
+- Memulai pembuatan Free Project.
