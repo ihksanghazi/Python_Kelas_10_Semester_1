@@ -1,9 +1,9 @@
-# Pertemuan 8 — Nested Conditional (Nested IF)
+# Pertemuan 9 — Looping (While Loop & For Loop)
 
 > **Grade:** 10 SMA
 > **Durasi:** 70 Menit
 > **Platform:** Python
-> **Project:** Aplikasi Pembuatan SIM
+> **Project:** Password Checker & Tabel Perkalian (Bagian 1)
 
 ---
 
@@ -11,12 +11,12 @@
 
 Pada akhir pembelajaran, siswa mampu:
 
-- Memahami konsep Nested IF.
-- Mengetahui perbedaan IF biasa dan Nested IF.
-- Membuat percabangan bertingkat.
-- Menggabungkan beberapa kondisi dalam satu program.
-- Menganalisis alur logika yang kompleks.
-- Membuat simulasi Aplikasi Pembuatan SIM.
+- Memahami konsep perulangan (Looping).
+- Mengetahui mengapa Loop diperlukan.
+- Menggunakan `while` dan `for`.
+- Menggunakan fungsi `range()`.
+- Memahami Infinite Loop.
+- Membuat program Password Checker sederhana.
 
 ---
 
@@ -25,26 +25,112 @@ Pada akhir pembelajaran, siswa mampu:
 Pada pertemuan sebelumnya kita telah belajar:
 
 - IF
-- ELIF
 - ELSE
-- Operator Comparison
-- Operator Logical
-- Pengambilan Keputusan
+- ELIF
+- Nested IF
 
-Hari ini kita akan membuat keputusan yang lebih kompleks menggunakan **Nested IF**.
+Hari ini kita akan belajar bagaimana membuat komputer **mengulang pekerjaan secara otomatis**.
 
 ---
 
-# Apa itu Nested IF?
+# Apa itu Looping?
 
-Nested IF adalah **IF di dalam IF**.
+Looping adalah proses mengulang suatu perintah beberapa kali.
 
-Artinya, setelah suatu kondisi terpenuhi, program akan memeriksa kondisi berikutnya.
+Tanpa Loop kita harus menulis kode berulang-ulang.
 
-Contoh kehidupan sehari-hari.
+Contoh.
+
+Tanpa Loop
+
+```python
+print("Halo")
+print("Halo")
+print("Halo")
+print("Halo")
+print("Halo")
+```
+
+Dengan Loop
+
+```python
+for i in range(5):
+    print("Halo")
+```
+
+Hasilnya sama, tetapi kodenya jauh lebih singkat.
+
+---
+
+# Kenapa Menggunakan Loop?
+
+Loop digunakan ketika pekerjaan dilakukan berulang.
+
+Contohnya:
+
+- Menghitung angka
+- Menampilkan daftar
+- Memeriksa data
+- Membuat tabel
+- Meminta input berulang
+- Game
+
+---
+
+# Jenis Loop pada Python
+
+Python memiliki dua jenis Loop utama.
+
+- While Loop
+- For Loop
+
+---
+
+# While Loop
+
+While digunakan ketika kita belum tahu pasti berapa kali perulangan dilakukan.
+
+Struktur
+
+```python
+while kondisi:
+    perintah
+```
+
+Selama kondisi bernilai **True**, program akan terus mengulang.
+
+---
+
+# Contoh While
+
+```python
+angka = 1
+
+while angka <= 5:
+    print(angka)
+    angka += 1
+```
+
+Output
 
 ```
-Apakah umur sudah 17 tahun?
+1
+2
+3
+4
+5
+```
+
+---
+
+# Bagaimana While Bekerja?
+
+```
+angka = 1
+
+↓
+
+Apakah angka <= 5 ?
 
 ↓
 
@@ -52,270 +138,234 @@ Ya
 
 ↓
 
-Apakah sudah lulus tes kesehatan?
+Cetak angka
 
 ↓
 
-Ya
+Tambah 1
 
 ↓
 
-Apakah lulus ujian praktik?
-
-↓
-
-Ya
-
-↓
-
-SIM dapat dibuat.
+Kembali ke kondisi
 ```
 
-Karena terdapat beberapa tahapan pemeriksaan, kita membutuhkan Nested IF.
+Program berhenti ketika kondisi bernilai False.
 
 ---
 
-# Perbedaan IF Biasa dan Nested IF
+# Counter
 
-## IF Biasa
-
-Hanya memeriksa satu kondisi.
-
-```python
-umur = 18
-
-if umur >= 17:
-    print("Boleh Membuat SIM")
-```
-
----
-
-## Nested IF
-
-Memeriksa beberapa kondisi secara bertahap.
-
-```python
-umur = 18
-sehat = True
-
-if umur >= 17:
-    if sehat:
-        print("Boleh Mengikuti Tes SIM")
-```
-
-Program hanya masuk ke IF kedua jika IF pertama bernilai **True**.
-
----
-
-# Struktur Nested IF
-
-```python
-if kondisi_1:
-    if kondisi_2:
-        print("Aksi")
-```
-
-Urutan pemeriksaan:
-
-```
-Kondisi 1
-
-↓
-
-Jika True
-
-↓
-
-Kondisi 2
-
-↓
-
-Jika True
-
-↓
-
-Program dijalankan
-```
-
----
-
-# Contoh Sederhana
-
-```python
-umur = 20
-punya_ktp = True
-
-if umur >= 17:
-    if punya_ktp:
-        print("Silakan Daftar")
-```
-
-Output
-
-```
-Silakan Daftar
-```
-
----
-
-# Contoh Dengan ELSE
-
-```python
-umur = 16
-
-if umur >= 17:
-    print("Cukup Umur")
-else:
-    print("Belum Cukup Umur")
-```
-
-Output
-
-```
-Belum Cukup Umur
-```
-
----
-
-# Nested IF dengan ELSE
-
-```python
-umur = 20
-punya_ktp = False
-
-if umur >= 17:
-    if punya_ktp:
-        print("Pendaftaran Berhasil")
-    else:
-        print("Harus Memiliki KTP")
-else:
-    print("Belum Cukup Umur")
-```
-
-Output
-
-```
-Harus Memiliki KTP
-```
-
----
-
-# Menggunakan Input
-
-Nested IF dapat digabungkan dengan input.
-
-```python
-umur = int(input("Masukkan Umur : "))
-```
-
-Kemudian
-
-```python
-if umur >= 17:
-    print("Boleh Daftar")
-else:
-    print("Belum Boleh")
-```
-
----
-
-# Menggunakan Operator Logical
+Counter adalah variable yang menghitung jumlah perulangan.
 
 Contoh
 
 ```python
-umur = 20
-sehat = True
+counter = 1
 
-if umur >= 17:
-    if sehat == True:
-        print("Lolos Tahap Awal")
+while counter <= 3:
+    print(counter)
+    counter += 1
 ```
 
-Atau lebih sederhana.
+---
+
+# Infinite Loop
+
+Infinite Loop adalah perulangan yang tidak pernah berhenti.
+
+Contoh
 
 ```python
-if umur >= 17:
-    if sehat:
-        print("Lolos Tahap Awal")
+while True:
+    print("Halo")
 ```
+
+Program akan berjalan terus hingga dihentikan.
 
 ---
 
-# Diagram Nested IF
-
-```
-              Umur >= 17 ?
-
-              Ya
-              │
-              ▼
-
-        Punya KTP ?
-
-          Ya
-          │
-          ▼
-
-      Lulus Tes Kesehatan ?
-
-          Ya
-          │
-          ▼
-
-     BOLEH MEMBUAT SIM
-```
-
----
-
-# Contoh Program
+# Kesalahan Umum While
 
 ```python
-umur = int(input("Masukkan Umur : "))
-ktp = input("Punya KTP? (ya/tidak) : ")
+angka = 1
 
-if umur >= 17:
-    if ktp == "ya":
-        print("Silakan Mengikuti Tes SIM")
-    else:
-        print("Harus Memiliki KTP")
-else:
-    print("Belum Cukup Umur")
+while angka <= 5:
+    print(angka)
+```
+
+Program akan berjalan selamanya karena nilai `angka` tidak pernah berubah.
+
+Harus ditambahkan.
+
+```python
+angka += 1
 ```
 
 ---
 
-# Studi Kasus
+# For Loop
 
-Syarat membuat SIM:
+For digunakan ketika jumlah perulangan sudah diketahui.
 
-- Umur minimal 17 tahun.
-- Memiliki KTP.
-- Lulus Tes Kesehatan.
+Contoh
 
-Jika salah satu syarat tidak terpenuhi, program harus memberikan alasan mengapa pendaftaran ditolak.
+```python
+for i in range(5):
+    print("Python")
+```
+
+Output
+
+```
+Python
+Python
+Python
+Python
+Python
+```
 
 ---
 
-# Alur Program
+# Mengenal range()
+
+`range()` menghasilkan urutan angka.
+
+Contoh
+
+```python
+range(5)
+```
+
+Menghasilkan
+
+```
+0
+1
+2
+3
+4
+```
+
+---
+
+# range(start, stop)
+
+```python
+for i in range(1,6):
+    print(i)
+```
+
+Output
+
+```
+1
+2
+3
+4
+5
+```
+
+---
+
+# range(start, stop, step)
+
+```python
+for i in range(2,11,2):
+    print(i)
+```
+
+Output
+
+```
+2
+4
+6
+8
+10
+```
+
+---
+
+# While vs For
+
+## While
+
+Digunakan jika jumlah perulangan belum pasti.
+
+Contoh:
+
+- Login
+- Password
+- Menu Program
+
+---
+
+## For
+
+Digunakan jika jumlah perulangan sudah diketahui.
+
+Contoh:
+
+- Cetak angka 1-100
+- Daftar siswa
+- Tabel perkalian
+
+---
+
+# Contoh Program For
+
+```python
+for i in range(1,11):
+    print(i)
+```
+
+Output
+
+```
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
+---
+
+# Contoh Program While
+
+```python
+nilai = 1
+
+while nilai <= 5:
+    print("Belajar Python")
+    nilai += 1
+```
+
+Output
+
+```
+Belajar Python
+Belajar Python
+Belajar Python
+Belajar Python
+Belajar Python
+```
+
+---
+
+# Diagram Loop
 
 ```
 Mulai
 
 ↓
 
-Input Umur
-
-↓
-
-Apakah umur >= 17?
-
-↓
-
-Tidak
-↓
-
-Gagal
+Kondisi Benar?
 
 ↓
 
@@ -323,242 +373,159 @@ Ya
 
 ↓
 
-Punya KTP?
+Jalankan Program
+
+↓
+
+Kembali ke Kondisi
 
 ↓
 
 Tidak
-↓
-
-Gagal
 
 ↓
 
-Ya
-
-↓
-
-Lulus Tes Kesehatan?
-
-↓
-
-Tidak
-↓
-
-Gagal
-
-↓
-
-Ya
-
-↓
-
-Pendaftaran Berhasil
+Selesai
 ```
 
 ---
 
 # Project Hari Ini
 
-## Aplikasi Pembuatan SIM
+## Password Checker
 
-Buat program yang meminta pengguna memasukkan:
+Buat program yang meminta pengguna memasukkan password.
 
-- Nama
-- Umur
-- Memiliki KTP? (ya/tidak)
-- Lulus Tes Kesehatan? (ya/tidak)
+Aturan:
 
-Kemudian tampilkan hasilnya.
+Password yang benar adalah
+
+```
+python123
+```
+
+Program akan terus meminta password sampai pengguna memasukkan password yang benar.
 
 Contoh
 
 ```
-==========================
-PENDAFTARAN SIM
-==========================
+Masukkan Password :
+abc
 
-Nama : Andi
+Password Salah
 
-Status :
+Masukkan Password :
+123
 
-Pendaftaran Berhasil
+Password Salah
 
-==========================
+Masukkan Password :
+python123
+
+Login Berhasil
 ```
 
-Jika gagal.
-
-Contoh
-
-```
-==========================
-
-Nama : Andi
-
-Status :
-
-Belum Cukup Umur
-
-==========================
-```
-
-Atau
-
-```
-Harus Memiliki KTP
-```
-
-Atau
-
-```
-Tidak Lulus Tes Kesehatan
-```
+Gunakan **While Loop**.
 
 ---
 
 # Challenge 1
 
-Tambahkan satu syarat lagi.
+Batasi percobaan login sebanyak **3 kali**.
+
+Jika gagal.
+
+Tampilkan
 
 ```
-Lulus Tes Teori
+Akun Diblokir
 ```
-
-Program hanya menerima peserta jika semua syarat terpenuhi.
 
 ---
 
 # Challenge 2
 
-Tambahkan kategori SIM.
+Tambahkan username.
 
-```
-SIM A
+Program meminta:
 
-SIM C
-```
+- Username
+- Password
 
-Jika memilih selain dua pilihan tersebut.
-
-Tampilkan
-
-```
-Jenis SIM Tidak Tersedia
-```
+Baru melakukan pengecekan login.
 
 ---
 
 # Challenge 3
 
-Tambahkan hasil akhir.
+Setelah login berhasil.
 
-Jika seluruh syarat terpenuhi.
-
-```
-========================
-
-Selamat!
-
-Anda Berhasil Mendaftar SIM
-
-Silakan Menunggu Jadwal Ujian
-
-========================
-```
-
-Jika gagal.
+Tampilkan
 
 ```
-Mohon Lengkapi Persyaratan Terlebih Dahulu
+======================
+
+Selamat Datang
+
+======================
 ```
 
 ---
 
 # Mini Challenge
 
-Buat salah satu simulasi berikut menggunakan Nested IF.
+Buat salah satu program berikut.
 
+- Login Game
 - Login ATM
-- Registrasi Sekolah
-- Booking Hotel
-- Pendaftaran Turnamen Game
-- Seleksi Organisasi
-- Registrasi Event
+- Login WiFi
+- PIN Handphone
+- Login Website
 
-Gunakan minimal **3 syarat** sebelum program menyatakan berhasil.
-
----
-
-# Tips Membuat Nested IF
-
-✔ Gunakan Nested IF jika proses pemeriksaan dilakukan **bertahap**.
-
-✔ Gunakan nama variable yang jelas.
-
-✔ Pastikan indentasi rapi agar program mudah dibaca.
-
-✔ Berikan pesan yang berbeda untuk setiap kondisi gagal agar pengguna mengetahui penyebabnya.
+Gunakan **While Loop**.
 
 ---
 
 # Kesalahan yang Sering Terjadi
 
-❌ Lupa indentasi.
+❌ Lupa menambah counter.
 
 Salah
 
 ```python
-if umur >= 17:
-if ktp == "ya":
-    print("Lolos")
+angka = 1
+
+while angka <= 5:
+    print(angka)
 ```
 
 Benar
 
 ```python
-if umur >= 17:
-    if ktp == "ya":
-        print("Lolos")
+angka += 1
 ```
 
 ---
 
-❌ Menggunakan `=` pada kondisi.
-
-Salah
+❌ Salah menentukan range.
 
 ```python
-if ktp = "ya":
+range(5)
 ```
 
-Benar
+Dimulai dari angka **0**, bukan **1**.
+
+Jika ingin mulai dari 1.
 
 ```python
-if ktp == "ya":
+range(1,6)
 ```
 
 ---
 
-❌ Salah menempatkan `else`.
+❌ Infinite Loop tanpa sengaja.
 
-Salah
-
-```python
-if umur >= 17:
-    if ktp == "ya":
-        print("Lolos")
-else:
-    print("Gagal")
-```
-
-Pastikan `else` memiliki pasangan `if` yang sesuai.
-
----
-
-❌ Terlalu banyak Nested IF.
-
-Jika percabangan mulai terlalu dalam (lebih dari 3–4 tingkat), pertimbangkan menggunakan `elif` atau menggabungkan kondisi dengan operator logical agar kode lebih mudah dibaca.
+Selalu pastikan kondisi akhirnya dapat menjadi **False**.
 
 ---
 
@@ -566,19 +533,21 @@ Jika percabangan mulai terlalu dalam (lebih dari 3–4 tingkat), pertimbangkan m
 
 Hari ini kita telah belajar:
 
-✅ Konsep Nested IF
+✅ Konsep Looping
 
-✅ Perbedaan IF dan Nested IF
+✅ While Loop
 
-✅ Percabangan Bertingkat
+✅ For Loop
 
-✅ Nested IF dengan ELSE
+✅ Fungsi `range()`
 
-✅ Menggabungkan Input dan Nested IF
+✅ Counter
 
-✅ Menggunakan Operator Logical
+✅ Infinite Loop
 
-✅ Membuat Simulasi Pendaftaran SIM
+✅ Perbedaan While dan For
+
+✅ Membuat Password Checker
 
 ---
 
@@ -586,9 +555,8 @@ Hari ini kita telah belajar:
 
 Pada pertemuan berikutnya kita akan belajar:
 
-- Perulangan (Looping)
-- While Loop
-- For Loop
-- Fungsi `range()`
-- Menghindari Infinite Loop
-- Project: Password Checker & Tabel Perkalian
+- Menggunakan `for` untuk membuat pola angka
+- Tabel Perkalian
+- Latihan berbagai bentuk perulangan
+- Kombinasi Loop dan Conditional
+- Project: Tabel Perkalian
