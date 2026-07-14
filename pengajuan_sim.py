@@ -60,7 +60,7 @@ if usia >= 17:
             print("\n[X] Anda GAGAL Ujian Teori. Silakan pelajari kembali materi dan coba lagi 14 hari kemudian.")
     
     else:
-     print("\n[X] Pendaftaran Ditolak: Dokumen E-KTP atau hasil tes medis Anda tidak lengkap.")
+        print("\n[X] Pendaftaran Ditolak: Dokumen E-KTP atau hasil tes medis Anda tidak lengkap.")
             
 else:
     print(f"\n[X] Pendaftaran Ditolak: Usia Anda ({usia} tahun) belum mencukupi.")
